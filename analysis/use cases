@@ -1,0 +1,50 @@
+-- SALÓN
+	|--> crear salón: interfaz que ayude a definir la distribución de cada mesa, su identificador y su capacidad.
+		|--> ubicar maître: establecer posición del equipo del maître.
+		|--> ubicar barra: establecer posición del equipo de la barra.
+		\--> ubicar mesa: establecer identificador, posición y capacidad de la mesa.
+	|--> cargar salón: carga el XML de un salón para mostrarlo o editarlo. (vista crear salón)
+	|--> editar salón: permite redefinir los objetos del salón. (vista crear salón)
+	|--> guardar salón: la definición de un salón se guarda en formato XML (y DTD).
+	|--> iniciar jornada: carga el XML del salón y se inicia el programa. Después se inicia "mostrar salón".
+	\--> mostrar salón: representa el salón creado y su estado actual (ocupación de las mesas).
+
+-- REGISTRAR CLIENTE
+	|--> forma manual:
+		|--> click en "cliente llega".
+		|--> asignar ID automáticamente.
+		|--> introduccir número de comensales.
+		|--> visualizar "mostrar salón" con mesas disponibles y mesas posibles (según la capacidad).
+		\--> click en una de las mesas posibles para asignar.
+	\--> forma NFC:
+		|--> se detecta un NFC 'desconocido'.
+		|--> abrir "cliente llega" con el ID del móvil.
+		|--> introducir número de comensales.
+		|--> visualizar "mostrar salón" con mesas disponibles y mesas posibles (según la capacidad).
+		\--> click en una de las mesas posibles para asignar.
+
+-- ELIMINAR CLIENTE
+	|--> forma manual:
+		|--> click en "cliente se va".
+		|--> visualizar "mostrar salón" con mesas que han pagado.
+		\--> click en la mesa del que se va.
+	\--> forma NFC:
+		|--> se detecta NFC de un cliente.
+		\--> si ha pagado, se elimina dicho cliente.
+		
+-- COBRAR A UN CLIENTE
+	|--> forma manual:
+		|--> click en "cliente paga".
+		|--> click en la mesa del cliente.
+		|--> se genera factura y se muestra resumen e importe.
+		\--> click en "cobrado".
+	\--> forma NFC:
+		|--> si no ha pagado, abre ventana de pagar en efectivo, (con tarjeta) o mediante NFC.
+		|--> se genera factura y se muestra resumen e importe.
+		|--> si NFC, procedimiento de cobro por NFC.
+		\--> si efectivo o tarjeta, click en "cobrado".
+
+-- SINCRONIZAR MAÎTRE Y BARRA
+	|--> conectar equipo del maître con equipo de la barra.
+	\--> enviar cambio de estado de alguna mesa.
+
