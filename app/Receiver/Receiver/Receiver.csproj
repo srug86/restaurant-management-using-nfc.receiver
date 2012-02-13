@@ -150,37 +150,37 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\background.png" />
+    <Resource Include="Resources\new.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bar.png" />
+    <Resource Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ico.png" />
+    <Resource Include="Resources\bar.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ico2.png" />
+    <Resource Include="Resources\ico.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
+    <Resource Include="Resources\ico2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\maitre.png" />
+    <Resource Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mobiCarta.png" />
+    <Resource Include="Resources\maitre.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new.png" />
+    <Resource Include="Resources\mobiCarta.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\open.png" />
+    <Resource Include="Resources\open.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\save.png" />
+    <Resource Include="Resources\save.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\table.png" />
+    <Resource Include="Resources\table.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
