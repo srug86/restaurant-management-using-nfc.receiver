@@ -16,11 +16,17 @@ namespace Receiver.presentation
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class EditRoomWin : Window
+    public partial class InitWin : Window
     {
-        public EditRoomWin()
+        public InitWin()
         {
             InitializeComponent();
+        }
+
+        private void btnRoom_Click(object sender, RoutedEventArgs e)
+        {
+            EditRoomWin editRoom = new EditRoomWin();
+            editRoom.Show();
         }
     }
 }
