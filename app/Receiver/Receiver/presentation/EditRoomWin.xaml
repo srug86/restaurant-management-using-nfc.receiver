@@ -4,7 +4,7 @@
 	x:Class="Receiver.presentation.EditRoomWin"
 	x:Name="Window"
 	Title="MobiCarta - Editor de salones"
-	Width="800" Height="600" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen" Topmost="True" Icon="/Receiver;component/Resources/ico.jpg">
+	Width="800" Height="600" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen" Topmost="False" Icon="/Receiver;component/Resources/ico.jpg" MinWidth="800" MinHeight="600">
     <Window.Resources>
         <LinearGradientBrush x:Key="Barra" EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF49546B" Offset="0"/>
@@ -21,43 +21,60 @@
         </LinearGradientBrush>
     </Window.Background>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Margin="0">
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF72D3FC" Offset="0"/>
-                <GradientStop Color="#FFAEE7FF" Offset="1"/>
-                <GradientStop Color="#FFB9EAFF" Offset="0.165"/>
-                <GradientStop Color="#FFFFFFFF" Offset="0.518"/>
-            </LinearGradientBrush>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF7272FC" Offset="0" />
+                <GradientStop Color="#FF5AA2FF" Offset="1" />
+                <GradientStop Color="#FFB9BEFF" Offset="0.165" />
+                <GradientStop Color="White" Offset="0.518" />
+            </RadialGradientBrush>
         </Grid.Background>
         <ToolBarTray VerticalAlignment="Top" Height="60"/>
         <ToolBar VerticalAlignment="Top" Height="60">
             <StackPanel Width="760" Height="50" Orientation="Horizontal">
-                <Button Width="50" Height="Auto" x:Name="btnNew" Cursor="Hand" Margin="5,5,5,5" ToolTip="Nuevo" Foreground="#E6000000">
+                <Button Width="50" Height="Auto" x:Name="btnNew" Cursor="Hand" Margin="5,5,5,5" ToolTip="Nuevo" Foreground="#E6FFFFFF" Background="#00000000" Click="btnNew_Click">
                     <Image Name="imgNew" Source="/Receiver;component/Resources/new.jpg" ToolTip="Nuevo"/>
                 </Button>
-                <Button x:Name="btnOpen" Width="50" Height="Auto" ToolTip="Abrir" Cursor="Hand" Margin="5,5,5,5">
+                <Button x:Name="btnOpen" Width="50" Height="Auto" ToolTip="Abrir" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnLoad_Click">
                     <Image Name="imgOpen" Source="/Receiver;component/Resources/open.jpg" ToolTip="Abrir"/>
                 </Button>
-                <Button x:Name="btnSave" Width="50" Height="Auto" ToolTip="Guardar" Cursor="Hand" Margin="5,5,5,5">
+                <Button x:Name="btnSave" Width="50" Height="Auto" ToolTip="Guardar" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnSave_Click">
                     <Image Name="imgSave" Source="/Receiver;component/Resources/save.jpg" ToolTip="Guardar"/>
                 </Button>
             </StackPanel>
         </ToolBar>
-        <StackPanel Margin="0,60,0,36" Orientation="Vertical" HorizontalAlignment="Left" Width="70" Background="#FFFFFCFF">
-            <Button Cursor="Hand" Margin="5,5,5,5" x:Name="btnReceiver" ToolTip="Recibidor" Width="Auto" Height="60">
+        <StackPanel Margin="0,60,0,0" Orientation="Vertical" HorizontalAlignment="Left" Width="70" Background="#FFFFFCFF">
+            <Button Cursor="Hand" Margin="5,5,5,5" x:Name="btnReceiver" ToolTip="Recibidor" Width="Auto" Height="60" Click="btnReceiver_Click">
                 <Image Name="imgReceiver" Source="/Receiver;component/Resources/maitre.jpg" Stretch="Uniform" />
             </Button>
-            <Button x:Name="btnBar" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Barra">
+            <Button x:Name="btnBar" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Barra" Click="btnBar_Click">
                 <Image Name="imgBar" Source="/Receiver;component/Resources/bar.jpg"/>
             </Button>
-            <Button x:Name="btnTable" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Mesa">
+            <Button x:Name="btnTable" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Mesa" Click="btnTable_Click">
                 <Image Name="imgTable" Source="/Receiver;component/Resources/table.jpg"/>
             </Button>
         </StackPanel>
-        <StatusBar Height="30" HorizontalAlignment="Stretch" Margin="0,531,0,0" Name="statusBar1" VerticalAlignment="Top" Width="Auto">
+        <Grid HorizontalAlignment="Stretch" Margin="76,65,156,36" Name="gridRoom" VerticalAlignment="Stretch" OpacityMask="#C8FFFFFF">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Receiver;component/Resources/room.jpg" />
+            </Grid.Background>
+        </Grid>
+        <StackPanel Background="#FFFFFCFF" HorizontalAlignment="Right" Margin="0,60,0,0" Orientation="Vertical" Width="150" MinWidth="120">
+            <Label Content="Tipo:" Height="25" Width="Auto" FontWeight="Bold" FontStretch="Expanded" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
+            <TextBox Height="25" Name="txtbType" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" FontFamily="Arial Unicode MS" Focusable="False" IsReadOnly="True" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Content="Identificador:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="textBox1" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" />
+            <Label Content="Capacidad:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="textBox2" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
+            <Grid Height="40" Name="grid2" Width="Auto" Margin="5,30">
+                <Button Content="Reset" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="button1" VerticalAlignment="Center" Width="65" />
+                <Button Content="Aceptar" Height="Auto" HorizontalAlignment="Right" Margin="0" Name="button2" VerticalAlignment="Center" Width="65" />
+            </Grid>
+        </StackPanel>
+        <StatusBar Height="30" HorizontalAlignment="Stretch" Margin="0,531,0,0" Name="statusBar1" VerticalAlignment="Bottom" Width="Auto">
             <TextBlock Name="txtb1">Listo</TextBlock>
-            <Separator/>
+            <Separator />
             <TextBlock Name="txtb2">---</TextBlock>
         </StatusBar>
     </Grid>

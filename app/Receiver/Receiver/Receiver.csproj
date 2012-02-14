@@ -95,6 +95,10 @@
     <Compile Include="presentation\InitWin.xaml.cs">
       <DependentUpon>InitWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="presentation\NewRoomWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\Bar.cs" />
@@ -104,6 +108,9 @@
     <Compile Include="domain\Product.cs" />
     <Compile Include="domain\Receiver.cs" />
     <Compile Include="domain\Table.cs" />
+    <Compile Include="presentation\NewRoomWin.xaml.cs">
+      <DependentUpon>NewRoomWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -181,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\table.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\room.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

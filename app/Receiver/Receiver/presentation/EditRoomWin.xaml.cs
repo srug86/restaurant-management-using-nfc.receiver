@@ -22,5 +22,36 @@ namespace Receiver.presentation
         {
             InitializeComponent();
         }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            NewRoomWin newRoom = new NewRoomWin();
+            newRoom.Show();
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnReceiver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnTable_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
