@@ -27,5 +27,15 @@ namespace Receiver.presentation
         {
             this.Close();
         }
+
+        private void btnAccept_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtbName.Text != "")
+            {
+                EditRoomWin editRoom = new EditRoomWin(txtbName.Text, cbbSize.SelectedIndex);
+                editRoom.Show();
+                this.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

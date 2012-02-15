@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Controls.Primitives;
 
 namespace Receiver.presentation
 {
@@ -18,9 +19,30 @@ namespace Receiver.presentation
     /// </summary>
     public partial class EditRoomWin : Window
     {
-        public EditRoomWin()
+        private String name;
+        private int size;
+        private UniformGrid grid;
+
+        public EditRoomWin(String name, int size)
         {
+            this.name = name;
+            this.size = size;
+            buildGrid();
             InitializeComponent();
+        }
+
+        private void buildGrid()
+        {
+            grid = new UniformGrid();
+            switch (size)
+            {
+                case 0: grid.Rows = 8; grid.Columns = 12; break;
+                case 1: grid.Rows = 12; grid.Columns = 16; break;
+                case 2: grid.Rows = 16; grid.Columns = 20; break;
+                default: grid.Rows = 12; grid.Columns = 16; break;
+            }
+            /*
+             */
         }
 
         private void btnNew_Click(object sender, RoutedEventArgs e)

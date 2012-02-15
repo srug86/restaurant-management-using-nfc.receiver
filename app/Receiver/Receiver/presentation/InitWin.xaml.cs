@@ -18,6 +18,8 @@ namespace Receiver.presentation
     /// </summary>
     public partial class InitWin : Window
     {
+        NewRoomWin newRoom;
+
         public InitWin()
         {
             InitializeComponent();
@@ -25,8 +27,8 @@ namespace Receiver.presentation
 
         private void btnRoom_Click(object sender, RoutedEventArgs e)
         {
-            EditRoomWin editRoom = new EditRoomWin();
-            editRoom.Show();
+            newRoom = new NewRoomWin();
+            newRoom.Show();
         }
     }
 }
