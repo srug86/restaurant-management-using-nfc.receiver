@@ -89,6 +89,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="domain\DelegateOfTheBox.cs" />
+    <Compile Include="domain\EditRoom.cs" />
+    <Compile Include="domain\Interface.cs" />
+    <Compile Include="domain\TableData.cs" />
     <Compile Include="presentation\EditRoomWin.xaml.cs">
       <DependentUpon>EditRoomWin.xaml</DependentUpon>
     </Compile>
@@ -191,6 +195,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\room.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\green.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\white.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\yellow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pgreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pred.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pyellow.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

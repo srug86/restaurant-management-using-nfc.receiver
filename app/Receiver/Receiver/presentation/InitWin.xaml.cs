@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using Receiver.domain;
 
 namespace Receiver.presentation
 {
@@ -27,8 +29,16 @@ namespace Receiver.presentation
 
         private void btnRoom_Click(object sender, RoutedEventArgs e)
         {
-            newRoom = new NewRoomWin();
-            newRoom.Show();
+            EditRoom editRoom = new EditRoom(-1, -1);
+        }
+
+        private void Close_Program(object sender, EventArgs e)
+        {
+            App.Current.Shutdown();
+            foreach (Process p in Process.GetProcesses())
+            {
+                if (p.ProcessName == "Receiver.vshost") p.Kill();
+            }
         }
     }
 }

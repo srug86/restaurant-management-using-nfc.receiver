@@ -23,12 +23,12 @@
 
     <Grid x:Name="LayoutRoot" Margin="0">
         <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="#FF7272FC" Offset="0" />
-                <GradientStop Color="#FF5AA2FF" Offset="1" />
-                <GradientStop Color="#FFB9BEFF" Offset="0.165" />
-                <GradientStop Color="White" Offset="0.518" />
-            </RadialGradientBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF72B8FC" Offset="0" />
+                <GradientStop Color="#FF5AC2FF" Offset="1" />
+                <GradientStop Color="#FF7FE5FF" Offset="0.25" />
+                <GradientStop Color="#FFCCEEF8" Offset="0.518" />
+            </LinearGradientBrush>
         </Grid.Background>
         <ToolBarTray VerticalAlignment="Top" Height="60"/>
         <ToolBar VerticalAlignment="Top" Height="60">
@@ -55,21 +55,455 @@
                 <Image Name="imgTable" Source="/Receiver;component/Resources/table.jpg"/>
             </Button>
         </StackPanel>
-        <Grid HorizontalAlignment="Stretch" Margin="76,65,156,36" Name="gridRoom" VerticalAlignment="Stretch" OpacityMask="#C8FFFFFF">
+        <Grid HorizontalAlignment="Stretch" Margin="76,65,156,36" Name="gridRoom" VerticalAlignment="Stretch" OpacityMask="#C8FFFFFF" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="/Receiver;component/Resources/room.jpg" />
             </Grid.Background>
+            <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="uniGrid8x12" VerticalAlignment="Stretch" Width="Auto" Rows="8" Columns="12">
+                <Image Height="Auto" Name="imgS1x1" Stretch="Fill" Width="Auto" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS1x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS2x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS3x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS4x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS5x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS6x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS7x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+                <Image Height="Auto" Name="imgS8x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
+                    <Image.OpacityMask>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="Black" Offset="0" />
+                            <GradientStop Color="#D2000000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Image.OpacityMask>
+                </Image>
+            </UniformGrid>
         </Grid>
         <StackPanel Background="#FFFFFCFF" HorizontalAlignment="Right" Margin="0,60,0,0" Orientation="Vertical" Width="150" MinWidth="120">
             <Label Content="Tipo:" Height="25" Width="Auto" FontWeight="Bold" FontStretch="Expanded" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
             <TextBox Height="25" Name="txtbType" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" FontFamily="Arial Unicode MS" Focusable="False" IsReadOnly="True" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
             <Label Content="Identificador:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
-            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="textBox1" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbId" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" />
             <Label Content="Capacidad:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
-            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="textBox2" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbCapacity" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
             <Grid Height="40" Name="grid2" Width="Auto" Margin="5,30">
-                <Button Content="Reset" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="button1" VerticalAlignment="Center" Width="65" />
-                <Button Content="Aceptar" Height="Auto" HorizontalAlignment="Right" Margin="0" Name="button2" VerticalAlignment="Center" Width="65" />
+                <Button Content="Reset" Height="Auto" HorizontalAlignment="Left" Margin="0" Name="btnReset" VerticalAlignment="Center" Width="65" Click="btnReset_Click" />
+                <Button Content="Aceptar" Height="Auto" HorizontalAlignment="Right" Margin="0" Name="btnAccept" VerticalAlignment="Center" Width="65" Click="btnAccept_Click" />
             </Grid>
         </StackPanel>
         <StatusBar Height="30" HorizontalAlignment="Stretch" Margin="0,531,0,0" Name="statusBar1" VerticalAlignment="Bottom" Width="Auto">

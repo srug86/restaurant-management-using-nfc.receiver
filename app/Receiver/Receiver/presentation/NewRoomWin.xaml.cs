@@ -18,8 +18,11 @@ namespace Receiver.presentation
     /// </summary>
     public partial class NewRoomWin : Window
     {
-        public NewRoomWin()
+        private EditRoomWin editor;
+
+        public NewRoomWin(EditRoomWin editor)
         {
+            this.editor = editor;
             InitializeComponent();
         }
 
@@ -32,9 +35,8 @@ namespace Receiver.presentation
         {
             if (txtbName.Text != "")
             {
-                EditRoomWin editRoom = new EditRoomWin(txtbName.Text, cbbSize.SelectedIndex);
-                editRoom.Show();
-                this.Visibility = Visibility.Hidden;
+                editor.newRoom(txtbName.Text, cbbSize.SelectedIndex);
+                this.Close();
             }
         }
     }
