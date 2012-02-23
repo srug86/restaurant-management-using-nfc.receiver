@@ -90,6 +90,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="domain\DelegateOfTheBox.cs" />
+    <Compile Include="domain\DelegateOfTheNTable.cs" />
     <Compile Include="domain\EditRoom.cs" />
     <Compile Include="domain\Interface.cs" />
     <Compile Include="domain\TableData.cs" />

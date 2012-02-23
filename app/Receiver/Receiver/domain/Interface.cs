@@ -13,5 +13,6 @@ namespace Receiver.domain
     public interface Observer
     {
         void notify(int row, int column, int state);
+        void notify(int nTable);
     }
 }

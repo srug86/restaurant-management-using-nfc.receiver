@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Receiver.presentation;
+using System.IO;
+using System.Xml;
 
 namespace Receiver.domain
 {
     public class EditRoom : Subject
     {
+        private String fileName;
+
+        public String FileName
+        {
+            get { return fileName; }
+            set { fileName = value; }
+        }
+
         private int nRows;          // número de filas de la malla
 
         public int NRows
@@ -48,7 +58,19 @@ namespace Receiver.domain
         public int Mode
         {
             get { return mode; }
-            set { mode = value; }
+            set {
+                if (value == 3)
+                    ntableValueHaveChanged();
+                mode = value;
+            }
+        }
+
+        private int nTable;
+
+        public int NTable
+        {
+            get { return nTable; }
+            set { nTable = value; ntableValueHaveChanged(); }
         }
 
         private int[,] matrix;
@@ -57,6 +79,22 @@ namespace Receiver.domain
         {
             get { return matrix; }
             set { matrix = value; }
+        }
+
+        private List<int[]> receiverPlace;
+
+        private List<int[]> ReceiverPlace
+        {
+            get { return receiverPlace; }
+            set { receiverPlace = value; }
+        }
+
+        private List<int[]> barPlace;
+
+        private List<int[]> BarPlace
+        {
+            get { return barPlace; }
+            set { barPlace = value; }
         }
 
         private List<TableData> tables;
@@ -85,7 +123,11 @@ namespace Receiver.domain
 
         public EditRoom(int rows, int columns)
         {
+            NTable = 1;
             Mode = 0;
+            Tables = new List<TableData>();
+            ReceiverPlace = new List<int[]>();
+            BarPlace = new List<int[]>();
             EditRoomWin window = new EditRoomWin(this, this);
             window.Show();
         }
@@ -104,6 +146,25 @@ namespace Receiver.domain
             }
         }
 
+        private void switchNTable()
+        {
+            for (int i = 0; i < observers.Count; i++)
+            {
+                Observer obs = (Observer)observers[i];
+                obs.notify(NTable);
+            }
+        }
+
+        private void ntableValueHaveChanged()
+        {
+            DelegateOfTheNTable oSwitchNTable = new DelegateOfTheNTable();
+            DelegateOfTheNTable.NTableDelegate oNTableDelegate = new DelegateOfTheNTable.NTableDelegate(switchNTable);
+            oSwitchNTable.switchNTable += oNTableDelegate;
+            oSwitchNTable.changeContentsNTable = NTable;
+
+            oSwitchNTable.switchNTable -= oNTableDelegate;
+        }
+
         private void tableValuesHaveChanged()
         {
             DelegateOfTheBox oSwitchBox = new DelegateOfTheBox();
@@ -114,8 +175,9 @@ namespace Receiver.domain
             oSwitchBox.switchBox -= oBoxDelegate;
         }
 
-        public void createNewRoom(int rows, int columns)
+        public void createNewRoom(String name, int rows, int columns)
         {
+            FileName = name;
             NRows = rows;
             NColumns = columns;
             initRoom();
@@ -123,21 +185,20 @@ namespace Receiver.domain
 
         private void initRoom()
         {
-            Tables = new List<TableData>();
             Matrix = new int[NRows, NColumns];
             for (int i = 0; i < NRows; i++)
                 for (int j = 0; j < NColumns; j++)
-                    Matrix[i, j] = 0;
+                    setBoxStatus(i, j, 0);
         }
 
         public Boolean selectedBox(int row, int column)
         {
-            switch (this.mode)
+            switch (Mode)
             {
                 case 1: case 2: case 3:
                     if (this.getBoxStatus(row, column) == 0)
                     {
-                        this.setBoxStatus(row, column, this.mode + this.mode * 10);
+                        this.setBoxStatus(row, column, Mode + Mode * 10);
                         return true;
                     }
                     break;
@@ -148,44 +209,48 @@ namespace Receiver.domain
 
         public void selectedReceiver()
         {
-            this.mode = 1;
+            Mode = 1;
         }
 
         public void selectedBar()
         {
-            this.mode = 2;
+            Mode = 2;
         }
 
         public void selectedTable()
         {
-            this.mode = 3;
+            Mode = 3;
         }
 
-        public Boolean acceptOperation(int id, int capacity)
+        public void acceptOperation(int id, int capacity)
         {
-            if (this.mode == 3)
+            switch (Mode)
             {
-                TableData table = new TableData(id, capacity);
-                for (int i = 0; i < NRows; i++)
-                    for (int j = 0; j < NColumns; j++)
-                        if (this.getBoxStatus(i, j) == 33)
-                        {
-                            this.setBoxStatus(i, j, this.mode);
-                            table.Place.Add(new int[2] { i, j });
-                        }
-                if (table.Place.Count != 0) Tables.Add(table);
-                this.mode = 0;
-                return true;
+                case 1: confirmBox(ReceiverPlace); break;
+                case 2: confirmBox(BarPlace); break;
+                case 3: 
+                    TableData table = new TableData(id, capacity);
+                    confirmBox(table.Place);
+                    if (table.Place.Count != 0)
+                    {
+                        Tables.Add(table);
+                        NTable = Tables.Count() + 1;
+                    }
+                    break;
+                default: break;
             }
-            else
-            {
-                for (int i = 0; i < NRows; i++)
-                    for (int j = 0; j < NColumns; j++)
-                        if (this.getBoxStatus(i, j) > 10)
-                            this.setBoxStatus(i, j, this.mode);
-                this.mode = 0;
-                return false;
-            }
+            Mode = 0;
+        }
+
+        private void confirmBox(List<int[]> list)
+        {
+            for (int i = 0; i < NRows; i++)
+                for (int j = 0; j < NColumns; j++)
+                    if (this.getBoxStatus(i, j) == Mode * 10 + Mode)
+                    {
+                        this.setBoxStatus(i, j, Mode);
+                        list.Add(new int[2] { i, j });
+                    }
         }
 
         public void resetOperation()
@@ -194,7 +259,110 @@ namespace Receiver.domain
                 for (int j = 0; j < NColumns; j++)
                     if (this.getBoxStatus(i, j) > 10)
                         this.setBoxStatus(i, j, 0);
-            this.mode = 0;
+            Mode = 0;
+        }
+
+        public void xmlBuilder(String path)
+        {
+            StreamWriter writer = new StreamWriter(path);
+            writer.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            //writer.WriteLine("<!DOCTYPE Room SYSTEM \"Room.dtd\">");
+            writer.WriteLine("<Room name=\"" + FileName + "\">");
+            writer.WriteLine("\t<Dimension>");
+            writer.WriteLine("\t\t<Height>" + NRows + "</Height>");
+            writer.WriteLine("\t\t<Width>" + NColumns + "</Width>");
+            writer.WriteLine("\t</Dimension>");
+            writer.WriteLine("\t<Receiver>");
+            writeBoxes(writer, ReceiverPlace, false);
+            writer.WriteLine("\t</Receiver>");
+            writer.WriteLine("\t<Bar>");
+            writeBoxes(writer, BarPlace, false);
+            writer.WriteLine("\t</Bar>");
+            writer.WriteLine("\t<Tables>");
+            if (Tables.Count != 0)
+                foreach (TableData table in Tables)
+                {
+                    writer.WriteLine("\t\t<Table id=\"" + table.Id + "\" capacity=\"" + table.Capacity + "\">");
+                    writeBoxes(writer, table.Place, true);
+                    writer.WriteLine("\t\t</Table>");
+                }
+            writer.WriteLine("\t</Tables>");
+            writer.WriteLine("</Room>");
+            writer.Close();
+        }
+
+        private void writeBoxes(StreamWriter writer, List<int[]> list, Boolean extraTab)
+        {
+            String tab = "";
+            if (extraTab) tab = "\t";
+            writer.WriteLine(tab + "\t\t<Boxes>");
+            foreach (int[] coordinates in list)
+            {
+                writer.WriteLine(tab + "\t\t\t<Box>");
+                writer.WriteLine(tab + "\t\t\t\t<X>" + coordinates[1] + "</X>");
+                writer.WriteLine(tab + "\t\t\t\t<Y>" + coordinates[0] + "</Y>");
+                writer.WriteLine(tab + "\t\t\t</Box>");
+            }
+            writer.WriteLine(tab + "\t\t</Boxes>");
+        }
+
+        public void xmlLoader(String path)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNodeList room = doc.GetElementsByTagName("Room");
+            foreach (XmlElement node in room)
+                FileName = node.GetAttribute("name");
+            XmlNodeList dimension = ((XmlElement)room[0]).GetElementsByTagName("Dimension");
+            XmlNodeList height = ((XmlElement)dimension[0]).GetElementsByTagName("Height");
+            NRows = Convert.ToInt32(height[0].InnerText);
+            XmlNodeList width = ((XmlElement)dimension[0]).GetElementsByTagName("Width");
+            NColumns = Convert.ToInt32(width[0].InnerText);
+            XmlNodeList receiver = ((XmlElement)room[0]).GetElementsByTagName("Receiver");
+            XmlNodeList rBoxes = ((XmlElement)receiver[0]).GetElementsByTagName("Boxes");
+            XmlNodeList rBoxesList = ((XmlElement)rBoxes[0]).GetElementsByTagName("Box");
+            ReceiverPlace = new List<int[]>();
+            readBoxes(rBoxesList, ReceiverPlace);
+            XmlNodeList bar = ((XmlElement)room[0]).GetElementsByTagName("Bar");
+            XmlNodeList bBoxes = ((XmlElement)bar[0]).GetElementsByTagName("Boxes");
+            XmlNodeList bBoxesList = ((XmlElement)bBoxes[0]).GetElementsByTagName("Box");
+            BarPlace = new List<int[]>();
+            readBoxes(bBoxesList, BarPlace);
+            XmlNodeList tables = ((XmlElement)room[0]).GetElementsByTagName("Tables");
+            XmlNodeList tList = ((XmlElement)tables[0]).GetElementsByTagName("Table");
+            Tables = new List<TableData>();
+            foreach (XmlElement table in tList)
+            {
+                TableData td = new TableData(-1, -1);
+                td.Id = Convert.ToInt32(table.GetAttribute("id"));
+                td.Capacity = Convert.ToInt32(table.GetAttribute("capacity"));
+                XmlNodeList tBoxes = ((XmlElement)table).GetElementsByTagName("Boxes");
+                XmlNodeList tBoxesList = ((XmlElement)tBoxes[0]).GetElementsByTagName("Box");
+                readBoxes(tBoxesList, td.Place);
+                Tables.Add(td);
+            }
+        }
+
+        private void readBoxes(XmlNodeList srcList, List<int[]> dstList)
+        {
+            foreach (XmlElement node in srcList)
+            {
+                XmlNodeList x = node.GetElementsByTagName("X");
+                XmlNodeList y = node.GetElementsByTagName("Y");
+                dstList.Add(new int[2] { Convert.ToInt32(y[0].InnerText), Convert.ToInt32(x[0].InnerText) });
+            }
+        }
+
+        public void updateData()
+        {
+            NTable = Tables.Count + 1;
+            foreach (int[] coordinates in ReceiverPlace)
+                setBoxStatus(coordinates[0], coordinates[1], 1);
+            foreach (int[] coordinates in BarPlace)
+                setBoxStatus(coordinates[0], coordinates[1], 2);
+            foreach (TableData table in Tables)
+                foreach (int[] coordinates in table.Place)
+                    setBoxStatus(coordinates[0], coordinates[1], 3);
         }
     }
 }

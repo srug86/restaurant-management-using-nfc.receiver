@@ -59,7 +59,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/Receiver;component/Resources/room.jpg" />
             </Grid.Background>
-            <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="uniGrid8x12" VerticalAlignment="Stretch" Width="Auto" Rows="8" Columns="12">
+            <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="uniGrid8x12" VerticalAlignment="Stretch" Width="Auto" Rows="8" Columns="12" Visibility="Hidden">
                 <Image Height="Auto" Name="imgS1x1" Stretch="Fill" Width="Auto" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" MouseUp="Box_Click"/>
                 <Image Height="Auto" Name="imgS1x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
                 <Image Height="Auto" Name="imgS1x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
@@ -108,397 +108,577 @@
                 <Image Height="Auto" Name="imgS4x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
                 <Image Height="Auto" Name="imgS4x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
                 <Image Height="Auto" Name="imgS4x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
-                <Image Height="Auto" Name="imgS5x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS5x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS6x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS7x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x1" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x2" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x3" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x4" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x5" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x6" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x7" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x8" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x9" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x10" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x11" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
-                <Image Height="Auto" Name="imgS8x12" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click">
-                    <Image.OpacityMask>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="Black" Offset="0" />
-                            <GradientStop Color="#D2000000" Offset="1" />
-                        </LinearGradientBrush>
-                    </Image.OpacityMask>
-                </Image>
+                <Image Height="Auto" Name="imgS5x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS5x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS6x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS7x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgS8x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+            </UniformGrid>
+            <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="uniGrid12x16" VerticalAlignment="Stretch" Width="Auto" Rows="12" Columns="16" Visibility="Hidden">
+                <Image Height="Auto" Name="imgM1x1" Stretch="Fill" Width="Auto" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM1x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM2x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM3x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM4x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM5x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM6x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM7x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM8x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM9x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM10x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM11x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgM12x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+            </UniformGrid>
+            <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="uniGrid16x20" VerticalAlignment="Stretch" Width="Auto" Rows="16" Columns="20" Visibility="Hidden">
+                <Image Height="Auto" Name="imgB1x1" Stretch="Fill" Width="Auto" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB1x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB2x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB3x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB4x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB5x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB6x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB7x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB8x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB9x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB10x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB11x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB12x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB13x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB14x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB15x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x1" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x2" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x3" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x4" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x5" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x6" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x7" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x8" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x9" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x10" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x11" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x12" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x13" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x14" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x15" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x16" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x17" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x18" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x19" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
+                <Image Height="Auto" Name="imgB16x20" OpacityMask="#D2000000" Source="/Receiver;component/Resources/white.jpg" Stretch="Fill" Width="Auto" MouseUp="Box_Click"/>
             </UniformGrid>
         </Grid>
         <StackPanel Background="#FFFFFCFF" HorizontalAlignment="Right" Margin="0,60,0,0" Orientation="Vertical" Width="150" MinWidth="120">
             <Label Content="Tipo:" Height="25" Width="Auto" FontWeight="Bold" FontStretch="Expanded" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
             <TextBox Height="25" Name="txtbType" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" FontFamily="Arial Unicode MS" Focusable="False" IsReadOnly="True" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
             <Label Content="Identificador:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
-            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbId" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbId" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" IsReadOnly="True" />
             <Label Content="Capacidad:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" />
             <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbCapacity" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
             <Grid Height="40" Name="grid2" Width="Auto" Margin="5,30">

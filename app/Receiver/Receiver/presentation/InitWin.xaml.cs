@@ -20,8 +20,6 @@ namespace Receiver.presentation
     /// </summary>
     public partial class InitWin : Window
     {
-        NewRoomWin newRoom;
-
         public InitWin()
         {
             InitializeComponent();
@@ -36,9 +34,7 @@ namespace Receiver.presentation
         {
             App.Current.Shutdown();
             foreach (Process p in Process.GetProcesses())
-            {
                 if (p.ProcessName == "Receiver.vshost") p.Kill();
-            }
         }
     }
 }
