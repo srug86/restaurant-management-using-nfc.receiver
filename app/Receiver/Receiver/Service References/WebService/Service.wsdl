@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/MobiCarta" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/MobiCarta" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio web que gestiona la información de la aplicación MobiCarta</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/MobiCarta">
+      <s:element name="clientStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idClient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="clientStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="clientStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="clientStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:clientStatus" />
+  </wsdl:message>
+  <wsdl:message name="clientStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:clientStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MobiCartaWebServiceSoap">
+    <wsdl:operation name="clientStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el estado almacenado del cliente con id idClient y lo actualiza</wsdl:documentation>
+      <wsdl:input message="tns:clientStatusSoapIn" />
+      <wsdl:output message="tns:clientStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobiCartaWebServiceSoap" type="tns:MobiCartaWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="clientStatus">
+      <soap:operation soapAction="http://localhost/MobiCarta/clientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobiCartaWebServiceSoap12" type="tns:MobiCartaWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="clientStatus">
+      <soap12:operation soapAction="http://localhost/MobiCarta/clientStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobiCartaWebService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio web que gestiona la información de la aplicación MobiCarta</wsdl:documentation>
+    <wsdl:port name="MobiCartaWebServiceSoap" binding="tns:MobiCartaWebServiceSoap">
+      <soap:address location="http://localhost:49504/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobiCartaWebServiceSoap12" binding="tns:MobiCartaWebServiceSoap12">
+      <soap12:address location="http://localhost:49504/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

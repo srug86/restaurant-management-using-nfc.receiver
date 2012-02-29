@@ -36,5 +36,10 @@ namespace Receiver.presentation
             foreach (Process p in Process.GetProcesses())
                 if (p.ProcessName == "Receiver.vshost") p.Kill();
         }
+
+        private void btnBegin_Click(object sender, RoutedEventArgs e)
+        {
+            TablesManager tablesManager = new TablesManager();
+        }
     }
 }

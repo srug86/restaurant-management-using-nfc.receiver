@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Receiver.domain
 {
-    public class EditRoom : Subject
+    public class EditRoom : SubjectER
     {
         private String fileName;
 
@@ -119,7 +119,7 @@ namespace Receiver.domain
             tableValuesHaveChanged();
         }
 
-        public List<Observer> observers = new List<Observer>();
+        public List<ObserverER> observers = new List<ObserverER>();
 
         public EditRoom(int rows, int columns)
         {
@@ -132,7 +132,7 @@ namespace Receiver.domain
             window.Show();
         }
 
-        public void registerInterest(Observer obs)
+        public void registerInterest(ObserverER obs)
         {
             observers.Add(obs);
         }
@@ -141,7 +141,7 @@ namespace Receiver.domain
         {
             for (int i = 0; i < observers.Count; i++)
             {
-                Observer obs = (Observer)observers[i];
+                ObserverER obs = (ObserverER)observers[i];
                 obs.notify(RowSelected, ColumnSelected, BoxState);
             }
         }
@@ -150,7 +150,7 @@ namespace Receiver.domain
         {
             for (int i = 0; i < observers.Count; i++)
             {
-                Observer obs = (Observer)observers[i];
+                ObserverER obs = (ObserverER)observers[i];
                 obs.notify(NTable);
             }
         }

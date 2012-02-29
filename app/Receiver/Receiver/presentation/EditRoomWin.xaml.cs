@@ -19,7 +19,7 @@ namespace Receiver.presentation
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class EditRoomWin : Window, Observer
+    public partial class EditRoomWin : Window, ObserverER
     {
         private String roomName;
 
@@ -72,7 +72,7 @@ namespace Receiver.presentation
         }
         private Dictionary<int, string> colorBox;
 
-        public EditRoomWin(Subject subject, EditRoom editRoom)
+        public EditRoomWin(SubjectER subject, EditRoom editRoom)
         {
             InitializeComponent();
             EditRoom = editRoom;
@@ -215,7 +215,7 @@ namespace Receiver.presentation
             }
         }
 
-        private void register(Subject subject)
+        private void register(SubjectER subject)
         {
             subject.registerInterest(this);
             colorBox = new Dictionary<int, string>();
