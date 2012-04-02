@@ -244,7 +244,7 @@ namespace Receiver.presentation
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
-            NewRoomWin newRoom = new NewRoomWin(this);
+            NewRoomDialog newRoom = new NewRoomDialog(this);
             newRoom.Show();
         }
 

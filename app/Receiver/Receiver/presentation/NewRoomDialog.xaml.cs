@@ -14,13 +14,13 @@ using System.Windows.Shapes;
 namespace Receiver.presentation
 {
     /// <summary>
-    /// Lógica de interacción para NewRoomWin.xaml
+    /// Lógica de interacción para NewRoomDialog.xaml
     /// </summary>
-    public partial class NewRoomWin : Window
+    public partial class NewRoomDialog : Window
     {
         private EditRoomWin editor;
 
-        public NewRoomWin(EditRoomWin editor)
+        public NewRoomDialog(EditRoomWin editor)
         {
             this.editor = editor;
             InitializeComponent();

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Receiver.presentation.SetJourneyWin"
+﻿<Window x:Class="Receiver.presentation.SetJourneyDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 Title="MobiCarta - Especifique la distribución del salón" Height="160" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Resources/ico.jpg" Topmost="True" ShowInTaskbar="False">

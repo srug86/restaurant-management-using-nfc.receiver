@@ -40,13 +40,13 @@ namespace Receiver.presentation
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
-            SetJourneyWin setJourney = new SetJourneyWin(this, true);
+            SetJourneyDialog setJourney = new SetJourneyDialog(this, true);
             setJourney.Show();
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            SetJourneyWin setJourney = new SetJourneyWin(this, false);
+            SetJourneyDialog setJourney = new SetJourneyDialog(this, false);
             setJourney.Show();
         }
 

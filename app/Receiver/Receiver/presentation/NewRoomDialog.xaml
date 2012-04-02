@@ -1,4 +1,4 @@
-﻿<Window x:Class="Receiver.presentation.NewRoomWin"
+﻿<Window x:Class="Receiver.presentation.NewRoomDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MobiCarta - Especifique nombre y tamaño del salón" Height="180" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Resources/ico.jpg" Topmost="True" ShowInTaskbar="False">

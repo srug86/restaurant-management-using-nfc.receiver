@@ -80,8 +80,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="domain\TablesManager.cs" />
-    <Compile Include="presentation\SetJourneyWin.xaml.cs">
-      <DependentUpon>SetJourneyWin.xaml</DependentUpon>
+    <Compile Include="presentation\SetJourneyDialog.xaml.cs">
+      <DependentUpon>SetJourneyDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="presentation\TablesManagerWin.xaml.cs">
       <DependentUpon>TablesManagerWin.xaml</DependentUpon>
@@ -114,11 +114,11 @@
     <Compile Include="presentation\InitWin.xaml.cs">
       <DependentUpon>InitWin.xaml</DependentUpon>
     </Compile>
-    <Page Include="presentation\NewRoomWin.xaml">
+    <Page Include="presentation\NewRoomDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="presentation\SetJourneyWin.xaml">
+    <Page Include="presentation\SetJourneyDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,8 +134,8 @@
     <Compile Include="domain\Product.cs" />
     <Compile Include="domain\Receiver.cs" />
     <Compile Include="domain\Table.cs" />
-    <Compile Include="presentation\NewRoomWin.xaml.cs">
-      <DependentUpon>NewRoomWin.xaml</DependentUpon>
+    <Compile Include="presentation\NewRoomDialog.xaml.cs">
+      <DependentUpon>NewRoomDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

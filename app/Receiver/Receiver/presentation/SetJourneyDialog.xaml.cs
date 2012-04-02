@@ -15,13 +15,13 @@ using Microsoft.Win32;
 namespace Receiver.presentation
 {
     /// <summary>
-    /// Lógica de interacción para SetJourneyWin.xaml
+    /// Lógica de interacción para SetJourneyDialog.xaml
     /// </summary>
-    public partial class SetJourneyWin : Window
+    public partial class SetJourneyDialog : Window
     {
         private TablesManagerWin manager;
 
-        public SetJourneyWin(TablesManagerWin manager, Boolean _new)
+        public SetJourneyDialog(TablesManagerWin manager, Boolean _new)
         {
             this.manager = manager;
             InitializeComponent();
