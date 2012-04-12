@@ -3,7 +3,7 @@
 		|--> ubicar maître: establecer posición del equipo del maître.
 		|--> ubicar barra: establecer posición del equipo de la barra.
 		\--> ubicar mesa: establecer identificador, posición y capacidad de la mesa.
-	|--> cargar salón: carga el XML de un salón para mostrarlo o editarlo. (vista crear salón)
+	|--> cargar salón: carga el XML de un salón para mostrarlo o editarlo (vista crear salón).
 	|--> editar salón: permite redefinir los objetos del salón. (vista crear salón)
 	|--> guardar salón: la definición de un salón se guarda en formato XML (y DTD).
 	|--> iniciar jornada: carga el XML del salón y se inicia el programa. Después se inicia "mostrar salón".

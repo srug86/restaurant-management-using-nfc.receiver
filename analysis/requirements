@@ -1,2 +1,126 @@
-- El equipo del maître cobra los pedidos de la gente que está sentada en las mesas.
-- Si hay gente que pide cosas en la barra (barra de bar), se puede cobrar con el sistema tradicional.
+\subsubsection{Requisitos generales}
+\begin{description}
+\item[Requisitos generales]
+  \begin{description}
+    \item[RG] 
+  \end{description}
+\item[Menú inicial]
+  \begin{description}
+    \item[RG1] Muestra los modos de ejecución: ``Modo barra'' y ``Modo 
+recibidor'', así como las operaciones comunes: ``Editar restaurante'',
+``Editar menú'', ``Conexión con el servidor'', ``Mostrar estadísticas'' y
+``Ayuda''.
+    \item[RG2] Las opciones ``Modo Barra'' y ``Modo recibidor'' se muestran
+de una forma más resaltada que las demás opciones.
+  \end{description}
+\item[Editar restaurante]
+  \begin{description}
+    \item[RG] La ventana de edición contiene los siguientes elementos:
+    \begin{description}
+        \item[Barra de herramientas horizontal.] Se sitúa en la parte superior
+    de la ventana y contiene las siguientes opciones:
+    \emph{Nuevo}, para editar una nueva plantilla de restaurante;
+    \emph{Abrir}, para abrir una plantilla existente en la base de datos del
+    servidor; y \emph{Guardar}, para almacenar en la base de datos del servidor
+    la plantilla creada o modificada.
+        \item[Barra de herramientas vertical.] Se sitúa en la parte lateral
+    izquierda de la ventana y contiene las siguientes opciones:
+    \emph{Recibidor}, para colocar en la plantilla las casillas del recibidor;
+    \emph{Barra}, para colocar las casillas de la barra; y \emph{Mesa}, para
+    colocar las casillas de una mesa.
+        \item[Barra de estado.] Se sitúa en la parte inferior de la ventna y
+    contiene información acerca de las operaciones que se están llevando a
+    cabo en ese momento.
+        \item[Planta del restaurante.] Ocupa la parte restante de la ventana y
+    muestra una cuadrícula de un número de filas y columnas determinado por el
+    usuario. En los cuadros de dicha cuadrícula aparecen representados los
+    objetos (barra, recibidor y mesas) propios de dicho restaurante.
+    \end{description}
+    \item[RG] A la hora de colocar un objeto se muestra una ventana emergente
+que permite modificar los atributos del objeto, confirmar la colocación de
+dicho objeto en las casillas seleccionadas o cancelar la operación.
+    \item[RG] Los objetos dentro del restaurante vienen determinados por los
+siguientes colores: \textbf{amarillo} para las casillas que ocupa la barra,
+\textbf{rojo} para las casillas que ocupa el recibidor y \textbf{verde} para
+las casillas que ocupa cada mesa. Los objetos cuya colocación no ha sido
+confirmada aparecen de un color más apagado que los que han sido fijados.
+    \item[RG] Para editar o eliminar un elemento fijado con anterioridad se
+mostrará un menú emergente al pulsar sobre dicho elemento.
+    \item[RG] Las mesas, a diferencia de otros objetos, vendrán determinadas
+por un identificador y una capacidad. El identificador se mostrará como una
+etiqueta en una de las casillas ocupadas por la mesa cuando las casillas de
+dicha mesa hayan sido confirmadas.
+  \end{description}
+\item[Modo recibidor]
+  \begin{description}
+    \item[RG] La ventana de ``Modo recibidor'' contiene los siguientes
+    elementos:
+    \begin{description}
+      \item[Barra de herramientas.] Se sitúa en la parte superior y contiene
+      las siguientes opciones: \textbf{Nueva jornada}, que inicializa los
+      datos del servidor para empezar una nueva jornada; \textbf{Continuar
+      jornada}, que recupera los datos de una jornada existente en el servidor;
+      y \textbf{Conectividad}, que permite modificar los parámetros de conexión
+      con el servidor.
+      \item[Barra de opciones.] Se sitúa en la parte lateral izquierda y
+      contiene los siguientes elementos: \textbf{Llega cliente}, para registrar
+      la entrada de un nuevo cliente en el restaurante; \textbf{Cobrar a
+      cliente}, para cobrar a un cliente mediante NFC; \textbf{Sale cliente},
+      para registrar que un cliente ha abandonado el restaurante; y
+      \textbf{Visualizar estado}, que muestra el mapa del restaurante con el
+      estado actualizado de las mesas.
+      \item[Barra de estado.] Se sitúa en la parte inferior de la ventana y
+      muestra información acerca de la operación que se está llevando a cabo
+      en ese instante.
+      \item[Mapa y formularios.] En la parte restante de la ventana se mostrará
+      el mapa del restaurante o los formularios para registrar la llegada, la
+      salida o el cobro a un cliente, según la opción seleccionada.
+    \end{description}
+    \item[RG] El formulario para registrar al nuevo cliente consiste en
+    un campo identificador y un campo ``número de comensales''. Una vez
+    confirmados, se muestra el mapa del restaurante para dar la opción de
+    seleccionar entre una de las mesas libres (que tengan una capacidad
+    suficiente).
+%%    \item[RG] El formulario para realizar el pago mediante NFC
+    \item[RG] Para registrar la salida de un cliente simplemente se muestra el
+    mapa del restaurante y se selecciona la mesa del cliente que la ha
+    abandonado.
+    \item[
+  \end{description}
+\item[Modo barra]
+  \begin{description}
+    \item[RG]
+  \end{description}
+\end{description}
+
+\subsubsection{Requisitos de comunicación}
+\begin{description}
+  \item[RC]
+\end{description}
+
+\subsubsection{Requisitos funcionales}
+\begin{description}
+  \item[RF]
+\end{description}
+
+\subsubsection{Requisitos de rendimiento}
+\begin{description}
+  \item[RR]
+\end{description}
+
+\subsubsection{Requisitos de diseño}
+\begin{description}
+  \item[RD]
+\end{description}
+
+\subsubsection{Atributos del sistema}
+\begin{description}
+  \item[RA]
+\end{description}
+
+\subsubsection{Otros requisitos}
+\begin{description}
+  \item[RE]
+\end{description}
+
+
