@@ -19,6 +19,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -79,18 +79,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="communication\AdapterWebServices.cs" />
+    <Compile Include="communication\BluetoothServer.cs" />
+    <Compile Include="domain\ClientManager.cs" />
+    <Compile Include="domain\JourneyManager.cs" />
+    <Compile Include="domain\RoomDef.cs" />
+    <Compile Include="domain\RoomEditor.cs" />
+    <Compile Include="domain\RoomInf.cs" />
+    <Compile Include="domain\RoomManager.cs" />
     <Compile Include="domain\TablesManager.cs" />
+    <Compile Include="presentation\ConnectDialog.xaml.cs">
+      <DependentUpon>ConnectDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\JourneyManagerWin.xaml.cs">
+      <DependentUpon>JourneyManagerWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\LoadRoomDialog.xaml.cs">
+      <DependentUpon>LoadRoomDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="presentation\SetJourneyDialog.xaml.cs">
       <DependentUpon>SetJourneyDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="presentation\TablesManagerWin.xaml.cs">
       <DependentUpon>TablesManagerWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\WebService\Reference.cs">
+    <Compile Include="Service References\webServer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="presentation\ConnectDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="presentation\EditRoomWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,6 +138,18 @@
     <Compile Include="presentation\InitWin.xaml.cs">
       <DependentUpon>InitWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="presentation\JourneyManagerWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="presentation\LoadRoomDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="presentation\MessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="presentation\NewRoomDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,7 +166,6 @@
   <ItemGroup>
     <Compile Include="domain\Bar.cs" />
     <Compile Include="domain\Client.cs" />
-    <Compile Include="domain\Object.cs" />
     <Compile Include="domain\Product.cs" />
     <Compile Include="domain\Receiver.cs" />
     <Compile Include="domain\Table.cs" />
@@ -162,10 +197,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\WebService\Service.wsdl" />
+    <None Include="Service References\webServer\Services.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="communication\" />
+    <WCFMetadataStorage Include="Service References\webServer\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -245,24 +280,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WebService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WebService\Service.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WebService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WebService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WebService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\OComeTable.png" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +290,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\OView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\webServer\Services.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\webServer\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\webServer\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\webServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

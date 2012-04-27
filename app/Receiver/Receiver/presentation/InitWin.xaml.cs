@@ -25,9 +25,16 @@ namespace Receiver.presentation
             InitializeComponent();
         }
 
+        private void btnBegin_Click(object sender, RoutedEventArgs e)
+        {
+            startJourney();
+            //TablesManager tablesManager = new TablesManager();
+        }
+
         private void btnRoom_Click(object sender, RoutedEventArgs e)
         {
-            EditRoom editRoom = new EditRoom(-1, -1);
+            editRoom();
+            //EditRoom editRoom = new EditRoom(-1, -1);
         }
 
         private void Close_Program(object sender, EventArgs e)
@@ -37,9 +44,16 @@ namespace Receiver.presentation
                 if (p.ProcessName == "Receiver.vshost") p.Kill();
         }
 
-        private void btnBegin_Click(object sender, RoutedEventArgs e)
+        private void startJourney()
         {
-            TablesManager tablesManager = new TablesManager();
+            JourneyManagerWin manager = new JourneyManagerWin();
+            manager.Show();
+        }
+
+        private void editRoom()
+        {
+            //EditRoomWin editor = new EditRoomWin();
+            //editor.Show();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Receiver.webServices;
 using System.ServiceModel;
 
 namespace Receiver.communication
@@ -17,7 +16,7 @@ namespace Receiver.communication
             set { url = value; }
         }
 
-        private webServices.MobiCartaWebServicesSoapClient proxy = new webServices.MobiCartaWebServicesSoapClient();
+        private webServer.MobiCartaWebServicesSoapClient proxy = new webServer.MobiCartaWebServicesSoapClient();
 
         static readonly AdapterWebServices instance = new AdapterWebServices();
 

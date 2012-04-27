@@ -5,43 +5,79 @@ using System.Text;
 
 namespace Receiver.domain
 {
-    class Table: Object
+    class Table
     {
-        private int id;
+        private int id, capacity, status, guests;
 
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-        private int chairs;
 
-        public int Chairs
+        public int Capacity
         {
-            get { return chairs; }
-            set { chairs = value; }
+            get { return capacity; }
+            set { capacity = value; }
         }
-        private int status;
 
         public int Status
         {
             get { return status; }
             set { status = value; }
         }
-        private Client client;
 
-        internal Client Client
+        public int Guests
+        {
+            get { return guests; }
+            set { guests = value; }
+        }
+
+        private List<int[]> place;
+
+        public List<int[]> Place
+        {
+            get { return place; }
+            set { place = value; }
+        }
+
+        private string client;
+
+        internal string Client
         {
             get { return client; }
             set { client = value; }
         }
 
-        public Table(int id, int chairs)
+        public Table()
         {
-            this.id = id;
-            this.chairs = chairs;
-            this.status = 0;
-            this.client = null;
+            Status = -1;
+            Place = new List<int[]>();
+        }
+
+        public Table(int id)
+        {
+            Id = id;
+            Status = -1;
+            Place = new List<int[]>();
+        }
+
+        public Table(int id, int capacity)
+        {
+            Id = id;
+            Capacity = capacity;
+            Status = -1;
+            Client = "";
+            Guests = 0;
+            Place = new List<int[]>();
+        }
+
+        public override bool Equals(Object o)
+        {
+            if (o == null) return false;
+            if (o.GetType() != typeof(Table)) return false;
+            Table t = (Table)o;
+            return id.Equals(t.Id);
         }
     }
 }

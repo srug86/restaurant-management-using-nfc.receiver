@@ -7,51 +7,31 @@ namespace Receiver.domain
 {
     class Client
     {
-        private string id;
+        private string dni, name, surname;
 
-        public string Id
+        public string Dni
         {
-            get { return id; }
-            set { id = value; }
+            get { return dni; }
+            set { dni = value; }
         }
 
-        private Table table;
-
-        internal Table Table
+        public string Name
         {
-            get { return table; }
-            set { table = value; }
+            get { return name; }
+            set { name = value; }
         }
 
-        private double total;
-
-        public double Total
+        public string Surname
         {
-            get { return total; }
-            set { total = value; }
-        }
-        private Boolean paid;
-
-        public Boolean Paid
-        {
-            get { return paid; }
-            set { paid = value; }
-        }
-        private List<Product> order;
-
-        internal List<Product> Order
-        {
-            get { return order; }
-            set { order = value; }
+            get { return surname; }
+            set { surname = value; }
         }
 
-        public Client(string id, Table table)
+        public Client(string dni, string name, string surname)
         {
-            this.id = id;
-            this.table = table;
-            this.total = 0.0;
-            this.paid = false;
-            this.order = new List<Product>();
+            Dni = dni;
+            Name = name;
+            Surname = surname;
         }
     }
 }
