@@ -17,7 +17,7 @@
                     <Image Name="imgOpen" Source="/Receiver;component/Resources/open.jpg" ToolTip="Abrir" />
                 </Button>
                 <Button Background="#00000000" BorderBrush="#00000000" Cursor="Hand" Height="Auto" Margin="5,5,5,5" Name="btnConnect" ToolTip="Conexión" Width="50" Click="btnConnect_Click">
-                    <Image Name="imgConnect" Source="/Receiver;component/Resources/network.jpg" ToolTip="Conexión" />
+                    <Image Name="imgConnect" ToolTip="Conexión" Source="/Receiver;component/Resources/network.jpg" />
                 </Button>
             </StackPanel>
         </ToolBar>

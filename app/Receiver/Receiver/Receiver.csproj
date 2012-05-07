@@ -87,7 +87,6 @@
     <Compile Include="domain\RoomEditor.cs" />
     <Compile Include="domain\RoomInf.cs" />
     <Compile Include="domain\RoomManager.cs" />
-    <Compile Include="domain\TablesManager.cs" />
     <Compile Include="presentation\ConnectDialog.xaml.cs">
       <DependentUpon>ConnectDialog.xaml</DependentUpon>
     </Compile>
@@ -99,12 +98,6 @@
     </Compile>
     <Compile Include="presentation\MessageDialog.xaml.cs">
       <DependentUpon>MessageDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="presentation\SetJourneyDialog.xaml.cs">
-      <DependentUpon>SetJourneyDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="presentation\TablesManagerWin.xaml.cs">
-      <DependentUpon>TablesManagerWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service References\webServer\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -154,17 +147,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="presentation\SetJourneyDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="presentation\TablesManagerWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="domain\Bar.cs" />
     <Compile Include="domain\Client.cs" />
     <Compile Include="domain\Product.cs" />
     <Compile Include="domain\Receiver.cs" />
@@ -305,6 +289,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\network.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\orange.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

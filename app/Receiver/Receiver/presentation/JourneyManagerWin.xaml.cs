@@ -327,7 +327,7 @@ namespace Receiver.presentation
         {
             if (txtbIdCome.Text != "" && txtbCapacityCome.Text != "")
             {
-                manager.ClientManager.Client = new Client(txtbIdCome.Text, "", "");
+                manager.ClientManager.Client = new Client(txtbIdCome.Text, "", "", new Address());
                 manager.ClientManager.Guests = Convert.ToInt16(txtbCapacityCome.Text);
                 openAllocationPerspective();
                 txtbCapacityCome.Text = "";
@@ -366,6 +366,8 @@ namespace Receiver.presentation
         {
             if (txtbAllocTable.Text != "")
             {
+                if (manager.ClientManager.Client.Dni.Substring(0, 1) == "C")
+                    manager.ClientManager.newStandardClient();
                 manager.RoomManager.confirmAllocation(Convert.ToInt16(txtbAllocTable.Text));
                 openViewPerspective();
             }

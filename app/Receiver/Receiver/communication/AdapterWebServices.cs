@@ -76,9 +76,9 @@ namespace Receiver.communication
             return proxy.getTablesStatus();
         }
 
-        public int sendMeClientStatus(string dni, string name, string surname)
+        public int sendMeClientStatus(string client)
         {
-            return proxy.getClientStatus(dni, name, surname);
+            return proxy.getClientStatus(client);
         }
 
         public string sendAllocationTable(string client, int table, int guests)

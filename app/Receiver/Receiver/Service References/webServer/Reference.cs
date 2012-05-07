@@ -38,7 +38,10 @@ namespace Receiver.webServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/resetJourney", ReplyAction="*")]
         Receiver.webServer.resetJourneyResponse resetJourney(Receiver.webServer.resetJourneyRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento dni del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/resetDB", ReplyAction="*")]
+        void resetDB();
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento xmlClient del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getClientStatus", ReplyAction="*")]
         Receiver.webServer.getClientStatusResponse getClientStatus(Receiver.webServer.getClientStatusRequest request);
         
@@ -54,6 +57,14 @@ namespace Receiver.webServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setDeallocationClient", ReplyAction="*")]
         Receiver.webServer.setDeallocationClientResponse setDeallocationClient(Receiver.webServer.setDeallocationClientRequest request);
         
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento xml del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setRestaurantInfo", ReplyAction="*")]
+        Receiver.webServer.setRestaurantInfoResponse setRestaurantInfo(Receiver.webServer.setRestaurantInfoRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento xml del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/saveProductsList", ReplyAction="*")]
+        Receiver.webServer.saveProductsListResponse saveProductsList(Receiver.webServer.saveProductsListRequest request);
+        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento getProductsResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getProducts", ReplyAction="*")]
         Receiver.webServer.getProductsResponse getProducts(Receiver.webServer.getProductsRequest request);
@@ -66,25 +77,32 @@ namespace Receiver.webServer {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getTableStatus", ReplyAction="*")]
         Receiver.webServer.getTableStatusResponse getTableStatus(Receiver.webServer.getTableStatusRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento bill del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/addBillPaid", ReplyAction="*")]
-        Receiver.webServer.addBillPaidResponse addBillPaid(Receiver.webServer.addBillPaidRequest request);
-        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento xml del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/addNewOrder", ReplyAction="*")]
         Receiver.webServer.addNewOrderResponse addNewOrder(Receiver.webServer.addNewOrderRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento product del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento setOrderStatusResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setOrderStatus", ReplyAction="*")]
         Receiver.webServer.setOrderStatusResponse setOrderStatus(Receiver.webServer.setOrderStatusRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento product del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setProductAmount", ReplyAction="*")]
-        Receiver.webServer.setProductAmountResponse setProductAmount(Receiver.webServer.setProductAmountRequest request);
+        void setProductAmount(int orderID, int amount);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento setOrderTableResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setOrderTable", ReplyAction="*")]
+        Receiver.webServer.setOrderTableResponse setOrderTable(Receiver.webServer.setOrderTableRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento dni del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getTableID", ReplyAction="*")]
         Receiver.webServer.getTableIDResponse getTableID(Receiver.webServer.getTableIDRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento getBillResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getBill", ReplyAction="*")]
+        Receiver.webServer.getBillResponse getBill(Receiver.webServer.getBillRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento payBillResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/payBill", ReplyAction="*")]
+        Receiver.webServer.payBillResponse payBill(Receiver.webServer.payBillRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -423,21 +441,13 @@ namespace Receiver.webServer {
     public partial class getClientStatusRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string dni;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string name;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string surname;
+        public string xmlClient;
         
         public getClientStatusRequestBody() {
         }
         
-        public getClientStatusRequestBody(string dni, string name, string surname) {
-            this.dni = dni;
-            this.name = name;
-            this.surname = surname;
+        public getClientStatusRequestBody(string xmlClient) {
+            this.xmlClient = xmlClient;
         }
     }
     
@@ -691,6 +701,128 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setRestaurantInfoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setRestaurantInfo", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.setRestaurantInfoRequestBody Body;
+        
+        public setRestaurantInfoRequest() {
+        }
+        
+        public setRestaurantInfoRequest(Receiver.webServer.setRestaurantInfoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class setRestaurantInfoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string xml;
+        
+        public setRestaurantInfoRequestBody() {
+        }
+        
+        public setRestaurantInfoRequestBody(string xml) {
+            this.xml = xml;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setRestaurantInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setRestaurantInfoResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.setRestaurantInfoResponseBody Body;
+        
+        public setRestaurantInfoResponse() {
+        }
+        
+        public setRestaurantInfoResponse(Receiver.webServer.setRestaurantInfoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class setRestaurantInfoResponseBody {
+        
+        public setRestaurantInfoResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class saveProductsListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveProductsList", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.saveProductsListRequestBody Body;
+        
+        public saveProductsListRequest() {
+        }
+        
+        public saveProductsListRequest(Receiver.webServer.saveProductsListRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class saveProductsListRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string xml;
+        
+        public saveProductsListRequestBody() {
+        }
+        
+        public saveProductsListRequestBody(string xml) {
+            this.xml = xml;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class saveProductsListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveProductsListResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.saveProductsListResponseBody Body;
+        
+        public saveProductsListResponse() {
+        }
+        
+        public saveProductsListResponse(Receiver.webServer.saveProductsListResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class saveProductsListResponseBody {
+        
+        public saveProductsListResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getProductsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getProducts", Namespace="http://localhost/MobiCarta", Order=0)]
@@ -881,74 +1013,6 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class addBillPaidRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="addBillPaid", Namespace="http://localhost/MobiCarta", Order=0)]
-        public Receiver.webServer.addBillPaidRequestBody Body;
-        
-        public addBillPaidRequest() {
-        }
-        
-        public addBillPaidRequest(Receiver.webServer.addBillPaidRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
-    public partial class addBillPaidRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string bill;
-        
-        public addBillPaidRequestBody() {
-        }
-        
-        public addBillPaidRequestBody(string bill) {
-            this.bill = bill;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class addBillPaidResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="addBillPaidResponse", Namespace="http://localhost/MobiCarta", Order=0)]
-        public Receiver.webServer.addBillPaidResponseBody Body;
-        
-        public addBillPaidResponse() {
-        }
-        
-        public addBillPaidResponse(Receiver.webServer.addBillPaidResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
-    public partial class addBillPaidResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string addBillPaidResult;
-        
-        public addBillPaidResponseBody() {
-        }
-        
-        public addBillPaidResponseBody(string addBillPaidResult) {
-            this.addBillPaidResult = addBillPaidResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class addNewOrderRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addNewOrder", Namespace="http://localhost/MobiCarta", Order=0)]
@@ -999,10 +1063,17 @@ namespace Receiver.webServer {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
     public partial class addNewOrderResponseBody {
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string addNewOrderResult;
+        
         public addNewOrderResponseBody() {
+        }
+        
+        public addNewOrderResponseBody(string addNewOrderResult) {
+            this.addNewOrderResult = addNewOrderResult;
         }
     }
     
@@ -1030,24 +1101,16 @@ namespace Receiver.webServer {
     public partial class setOrderStatusRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int tableID;
+        public int orderID;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string product;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string date;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public int status;
         
         public setOrderStatusRequestBody() {
         }
         
-        public setOrderStatusRequestBody(int tableID, string product, string date, int status) {
-            this.tableID = tableID;
-            this.product = product;
-            this.date = date;
+        public setOrderStatusRequestBody(int orderID, int status) {
+            this.orderID = orderID;
             this.status = status;
         }
     }
@@ -1072,10 +1135,17 @@ namespace Receiver.webServer {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
     public partial class setOrderStatusResponseBody {
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string setOrderStatusResult;
+        
         public setOrderStatusResponseBody() {
+        }
+        
+        public setOrderStatusResponseBody(string setOrderStatusResult) {
+            this.setOrderStatusResult = setOrderStatusResult;
         }
     }
     
@@ -1083,15 +1153,15 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class setProductAmountRequest {
+    public partial class setOrderTableRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="setProductAmount", Namespace="http://localhost/MobiCarta", Order=0)]
-        public Receiver.webServer.setProductAmountRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setOrderTable", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.setOrderTableRequestBody Body;
         
-        public setProductAmountRequest() {
+        public setOrderTableRequest() {
         }
         
-        public setProductAmountRequest(Receiver.webServer.setProductAmountRequestBody Body) {
+        public setOrderTableRequest(Receiver.webServer.setOrderTableRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1100,28 +1170,20 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
-    public partial class setProductAmountRequestBody {
+    public partial class setOrderTableRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int orderID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public int tableID;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string product;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string date;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int amount;
-        
-        public setProductAmountRequestBody() {
+        public setOrderTableRequestBody() {
         }
         
-        public setProductAmountRequestBody(int tableID, string product, string date, int amount) {
+        public setOrderTableRequestBody(int orderID, int tableID) {
+            this.orderID = orderID;
             this.tableID = tableID;
-            this.product = product;
-            this.date = date;
-            this.amount = amount;
         }
     }
     
@@ -1129,15 +1191,15 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class setProductAmountResponse {
+    public partial class setOrderTableResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="setProductAmountResponse", Namespace="http://localhost/MobiCarta", Order=0)]
-        public Receiver.webServer.setProductAmountResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setOrderTableResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.setOrderTableResponseBody Body;
         
-        public setProductAmountResponse() {
+        public setOrderTableResponse() {
         }
         
-        public setProductAmountResponse(Receiver.webServer.setProductAmountResponseBody Body) {
+        public setOrderTableResponse(Receiver.webServer.setOrderTableResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1145,10 +1207,17 @@ namespace Receiver.webServer {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class setProductAmountResponseBody {
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class setOrderTableResponseBody {
         
-        public setProductAmountResponseBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string setOrderTableResult;
+        
+        public setOrderTableResponseBody() {
+        }
+        
+        public setOrderTableResponseBody(string setOrderTableResult) {
+            this.setOrderTableResult = setOrderTableResult;
         }
     }
     
@@ -1217,6 +1286,146 @@ namespace Receiver.webServer {
         
         public getTableIDResponseBody(int getTableIDResult) {
             this.getTableIDResult = getTableIDResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getBillRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getBill", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.getBillRequestBody Body;
+        
+        public getBillRequest() {
+        }
+        
+        public getBillRequest(Receiver.webServer.getBillRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class getBillRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int tableID;
+        
+        public getBillRequestBody() {
+        }
+        
+        public getBillRequestBody(int tableID) {
+            this.tableID = tableID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getBillResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getBillResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.getBillResponseBody Body;
+        
+        public getBillResponse() {
+        }
+        
+        public getBillResponse(Receiver.webServer.getBillResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class getBillResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string getBillResult;
+        
+        public getBillResponseBody() {
+        }
+        
+        public getBillResponseBody(string getBillResult) {
+            this.getBillResult = getBillResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class payBillRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="payBill", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.payBillRequestBody Body;
+        
+        public payBillRequest() {
+        }
+        
+        public payBillRequest(Receiver.webServer.payBillRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class payBillRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int billID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int type;
+        
+        public payBillRequestBody() {
+        }
+        
+        public payBillRequestBody(int billID, int type) {
+            this.billID = billID;
+            this.type = type;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class payBillResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="payBillResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.payBillResponseBody Body;
+        
+        public payBillResponse() {
+        }
+        
+        public payBillResponse(Receiver.webServer.payBillResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class payBillResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string payBillResult;
+        
+        public payBillResponseBody() {
+        }
+        
+        public payBillResponseBody(string payBillResult) {
+            this.payBillResult = payBillResult;
         }
     }
     
@@ -1312,17 +1521,19 @@ namespace Receiver.webServer {
             Receiver.webServer.resetJourneyResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).resetJourney(inValue);
         }
         
+        public void resetDB() {
+            base.Channel.resetDB();
+        }
+        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Receiver.webServer.getClientStatusResponse Receiver.webServer.MobiCartaWebServicesSoap.getClientStatus(Receiver.webServer.getClientStatusRequest request) {
             return base.Channel.getClientStatus(request);
         }
         
-        public int getClientStatus(string dni, string name, string surname) {
+        public int getClientStatus(string xmlClient) {
             Receiver.webServer.getClientStatusRequest inValue = new Receiver.webServer.getClientStatusRequest();
             inValue.Body = new Receiver.webServer.getClientStatusRequestBody();
-            inValue.Body.dni = dni;
-            inValue.Body.name = name;
-            inValue.Body.surname = surname;
+            inValue.Body.xmlClient = xmlClient;
             Receiver.webServer.getClientStatusResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getClientStatus(inValue);
             return retVal.Body.getClientStatusResult;
         }
@@ -1369,6 +1580,30 @@ namespace Receiver.webServer {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Receiver.webServer.setRestaurantInfoResponse Receiver.webServer.MobiCartaWebServicesSoap.setRestaurantInfo(Receiver.webServer.setRestaurantInfoRequest request) {
+            return base.Channel.setRestaurantInfo(request);
+        }
+        
+        public void setRestaurantInfo(string xml) {
+            Receiver.webServer.setRestaurantInfoRequest inValue = new Receiver.webServer.setRestaurantInfoRequest();
+            inValue.Body = new Receiver.webServer.setRestaurantInfoRequestBody();
+            inValue.Body.xml = xml;
+            Receiver.webServer.setRestaurantInfoResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).setRestaurantInfo(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Receiver.webServer.saveProductsListResponse Receiver.webServer.MobiCartaWebServicesSoap.saveProductsList(Receiver.webServer.saveProductsListRequest request) {
+            return base.Channel.saveProductsList(request);
+        }
+        
+        public void saveProductsList(string xml) {
+            Receiver.webServer.saveProductsListRequest inValue = new Receiver.webServer.saveProductsListRequest();
+            inValue.Body = new Receiver.webServer.saveProductsListRequestBody();
+            inValue.Body.xml = xml;
+            Receiver.webServer.saveProductsListResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).saveProductsList(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Receiver.webServer.getProductsResponse Receiver.webServer.MobiCartaWebServicesSoap.getProducts(Receiver.webServer.getProductsRequest request) {
             return base.Channel.getProducts(request);
         }
@@ -1406,28 +1641,16 @@ namespace Receiver.webServer {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Receiver.webServer.addBillPaidResponse Receiver.webServer.MobiCartaWebServicesSoap.addBillPaid(Receiver.webServer.addBillPaidRequest request) {
-            return base.Channel.addBillPaid(request);
-        }
-        
-        public string addBillPaid(string bill) {
-            Receiver.webServer.addBillPaidRequest inValue = new Receiver.webServer.addBillPaidRequest();
-            inValue.Body = new Receiver.webServer.addBillPaidRequestBody();
-            inValue.Body.bill = bill;
-            Receiver.webServer.addBillPaidResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).addBillPaid(inValue);
-            return retVal.Body.addBillPaidResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Receiver.webServer.addNewOrderResponse Receiver.webServer.MobiCartaWebServicesSoap.addNewOrder(Receiver.webServer.addNewOrderRequest request) {
             return base.Channel.addNewOrder(request);
         }
         
-        public void addNewOrder(string xml) {
+        public string addNewOrder(string xml) {
             Receiver.webServer.addNewOrderRequest inValue = new Receiver.webServer.addNewOrderRequest();
             inValue.Body = new Receiver.webServer.addNewOrderRequestBody();
             inValue.Body.xml = xml;
             Receiver.webServer.addNewOrderResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).addNewOrder(inValue);
+            return retVal.Body.addNewOrderResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1435,29 +1658,31 @@ namespace Receiver.webServer {
             return base.Channel.setOrderStatus(request);
         }
         
-        public void setOrderStatus(int tableID, string product, string date, int status) {
+        public string setOrderStatus(int orderID, int status) {
             Receiver.webServer.setOrderStatusRequest inValue = new Receiver.webServer.setOrderStatusRequest();
             inValue.Body = new Receiver.webServer.setOrderStatusRequestBody();
-            inValue.Body.tableID = tableID;
-            inValue.Body.product = product;
-            inValue.Body.date = date;
+            inValue.Body.orderID = orderID;
             inValue.Body.status = status;
             Receiver.webServer.setOrderStatusResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).setOrderStatus(inValue);
+            return retVal.Body.setOrderStatusResult;
+        }
+        
+        public void setProductAmount(int orderID, int amount) {
+            base.Channel.setProductAmount(orderID, amount);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Receiver.webServer.setProductAmountResponse Receiver.webServer.MobiCartaWebServicesSoap.setProductAmount(Receiver.webServer.setProductAmountRequest request) {
-            return base.Channel.setProductAmount(request);
+        Receiver.webServer.setOrderTableResponse Receiver.webServer.MobiCartaWebServicesSoap.setOrderTable(Receiver.webServer.setOrderTableRequest request) {
+            return base.Channel.setOrderTable(request);
         }
         
-        public void setProductAmount(int tableID, string product, string date, int amount) {
-            Receiver.webServer.setProductAmountRequest inValue = new Receiver.webServer.setProductAmountRequest();
-            inValue.Body = new Receiver.webServer.setProductAmountRequestBody();
+        public string setOrderTable(int orderID, int tableID) {
+            Receiver.webServer.setOrderTableRequest inValue = new Receiver.webServer.setOrderTableRequest();
+            inValue.Body = new Receiver.webServer.setOrderTableRequestBody();
+            inValue.Body.orderID = orderID;
             inValue.Body.tableID = tableID;
-            inValue.Body.product = product;
-            inValue.Body.date = date;
-            inValue.Body.amount = amount;
-            Receiver.webServer.setProductAmountResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).setProductAmount(inValue);
+            Receiver.webServer.setOrderTableResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).setOrderTable(inValue);
+            return retVal.Body.setOrderTableResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1471,6 +1696,33 @@ namespace Receiver.webServer {
             inValue.Body.dni = dni;
             Receiver.webServer.getTableIDResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getTableID(inValue);
             return retVal.Body.getTableIDResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Receiver.webServer.getBillResponse Receiver.webServer.MobiCartaWebServicesSoap.getBill(Receiver.webServer.getBillRequest request) {
+            return base.Channel.getBill(request);
+        }
+        
+        public string getBill(int tableID) {
+            Receiver.webServer.getBillRequest inValue = new Receiver.webServer.getBillRequest();
+            inValue.Body = new Receiver.webServer.getBillRequestBody();
+            inValue.Body.tableID = tableID;
+            Receiver.webServer.getBillResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getBill(inValue);
+            return retVal.Body.getBillResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Receiver.webServer.payBillResponse Receiver.webServer.MobiCartaWebServicesSoap.payBill(Receiver.webServer.payBillRequest request) {
+            return base.Channel.payBill(request);
+        }
+        
+        public string payBill(int billID, int type) {
+            Receiver.webServer.payBillRequest inValue = new Receiver.webServer.payBillRequest();
+            inValue.Body = new Receiver.webServer.payBillRequestBody();
+            inValue.Body.billID = billID;
+            inValue.Body.type = type;
+            Receiver.webServer.payBillResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).payBill(inValue);
+            return retVal.Body.payBillResult;
         }
     }
 }

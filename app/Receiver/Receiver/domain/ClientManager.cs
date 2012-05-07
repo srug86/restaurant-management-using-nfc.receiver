@@ -26,8 +26,9 @@ namespace Receiver.domain
 
         public ClientManager() { }
 
-        public void newClient(string id)
+        public void newStandardClient()
         {
+            adapter.sendMeClientStatus(xmlClientBuilder());
         }
 
         public void exitClient()
@@ -38,8 +39,25 @@ namespace Receiver.domain
         {
         }
 
-        private void xmlClientData(string xml)
+        private void xmlClientDecoder(string xml)
         {
+        }
+
+        private string xmlClientBuilder()
+        {
+            string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Profile>\n";
+            xml += "\t<DNI>" + client.Dni + "</DNI>\n";
+            xml += "\t<Name>" + client.Name + "</Name>\n";
+            xml += "\t<Surname>" + client.Surname + "</Surname>\n";
+            xml += "\t<Address>\n";
+            xml += "\t\t<Street>" + client.Address.Street + "</Street>\n";
+            xml += "\t\t<Number>" + client.Address.Number + "</Number>\n";
+            xml += "\t\t<ZipCode>" + client.Address.ZipCode + "</ZipCode>\n";
+            xml += "\t\t<Town>" + client.Address.Town + "</Town>\n";
+            xml += "\t\t<State>" + client.Address.State + "</State>\n";
+            xml += "\t</Address>\n";
+            xml += "</Profile>";
+            return xml;
         }
     }
 }

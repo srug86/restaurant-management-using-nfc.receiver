@@ -23,7 +23,7 @@ namespace Receiver.domain
             set { room = value; }
         }
 
-        int mode, selectedTable;
+        private int mode, selectedTable;
 
         public int Mode
         {
@@ -172,7 +172,7 @@ namespace Receiver.domain
                 XmlDocument xml = new XmlDocument();
                 xml.LoadXml(sXml);
                 XmlNodeList _room = xml.GetElementsByTagName("Room");
-                Room.Name = Convert.ToString(((XmlElement)_room[0]).GetAttribute("name"));
+                Room.Name = Convert.ToString(((XmlElement)_room[0]).GetAttribute("name")).Trim();
                 XmlNodeList dimension = ((XmlElement)_room[0]).GetElementsByTagName("Dimension");
                 XmlNodeList width = ((XmlElement)dimension[0]).GetElementsByTagName("Width");
                 Room.Width = Convert.ToInt16(width[0].InnerText);
@@ -229,7 +229,7 @@ namespace Receiver.domain
                     XmlNodeList status = ((XmlElement)table).GetElementsByTagName("Status");
                     Room.Tables[Room.Tables.IndexOf(taux)].Status = Convert.ToInt16(status[0].InnerText);
                     XmlNodeList client = ((XmlElement)table).GetElementsByTagName("Client");
-                    Room.Tables[Room.Tables.IndexOf(taux)].Client = Convert.ToString(client[0].InnerText);
+                    Room.Tables[Room.Tables.IndexOf(taux)].Client = Convert.ToString(client[0].InnerText).Trim();
                     XmlNodeList guests = ((XmlElement)table).GetElementsByTagName("Guests");
                     Room.Tables[Room.Tables.IndexOf(taux)].Guests = Convert.ToInt16(guests[0].InnerText);
                 }
