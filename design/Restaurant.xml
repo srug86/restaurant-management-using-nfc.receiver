@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Restaurant>
+	<Company>
+		<NIF>05692940A</NIF>
+		<Name>Restaurante MobiCarta</Name>
+		<Phone>926860595</Phone>
+		<Fax>926860595</Fax>
+		<Email>clients@mobicarta.es</Email>
+	</Company>
+	<Address>
+		<Street>C/Pedro Oviedo</Street>
+		<Number>38</Number>
+		<ZipCode>13270</ZipCode>
+		<Town>Almagro</Town>
+		<State>Ciudad Real</State>
+	</Address>
+	<Rate iva="18.0" discount="0.0"/>
+</Restaurant>
