@@ -76,6 +76,16 @@ namespace Receiver.communication
             return proxy.getTablesStatus();
         }
 
+        public int sendMeTable(string dni)
+        {
+            return proxy.getTableID(dni);
+        }
+
+        public double sendMeBillAmount(int tableID)
+        {
+            return proxy.getBillAmount(tableID);
+        }
+
         public int sendMeClientStatus(string client)
         {
             return proxy.getClientStatus(client);

@@ -7,11 +7,9 @@ using System.Xml;
 
 namespace Receiver.domain
 {
-    class RoomManager : SubjectRM, SubjectRE
+    class RoomManager : SubjectRE
     {
         private AdapterWebServices adapter = AdapterWebServices.Instance;
-
-        private List<ObserverRM> rmObservers = new List<ObserverRM>();
 
         private List<ObserverRE> reObservers = new List<ObserverRE>();
 
@@ -295,26 +293,9 @@ namespace Receiver.domain
             oSwitchBox.switchBox -= oBoxDelegate;
         }
 
-        public void registerInterest(ObserverRM obs)
-        {
-            rmObservers.Add(obs);
-        }
-
         public void registerInterest(ObserverRE obs)
         {
             reObservers.Add(obs);
         }
-    }
-
-    public interface SubjectRM
-    {
-        void registerInterest(ObserverRM obs);
-    }
-
-    public interface ObserverRM
-    {
-        void notifyNFCEntry(string DNI, string name, string surname);
-        void notifyNFCExit(string DNI, string name, string surname, int table);
-        void notifyNFCPayment(string DNI, string name, string surname, int table, double amount);
     }
 }

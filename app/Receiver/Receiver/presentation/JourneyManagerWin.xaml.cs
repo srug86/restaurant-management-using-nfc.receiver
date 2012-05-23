@@ -240,10 +240,11 @@ namespace Receiver.presentation
             manager.RoomManager.loadRoom(name, reset);
             generateEmptyRoom(manager.RoomManager.Room.Name, 
                 manager.RoomManager.Room.Height, manager.RoomManager.Room.Width);
-            registerSubjects(manager.RoomManager, manager.RoomManager);
+            registerSubjects(manager.ClientManager, manager.RoomManager);
             manager.RoomManager.locateObjects();
             if (reset) manager.resetCurrentJourney(name);
             else manager.RoomManager.updateTables();
+            //manager.initBluetoothServer();
             openOnPerspective();
         }
 

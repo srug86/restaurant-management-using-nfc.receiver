@@ -57,6 +57,44 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getTableID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTableIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getTableIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClientHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClientHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getClientHistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getClientsHistory">
+        <s:complexType />
+      </s:element>
+      <s:element name="getClientsHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getClientsHistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="resetJourney">
         <s:complexType>
           <s:sequence>
@@ -84,6 +122,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="getClientStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBillAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tableID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBillAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getBillAmountResult" type="s:double" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -240,20 +292,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getTableID">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="dni" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getTableIDResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="getTableIDResult" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="getBill">
         <s:complexType>
           <s:sequence>
@@ -315,6 +353,24 @@
   <wsdl:message name="getTablesStatusSoapOut">
     <wsdl:part name="parameters" element="tns:getTablesStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="getTableIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getTableID" />
+  </wsdl:message>
+  <wsdl:message name="getTableIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getTableIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getClientHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:getClientHistory" />
+  </wsdl:message>
+  <wsdl:message name="getClientHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:getClientHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getClientsHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:getClientsHistory" />
+  </wsdl:message>
+  <wsdl:message name="getClientsHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:getClientsHistoryResponse" />
+  </wsdl:message>
   <wsdl:message name="resetJourneySoapIn">
     <wsdl:part name="parameters" element="tns:resetJourney" />
   </wsdl:message>
@@ -332,6 +388,12 @@
   </wsdl:message>
   <wsdl:message name="getClientStatusSoapOut">
     <wsdl:part name="parameters" element="tns:getClientStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBillAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:getBillAmount" />
+  </wsdl:message>
+  <wsdl:message name="getBillAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:getBillAmountResponse" />
   </wsdl:message>
   <wsdl:message name="setAllocationTableSoapIn">
     <wsdl:part name="parameters" element="tns:setAllocationTable" />
@@ -405,12 +467,6 @@
   <wsdl:message name="setOrderTableSoapOut">
     <wsdl:part name="parameters" element="tns:setOrderTableResponse" />
   </wsdl:message>
-  <wsdl:message name="getTableIDSoapIn">
-    <wsdl:part name="parameters" element="tns:getTableID" />
-  </wsdl:message>
-  <wsdl:message name="getTableIDSoapOut">
-    <wsdl:part name="parameters" element="tns:getTableIDResponse" />
-  </wsdl:message>
   <wsdl:message name="getBillSoapIn">
     <wsdl:part name="parameters" element="tns:getBill" />
   </wsdl:message>
@@ -425,12 +481,12 @@
   </wsdl:message>
   <wsdl:portType name="MobiCartaWebServicesSoap">
     <wsdl:operation name="connect">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve true si se ha invocado al método satisfactoriamente</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve 'true' si se ha invocado al método satisfactoriamente</wsdl:documentation>
       <wsdl:input message="tns:connectSoapIn" />
       <wsdl:output message="tns:connectSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getRooms">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de restaurantes almacenados en la BBDD</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de restaurantes almacenados en la BD</wsdl:documentation>
       <wsdl:input message="tns:getRoomsSoapIn" />
       <wsdl:output message="tns:getRoomsSoapOut" />
     </wsdl:operation>
@@ -449,8 +505,23 @@
       <wsdl:input message="tns:getTablesStatusSoapIn" />
       <wsdl:output message="tns:getTablesStatusSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getTableID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el identificador (int) de la mesa que ocupa el cliente con identificador 'dni'</wsdl:documentation>
+      <wsdl:input message="tns:getTableIDSoapIn" />
+      <wsdl:output message="tns:getTableIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el histórico de pedidos de un cliente</wsdl:documentation>
+      <wsdl:input message="tns:getClientHistorySoapIn" />
+      <wsdl:output message="tns:getClientHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientsHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el histórico de pedidos del restaurante</wsdl:documentation>
+      <wsdl:input message="tns:getClientsHistorySoapIn" />
+      <wsdl:output message="tns:getClientsHistorySoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="resetJourney">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resetea de la BBDD los datos de la jornada anterior (estado de las mesas, pedidos y clientes)</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resetea de la BD los datos de la jornada anterior (estado de las mesas, pedidos y clientes)</wsdl:documentation>
       <wsdl:input message="tns:resetJourneySoapIn" />
       <wsdl:output message="tns:resetJourneySoapOut" />
     </wsdl:operation>
@@ -463,6 +534,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el estado almacenado del cliente con id 'clientID' y lo actualiza</wsdl:documentation>
       <wsdl:input message="tns:getClientStatusSoapIn" />
       <wsdl:output message="tns:getClientStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillAmount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el total de la factura para la mesa 'tableID'</wsdl:documentation>
+      <wsdl:input message="tns:getBillAmountSoapIn" />
+      <wsdl:output message="tns:getBillAmountSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="setAllocationTable">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con el estado de las mesas después de asignar un cliente a una mesa</wsdl:documentation>
@@ -490,12 +566,12 @@
       <wsdl:output message="tns:saveProductsListSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getProducts">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de productos almacenada en la BBDD</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de productos almacenada en la BD</wsdl:documentation>
       <wsdl:input message="tns:getProductsSoapIn" />
       <wsdl:output message="tns:getProductsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getOrdersStatus">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de pedidos almacenados en la BBDD</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de pedidos almacenados en la BD</wsdl:documentation>
       <wsdl:input message="tns:getOrdersStatusSoapIn" />
       <wsdl:output message="tns:getOrdersStatusSoapOut" />
     </wsdl:operation>
@@ -505,7 +581,7 @@
       <wsdl:output message="tns:getTableStatusSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="addNewOrder">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Añade un pedido 'order' (en formato XML) a la lista de pedidos de la BBDD</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Añade un pedido (en formato XML) a la lista de pedidos de la BD</wsdl:documentation>
       <wsdl:input message="tns:addNewOrderSoapIn" />
       <wsdl:output message="tns:addNewOrderSoapOut" />
     </wsdl:operation>
@@ -523,11 +599,6 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cambia la mesa actual del pedido 'orderID' por la mesa con identificador 'tableID'</wsdl:documentation>
       <wsdl:input message="tns:setOrderTableSoapIn" />
       <wsdl:output message="tns:setOrderTableSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="getTableID">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el identificador (int) de la mesa que ocupa el cliente con identificador 'dni'</wsdl:documentation>
-      <wsdl:input message="tns:getTableIDSoapIn" />
-      <wsdl:output message="tns:getTableIDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getBill">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Calcula la factura de una mesa y la devuelve en formato XML</wsdl:documentation>
@@ -587,6 +658,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getTableID">
+      <soap:operation soapAction="http://localhost/MobiCarta/getTableID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientHistory">
+      <soap:operation soapAction="http://localhost/MobiCarta/getClientHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsHistory">
+      <soap:operation soapAction="http://localhost/MobiCarta/getClientsHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="resetJourney">
       <soap:operation soapAction="http://localhost/MobiCarta/resetJourney" style="document" />
       <wsdl:input>
@@ -607,6 +705,15 @@
     </wsdl:operation>
     <wsdl:operation name="getClientStatus">
       <soap:operation soapAction="http://localhost/MobiCarta/getClientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillAmount">
+      <soap:operation soapAction="http://localhost/MobiCarta/getBillAmount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -722,15 +829,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getTableID">
-      <soap:operation soapAction="http://localhost/MobiCarta/getTableID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getBill">
       <soap:operation soapAction="http://localhost/MobiCarta/getBill" style="document" />
       <wsdl:input>
@@ -797,6 +895,33 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getTableID">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getTableID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientHistory">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getClientHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientsHistory">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getClientsHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="resetJourney">
       <soap12:operation soapAction="http://localhost/MobiCarta/resetJourney" style="document" />
       <wsdl:input>
@@ -817,6 +942,15 @@
     </wsdl:operation>
     <wsdl:operation name="getClientStatus">
       <soap12:operation soapAction="http://localhost/MobiCarta/getClientStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillAmount">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getBillAmount" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -925,15 +1059,6 @@
     </wsdl:operation>
     <wsdl:operation name="setOrderTable">
       <soap12:operation soapAction="http://localhost/MobiCarta/setOrderTable" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getTableID">
-      <soap12:operation soapAction="http://localhost/MobiCarta/getTableID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
