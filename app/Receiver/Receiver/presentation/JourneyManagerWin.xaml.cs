@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Receiver.domain;
 using System.Windows.Controls.Primitives;
+using Receiver.communication;
 
 namespace Receiver.presentation
 {
@@ -21,6 +22,8 @@ namespace Receiver.presentation
     public partial class JourneyManagerWin : Window, ObserverRM, ObserverRE
     {
         private JourneyManager manager = JourneyManager.Instance;
+
+        private BluetoothServer bluetoothServer = BluetoothServer.Instance;
 
         private string roomName;
 
@@ -244,7 +247,8 @@ namespace Receiver.presentation
             manager.RoomManager.locateObjects();
             if (reset) manager.resetCurrentJourney(name);
             else manager.RoomManager.updateTables();
-            //manager.initBluetoothServer();
+            //bluetoothServer = new BluetoothServer();
+            manager.initBluetoothServer();
             openOnPerspective();
         }
 

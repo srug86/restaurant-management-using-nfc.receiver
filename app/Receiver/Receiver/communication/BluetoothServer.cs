@@ -7,6 +7,7 @@ using InTheHand.Net.Bluetooth;
 using System.Threading;
 using System.IO;
 using Receiver.domain;
+using Receiver.presentation;
 
 namespace Receiver.communication
 {
@@ -15,7 +16,16 @@ namespace Receiver.communication
         private JourneyManager manager = JourneyManager.Instance;
 
         BluetoothListener btListener;
-        Guid service = new Guid("{0x2345}");
+        Guid service = new Guid("888794c2-65ce-4de1-aa15-74a11342bc63");
+
+        private JourneyManagerWin win;
+        public JourneyManagerWin Win
+        {
+            get { return win; }
+            set { win = value; }
+        }
+
+        //Guid service;
         bool exit;
 
         static readonly BluetoothServer instance = new BluetoothServer();
@@ -31,7 +41,20 @@ namespace Receiver.communication
                 return instance;
             }
         }
+        
 
+/*        public BluetoothServer() {
+            exit = false;
+            service = new Guid("888794c2-65ce-4de1-aa15-74a11342bc63");
+            BluetoothRadio br = BluetoothRadio.PrimaryRadio;
+            br.Mode = RadioMode.Discoverable;
+
+            btListener = new BluetoothListener(service);
+            btListener.Start();
+
+            Thread th = new Thread(new ThreadStart(this.runBluetooth));
+        }
+        */
         public void initBluetooth()
         {
             exit = false;
@@ -43,8 +66,9 @@ namespace Receiver.communication
             btListener.Start();
 
             Thread th = new Thread(new ThreadStart(this.runBluetooth));
+            th.Start();
         }
-
+        
         public void runBluetooth()
         {
             do
@@ -53,11 +77,18 @@ namespace Receiver.communication
                 {
                     BluetoothClient client = btListener.AcceptBluetoothClient();
                     StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
-                    String clientData = sr.ReadLine();
-                   // manager.ClientManager.manageNFCClient(clientData);
+                    string clientData = "";
+                    do
+                    {
+                        clientData += sr.ReadLine();
+                    } while (!sr.EndOfStream);
                     sr.Close();
+                    manager = JourneyManager.Instance;
+                    manager.ClientManager.delegateToEstablishNFCClient(clientData.Substring(2));
                 }
-                catch (Exception e) { }
+                catch (Exception e) {
+                    return;
+                }
             } while (!exit);
         }
 

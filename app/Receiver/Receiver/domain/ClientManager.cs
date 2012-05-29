@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Receiver.communication;
 using System.Xml;
+using System.Windows.Threading;
 
 namespace Receiver.domain
 {
@@ -48,13 +49,20 @@ namespace Receiver.domain
             adapter.sendMeClientStatus(xmlClientBuilder());
         }
 
+        private delegate void NFCClient(string xml);
+        public void delegateToEstablishNFCClient(string xml)
+        {
+            Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Normal, new NFCClient(this.manageNFCClient), xml);
+        }
+
         public void manageNFCClient(string xml)
         {
             xmlClientDecoder(xml);
             int status = adapter.sendMeClientStatus(xml);
             switch (status)
             {
-                case -1: case 0:
+                case -1:
+                case 0:
                     nfcClientHasArrived();
                     break;
                 case 1:
@@ -71,6 +79,7 @@ namespace Receiver.domain
 
         private void xmlClientDecoder(string sXml)
         {
+            client = new Client();
             XmlDocument xml = new XmlDocument();
             xml.LoadXml(sXml);
             XmlNodeList profile = xml.GetElementsByTagName("Profile");
@@ -89,7 +98,7 @@ namespace Receiver.domain
             client.Address.ZipCode = Convert.ToInt32(zip[0].InnerText);
             XmlNodeList town = ((XmlElement)address[0]).GetElementsByTagName("Town");
             client.Address.Town = Convert.ToString(town[0].InnerText);
-            XmlNodeList state = ((XmlElement)town[0]).GetElementsByTagName("State");
+            XmlNodeList state = ((XmlElement)address[0]).GetElementsByTagName("State");
             client.Address.State = Convert.ToString(state[0].InnerText);
         }
 

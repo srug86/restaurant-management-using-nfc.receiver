@@ -35,6 +35,10 @@ namespace Receiver.domain
             set { address = value; }
         }
 
+        public Client() {
+            Address = new Address();
+        }
+
         public Client(string dni, string name, string surname, Address address)
         {
             Dni = dni;

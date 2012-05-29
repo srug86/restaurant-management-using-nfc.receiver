@@ -11,7 +11,7 @@ namespace Receiver.domain
     {
         private AdapterWebServices adapter = AdapterWebServices.Instance;
 
-        //private BluetoothServer bluetooth = BluetoothServer.Instance;
+        private BluetoothServer bluetooth = BluetoothServer.Instance;
 
         static readonly JourneyManager instance = new JourneyManager();
 
@@ -46,7 +46,7 @@ namespace Receiver.domain
             return adapter.connect(url);
         }
 
-       /* public void initBluetoothServer()
+        public void initBluetoothServer()
         {
             bluetooth.initBluetooth();
         }
@@ -54,7 +54,7 @@ namespace Receiver.domain
         public void closeBluetoothServer()
         {
             bluetooth.closeBluetooth();
-        }*/
+        }
 
         public List<RoomInf> consultingRooms()
         {
