@@ -5,14 +5,17 @@ using System.Text;
 using Receiver.communication;
 using System.Xml;
 using System.Windows.Threading;
+using Receiver.presentation;
 
 namespace Receiver.domain
 {
-    class ClientManager : SubjectRM
+    class ClientManager
     {
         private AdapterWebServices adapter = AdapterWebServices.Instance;
 
         private List<ObserverRM> rmObservers = new List<ObserverRM>();
+
+        private JourneyManagerWin gui;
 
         private Client client;
         internal Client Client
@@ -44,15 +47,14 @@ namespace Receiver.domain
 
         public ClientManager() { }
 
+        public void setGuiReference(JourneyManagerWin gui)
+        {
+            this.gui = gui;
+        }
+
         public void newStandardClient()
         {
             adapter.sendMeClientStatus(xmlClientBuilder());
-        }
-
-        private delegate void NFCClient(string xml);
-        public void delegateToEstablishNFCClient(string xml)
-        {
-            Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Normal, new NFCClient(this.manageNFCClient), xml);
         }
 
         public void manageNFCClient(string xml)
@@ -63,16 +65,16 @@ namespace Receiver.domain
             {
                 case -1:
                 case 0:
-                    nfcClientHasArrived();
+                    gui.delegateToNFCClientHasArrived(Client);
                     break;
                 case 1:
                     Table = adapter.sendMeTable(Client.Dni);
                     Amount = adapter.sendMeBillAmount(Table);
-                    nfcClientHasPaid();
+                    gui.delegateToNFCClientHasPaid(Client, Table, Amount);
                     break;
                 case 2:
                     Table = adapter.sendMeTable(Client.Dni);
-                    nfcClientHasLeft();
+                    gui.delegateToNFCClientHasLeft(Client, Table);
                     break;
             }
         }
@@ -119,7 +121,7 @@ namespace Receiver.domain
             return xml;
         }
 
-        private void clientArrives()
+/*        private void clientArrives()
         {
             for (int i = 0; i < rmObservers.Count; i++)
             {
@@ -182,7 +184,7 @@ namespace Receiver.domain
         public void registerInterest(ObserverRM obs)
         {
             rmObservers.Add(obs);
-        }
+        }*/
     }
 
     public interface SubjectRM

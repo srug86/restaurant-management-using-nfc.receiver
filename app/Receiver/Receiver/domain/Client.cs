@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Receiver.domain
 {
-    class Client
+    public class Client
     {
         private string dni, name, surname;
 

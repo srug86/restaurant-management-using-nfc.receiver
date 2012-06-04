@@ -13,13 +13,14 @@ using System.Windows.Shapes;
 using Receiver.domain;
 using System.Windows.Controls.Primitives;
 using Receiver.communication;
+using System.Windows.Threading;
 
 namespace Receiver.presentation
 {
     /// <summary>
     /// Lógica de interacción para JourneyManagerWin.xaml
     /// </summary>
-    public partial class JourneyManagerWin : Window, ObserverRM, ObserverRE
+    public partial class JourneyManagerWin : Window, ObserverRE
     {
         private JourneyManager manager = JourneyManager.Instance;
 
@@ -243,7 +244,9 @@ namespace Receiver.presentation
             manager.RoomManager.loadRoom(name, reset);
             generateEmptyRoom(manager.RoomManager.Room.Name, 
                 manager.RoomManager.Room.Height, manager.RoomManager.Room.Width);
-            registerSubjects(manager.ClientManager, manager.RoomManager);
+            //registerSubjects(manager.ClientManager, manager.RoomManager);
+            registerSubjects(manager.RoomManager);
+            manager.ClientManager.setGuiReference(this);
             manager.RoomManager.locateObjects();
             if (reset) manager.resetCurrentJourney(name);
             else manager.RoomManager.updateTables();
@@ -277,9 +280,10 @@ namespace Receiver.presentation
             }
         }
 
-        private void registerSubjects(SubjectRM subjectRM, SubjectRE subjectRE)
+        //private void registerSubjects(SubjectRM subjectRM, SubjectRE subjectRE)
+        private void registerSubjects(SubjectRE subjectRE)
         {
-            subjectRM.registerInterest(this);
+            //subjectRM.registerInterest(this);
             subjectRE.registerInterest(this);
         }
 
@@ -301,7 +305,52 @@ namespace Receiver.presentation
                 Room[row, column, i].Source = bi;
         }
 
-        public void notifyNFCEntry(string DNI, string name, string surname)
+        private delegate void EntryNFCClient(Client client);
+        public void delegateToNFCClientHasArrived(Client client)
+        {
+            Dispatcher.Invoke(DispatcherPriority.Normal, new EntryNFCClient(this.nfcEntry), client);
+        }
+
+        public void nfcEntry(Client client)
+        {
+            lblCDNI.Content = client.Dni;
+            lblCName.Content = client.Name;
+            lblCSurname.Content = client.Surname;
+            openArrivalNFCPerspective();
+        }
+
+        private delegate void ExitNFCClient(Client client, int table);
+        public void delegateToNFCClientHasLeft(Client client, int table)
+        {
+            Dispatcher.Invoke(DispatcherPriority.Normal, new ExitNFCClient(this.nfcExit), client, table);
+        }
+
+        public void nfcExit(Client client, int table)
+        {
+            lblLDNI.Content = client.Dni;
+            lblLName.Content = client.Name;
+            lblLSurname.Content = client.Surname;
+            lblLTable.Content = table;
+            openExitNFCPerspective();
+        }
+        
+        private delegate void PayNFCClient(Client client, int table, double amount);
+        public void delegateToNFCClientHasPaid(Client client, int table, double amount)
+        {
+            Dispatcher.Invoke(DispatcherPriority.Normal, new PayNFCClient(this.nfcPayment), client, table, amount);
+        }
+
+        public void nfcPayment(Client client, int table, double amount)
+        {
+            lblPDNI.Content = client.Dni;
+            lblPName.Content = client.Name;
+            lblPSurname.Content = client.Surname;
+            lblPTable.Content = table;
+            lblPAmount.Content = amount;
+            openPaymentPerspective();
+        }
+
+        /*public void notifyNFCEntry(string DNI, string name, string surname)
         {
             lblCDNI.Content = DNI;
             lblCName.Content = name;
@@ -326,7 +375,7 @@ namespace Receiver.presentation
             lblPTable.Content = table;
             lblPAmount.Content = amount;
             openPaymentPerspective();
-        }
+        }*/
 
         private void btnAcceptCome_Click(object sender, RoutedEventArgs e)
         {
@@ -391,6 +440,42 @@ namespace Receiver.presentation
                 manager.RoomManager.confirmDeallocation(Convert.ToInt16(txtbDeallocTable.Text));
                 openViewPerspective();
             }
+        }
+
+        private void btnAcceptComeNFC_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtbCapacityComeNFC.Text != "")
+            {
+                manager.ClientManager.Guests = Convert.ToInt16(txtbCapacityComeNFC.Text);
+                openAllocationPerspective();
+                txtbCapacityComeNFC.Text = "";
+            }
+        }
+
+        private void btnCancelComeNFC_Click(object sender, RoutedEventArgs e)
+        {
+            openViewPerspective();
+        }
+
+        private void btnAcceptLeaveNFC_Click(object sender, RoutedEventArgs e)
+        {
+            manager.RoomManager.confirmDeallocation(Convert.ToInt16(lblLTable.Content));
+            openViewPerspective();
+        }
+
+        private void btnCancelLeaveNFC_Click(object sender, RoutedEventArgs e)
+        {
+            openViewPerspective();
+        }
+
+        private void btnAcceptPayNFC_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancelPayNFC_Click(object sender, RoutedEventArgs e)
+        {
+            openViewPerspective();
         }
 
         private void txtbAllocTable_TextChanged(object sender, TextChangedEventArgs e)

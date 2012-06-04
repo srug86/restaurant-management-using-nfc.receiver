@@ -68,6 +68,16 @@ namespace Receiver.communication
             Thread th = new Thread(new ThreadStart(this.runBluetooth));
             th.Start();
         }
+
+        /*public void initBluetooth()
+        {
+            BluetoothRadio myRadio = BluetoothRadio.PrimaryRadio;
+            if (myRadio == null)
+            {
+                Console.WriteLine("No radio hardware or unsupported software stack");
+                return;
+            }
+        }*/
         
         public void runBluetooth()
         {
@@ -84,7 +94,8 @@ namespace Receiver.communication
                     } while (!sr.EndOfStream);
                     sr.Close();
                     manager = JourneyManager.Instance;
-                    manager.ClientManager.delegateToEstablishNFCClient(clientData.Substring(2));
+                    manager.ClientManager.manageNFCClient(clientData.Substring(2));
+                    //manager.ClientManager.delegateToEstablishNFCClient(clientData.Substring(2));
                 }
                 catch (Exception e) {
                     return;
