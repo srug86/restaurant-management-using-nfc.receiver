@@ -57,7 +57,7 @@ namespace Receiver.domain
             adapter.sendMeClientStatus(xmlClientBuilder());
         }
 
-        public void manageNFCClient(string xml)
+        public string manageNFCClient(string xml)
         {
             xmlClientDecoder(xml);
             int status = adapter.sendMeClientStatus(xml);
@@ -77,6 +77,7 @@ namespace Receiver.domain
                     gui.delegateToNFCClientHasLeft(Client, Table);
                     break;
             }
+            return adapter.sendMeClientRecommendation(Client.Dni);
         }
 
         private void xmlClientDecoder(string sXml)

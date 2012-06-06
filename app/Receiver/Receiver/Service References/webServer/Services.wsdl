@@ -125,6 +125,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getRecommendation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRecommendationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRecommendationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getBillAmount">
         <s:complexType>
           <s:sequence>
@@ -204,7 +218,11 @@
         <s:complexType />
       </s:element>
       <s:element name="getProducts">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nonVisible" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="getProductsResponse">
         <s:complexType>
@@ -389,6 +407,12 @@
   <wsdl:message name="getClientStatusSoapOut">
     <wsdl:part name="parameters" element="tns:getClientStatusResponse" />
   </wsdl:message>
+  <wsdl:message name="getRecommendationSoapIn">
+    <wsdl:part name="parameters" element="tns:getRecommendation" />
+  </wsdl:message>
+  <wsdl:message name="getRecommendationSoapOut">
+    <wsdl:part name="parameters" element="tns:getRecommendationResponse" />
+  </wsdl:message>
   <wsdl:message name="getBillAmountSoapIn">
     <wsdl:part name="parameters" element="tns:getBillAmount" />
   </wsdl:message>
@@ -534,6 +558,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el estado almacenado del cliente con id 'clientID' y lo actualiza</wsdl:documentation>
       <wsdl:input message="tns:getClientStatusSoapIn" />
       <wsdl:output message="tns:getClientStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecommendation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con el resultado generado por el sistema recomendador para un cliente</wsdl:documentation>
+      <wsdl:input message="tns:getRecommendationSoapIn" />
+      <wsdl:output message="tns:getRecommendationSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getBillAmount">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el total de la factura para la mesa 'tableID'</wsdl:documentation>
@@ -705,6 +734,15 @@
     </wsdl:operation>
     <wsdl:operation name="getClientStatus">
       <soap:operation soapAction="http://localhost/MobiCarta/getClientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecommendation">
+      <soap:operation soapAction="http://localhost/MobiCarta/getRecommendation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -942,6 +980,15 @@
     </wsdl:operation>
     <wsdl:operation name="getClientStatus">
       <soap12:operation soapAction="http://localhost/MobiCarta/getClientStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecommendation">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getRecommendation" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

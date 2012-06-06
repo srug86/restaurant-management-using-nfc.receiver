@@ -91,6 +91,11 @@ namespace Receiver.communication
             return proxy.getClientStatus(client);
         }
 
+        public string sendMeClientRecommendation(string client)
+        {
+            return proxy.getRecommendation(client);
+        }
+
         public string sendAllocationTable(string client, int table, int guests)
         {
             return proxy.setAllocationTable(client, table, guests);

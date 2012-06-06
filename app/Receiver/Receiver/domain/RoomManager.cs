@@ -74,7 +74,7 @@ namespace Receiver.domain
                     selectedTable = table.Id;
                     return table.Id;
                 }
-                else if (Mode == 4 && table.Status == 0)
+                else if (Mode == 4 && table.Status == 3)
                 {
                     if (selectedTable > 0)
                     {

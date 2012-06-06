@@ -68,16 +68,6 @@ namespace Receiver.communication
             Thread th = new Thread(new ThreadStart(this.runBluetooth));
             th.Start();
         }
-
-        /*public void initBluetooth()
-        {
-            BluetoothRadio myRadio = BluetoothRadio.PrimaryRadio;
-            if (myRadio == null)
-            {
-                Console.WriteLine("No radio hardware or unsupported software stack");
-                return;
-            }
-        }*/
         
         public void runBluetooth()
         {
@@ -86,6 +76,7 @@ namespace Receiver.communication
                 try
                 {
                     BluetoothClient client = btListener.AcceptBluetoothClient();
+                    // Lectura del perfil del cliente
                     StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
                     string clientData = "";
                     do
@@ -94,11 +85,32 @@ namespace Receiver.communication
                     } while (!sr.EndOfStream);
                     sr.Close();
                     manager = JourneyManager.Instance;
-                    manager.ClientManager.manageNFCClient(clientData.Substring(2));
-                    //manager.ClientManager.delegateToEstablishNFCClient(clientData.Substring(2));
+                    string recommendation = manager.ClientManager.manageNFCClient(clientData.Substring(2));
+
+                    /*byte[] byteArray = Encoding.UTF8.GetBytes(recommendation);
+                    MemoryStream ms = new MemoryStream(byteArray);
+                    BinaryReader br = new BinaryReader(ms);
+                    StreamWriter sw = new StreamWriter(client.GetStream());
+                    int count = 0;
+                    do
+                    {
+                        count = br.Read(byteArray, 0, byteArray.Length);
+                        if (count > 0)
+                            sw.WriteLine(Convert.ToBase64String(byteArray, 0, count));
+                    } while (count > 0);
+                    sw.Flush();
+                    sw.Close();
+                    br.Close();
+                    ms.Close();*/
+
+                    /*
+                    StreamWriter sw = new StreamWriter(client.GetStream(), Encoding.UTF8);
+                    sw.Write(recommendation);
+                    sw.Close();
+                     */
+                    client.Close();
                 }
                 catch (Exception e) {
-                    return;
                 }
             } while (!exit);
         }
