@@ -77,15 +77,24 @@ namespace Receiver.communication
                 {
                     BluetoothClient client = btListener.AcceptBluetoothClient();
                     // Lectura del perfil del cliente
-                    StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
+                    /*StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
                     string clientData = "";
-                    do
+                    while (true)
+                    {
+                        string aux = sr.ReadLine();
+                        clientData += aux;
+                        if (aux.Equals("</Profile>"))
+                        {
+                            //sr.Close();
+                            break;
+                        }
+                    }
+                    /*do
                     {
                         clientData += sr.ReadLine();
-                    } while (!sr.EndOfStream);
-                    sr.Close();
-                    manager = JourneyManager.Instance;
-                    string recommendation = manager.ClientManager.manageNFCClient(clientData.Substring(2));
+                    } while (!sr.EndOfStream);*/
+                    //manager = JourneyManager.Instance;
+                    //string recommendation = manager.ClientManager.manageNFCClient(clientData.Substring(2));
 
                     /*byte[] byteArray = Encoding.UTF8.GetBytes(recommendation);
                     MemoryStream ms = new MemoryStream(byteArray);
@@ -103,12 +112,16 @@ namespace Receiver.communication
                     br.Close();
                     ms.Close();*/
 
-                    /*
+                    //bool conn = client.Connected;
+                    //client.Connect(client.RemoteEndPoint);
                     StreamWriter sw = new StreamWriter(client.GetStream(), Encoding.UTF8);
-                    sw.Write(recommendation);
+                    //sw.Write(recommendation);
+                    System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+                    Byte[] bytes = encoding.GetBytes("hola\nsoy\nSergio");
+                    sw.Write(bytes);
+                    sw.Flush();
+                    //sr.Close();
                     sw.Close();
-                     */
-                    client.Close();
                 }
                 catch (Exception e) {
                 }
