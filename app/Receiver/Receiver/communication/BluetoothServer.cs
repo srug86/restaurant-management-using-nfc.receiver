@@ -76,52 +76,21 @@ namespace Receiver.communication
                 try
                 {
                     BluetoothClient client = btListener.AcceptBluetoothClient();
-                    // Lectura del perfil del cliente
-                    /*StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
+                    StreamReader sr = new StreamReader(client.GetStream(), Encoding.UTF8);
                     string clientData = "";
                     while (true)
                     {
                         string aux = sr.ReadLine();
                         clientData += aux;
-                        if (aux.Equals("</Profile>"))
-                        {
-                            //sr.Close();
-                            break;
-                        }
+                        if (aux.Equals("</Profile>")) break;
                     }
-                    /*do
-                    {
-                        clientData += sr.ReadLine();
-                    } while (!sr.EndOfStream);*/
-                    //manager = JourneyManager.Instance;
-                    //string recommendation = manager.ClientManager.manageNFCClient(clientData.Substring(2));
-
-                    /*byte[] byteArray = Encoding.UTF8.GetBytes(recommendation);
-                    MemoryStream ms = new MemoryStream(byteArray);
-                    BinaryReader br = new BinaryReader(ms);
-                    StreamWriter sw = new StreamWriter(client.GetStream());
-                    int count = 0;
-                    do
-                    {
-                        count = br.Read(byteArray, 0, byteArray.Length);
-                        if (count > 0)
-                            sw.WriteLine(Convert.ToBase64String(byteArray, 0, count));
-                    } while (count > 0);
+                    manager = JourneyManager.Instance;
+                    string recommendation = manager.ClientManager.manageNFCClient(clientData.Substring(2));
+                    StreamWriter sw = new StreamWriter(client.GetStream(), Encoding.ASCII);
+                    sw.Write(Convert.ToString(recommendation));
                     sw.Flush();
-                    sw.Close();
-                    br.Close();
-                    ms.Close();*/
-
-                    //bool conn = client.Connected;
-                    //client.Connect(client.RemoteEndPoint);
-                    StreamWriter sw = new StreamWriter(client.GetStream(), Encoding.UTF8);
-                    //sw.Write(recommendation);
-                    System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-                    Byte[] bytes = encoding.GetBytes("hola\nsoy\nSergio");
-                    sw.Write(bytes);
-                    sw.Flush();
-                    //sr.Close();
-                    sw.Close();
+                    if (client.Connected) sr.Close();
+                    if (client.Connected) sw.Close();
                 }
                 catch (Exception e) {
                 }
