@@ -25,7 +25,6 @@ namespace Receiver.communication
             set { win = value; }
         }
 
-        //Guid service;
         bool exit;
 
         static readonly BluetoothServer instance = new BluetoothServer();
@@ -42,19 +41,6 @@ namespace Receiver.communication
             }
         }
         
-
-/*        public BluetoothServer() {
-            exit = false;
-            service = new Guid("888794c2-65ce-4de1-aa15-74a11342bc63");
-            BluetoothRadio br = BluetoothRadio.PrimaryRadio;
-            br.Mode = RadioMode.Discoverable;
-
-            btListener = new BluetoothListener(service);
-            btListener.Start();
-
-            Thread th = new Thread(new ThreadStart(this.runBluetooth));
-        }
-        */
         public void initBluetooth()
         {
             exit = false;
@@ -89,11 +75,11 @@ namespace Receiver.communication
                     StreamWriter sw = new StreamWriter(client.GetStream(), Encoding.ASCII);
                     sw.Write(Convert.ToString(recommendation));
                     sw.Flush();
-                    if (client.Connected) sr.Close();
-                    if (client.Connected) sw.Close();
+                    sw.Close();
+                    sr.Close();
+                    client.Close();
                 }
-                catch (Exception e) {
-                }
+                catch (Exception e) { }
             } while (!exit);
         }
 
