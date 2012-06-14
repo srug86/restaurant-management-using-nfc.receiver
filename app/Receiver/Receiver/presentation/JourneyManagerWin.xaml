@@ -16,9 +16,6 @@
                 <Button Background="#00000000" BorderBrush="#00000000" Cursor="Hand" Height="Auto" Margin="5,5,5,5" Name="btnOpen" ToolTip="Abrir" Width="50" Click="btnLoad_Click">
                     <Image Name="imgOpen" Source="/Receiver;component/Resources/open.jpg" ToolTip="Abrir" />
                 </Button>
-                <Button Background="#00000000" BorderBrush="#00000000" Cursor="Hand" Height="Auto" Margin="5,5,5,5" Name="btnConnect" ToolTip="Conexión" Width="50" Click="btnConnect_Click">
-                    <Image Name="imgConnect" ToolTip="Conexión" Source="/Receiver;component/Resources/network.jpg" />
-                </Button>
             </StackPanel>
         </ToolBar>
         <StatusBar Height="30" HorizontalAlignment="Stretch" Name="statusBar1" VerticalAlignment="Bottom" Width="Auto" Grid.RowSpan="2" Grid.Row="1" MinHeight="30">

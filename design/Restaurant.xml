@@ -14,5 +14,5 @@
 		<Town>Almagro</Town>
 		<State>Ciudad Real</State>
 	</Address>
-	<Rate iva="18,5" discount="5,0" discountedVisit="10"/>
+	<Rate iva="18" discount="5,0" discountedVisit="10"/>
 </Restaurant>

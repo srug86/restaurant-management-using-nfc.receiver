@@ -32,16 +32,6 @@ namespace Receiver.communication
             }
         }
 
-        public bool connect(string url)
-        {
-            try
-            {
-                Url = url;
-                return proxy.connect();
-            }
-            catch (Exception e) { return false; }
-        }
-
         public string sendMeRooms()
         {
             try
@@ -52,6 +42,11 @@ namespace Receiver.communication
             { 
                 return "";
             }
+        }
+
+        public string sendMeCurrentRoom()
+        {
+            return proxy.getCurrentRoom();
         }
 
         public string sendMeRoom(string name)

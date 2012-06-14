@@ -60,8 +60,6 @@ namespace Receiver.presentation
 
         private UniformGrid[] uGridsRooms;
 
-        private ConnectDialog connect;
-
         private Dictionary<int, string> colorBox = new Dictionary<int, string> {
             {-1, "/Receiver;component/Resources/white.jpg"},
             {0, "/Receiver;component/Resources/green.jpg"},
@@ -75,7 +73,6 @@ namespace Receiver.presentation
 
         public JourneyManagerWin()
         {
-            connect = new ConnectDialog();
             InitializeComponent();
             initGridsOnMode();
             openOffPerspective();
@@ -105,13 +102,8 @@ namespace Receiver.presentation
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingRooms(), false);
+            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingCurrentRoom(), false);
             roomDialog.Show();
-        }
-
-        private void btnConnect_Click(object sender, RoutedEventArgs e)
-        {
-            connect.Show();
         }
 
         private void btnCM_Click(object sender, RoutedEventArgs e)
@@ -244,13 +236,11 @@ namespace Receiver.presentation
             manager.RoomManager.loadRoom(name, reset);
             generateEmptyRoom(manager.RoomManager.Room.Name, 
                 manager.RoomManager.Room.Height, manager.RoomManager.Room.Width);
-            //registerSubjects(manager.ClientManager, manager.RoomManager);
             registerSubjects(manager.RoomManager);
             manager.ClientManager.setGuiReference(this);
             manager.RoomManager.locateObjects();
             if (reset) manager.resetCurrentJourney(name);
             else manager.RoomManager.updateTables();
-            //bluetoothServer = new BluetoothServer();
             manager.initBluetoothServer();
             openOnPerspective();
         }
@@ -280,10 +270,8 @@ namespace Receiver.presentation
             }
         }
 
-        //private void registerSubjects(SubjectRM subjectRM, SubjectRE subjectRE)
         private void registerSubjects(SubjectRE subjectRE)
         {
-            //subjectRM.registerInterest(this);
             subjectRE.registerInterest(this);
         }
 
@@ -349,33 +337,6 @@ namespace Receiver.presentation
             lblPAmount.Content = amount;
             openPaymentPerspective();
         }
-
-        /*public void notifyNFCEntry(string DNI, string name, string surname)
-        {
-            lblCDNI.Content = DNI;
-            lblCName.Content = name;
-            lblCSurname.Content = surname;
-            openArrivalNFCPerspective();
-        }
-
-        public void notifyNFCExit(string DNI, string name, string surname, int table)
-        {
-            lblLDNI.Content = DNI;
-            lblLName.Content = name;
-            lblLSurname.Content = surname;
-            lblLTable.Content = table;
-            openExitNFCPerspective();
-        }
-
-        public void notifyNFCPayment(string DNI, string name, string surname, int table, double amount)
-        {
-            lblPDNI.Content = DNI;
-            lblPName.Content = name;
-            lblPSurname.Content = surname;
-            lblPTable.Content = table;
-            lblPAmount.Content = amount;
-            openPaymentPerspective();
-        }*/
 
         private void btnAcceptCome_Click(object sender, RoutedEventArgs e)
         {

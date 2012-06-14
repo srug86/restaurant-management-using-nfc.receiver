@@ -34,8 +34,17 @@ namespace Receiver.presentation
             InitializeComponent();
             if (!resetJourney)
             {
-                lblLoadMessage.Content = "* Se conservarán los datos almacenados durante la jornada anterior.";
                 wLoadRoom.Title = "MobiCarta - Cargar una jornada existente.";
+                if (list.Count == 0)
+                {
+                    lblInstructions.Content = "No hay ninguna jornada cargada en el servidor.";
+                    lblLoadMessage.Content = "";
+                }
+                else
+                {
+                    lblInstructions.Content = "Pulse 'Cargar' para iniciar la jornada con el restaurante actual.";
+                    lblLoadMessage.Content = "* Se conservarán los datos almacenados durante la jornada anterior.";
+                }
             }
             showRooms();
         }
