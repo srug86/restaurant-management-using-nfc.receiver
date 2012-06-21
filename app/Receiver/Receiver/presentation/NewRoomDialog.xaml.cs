@@ -18,9 +18,9 @@ namespace Receiver.presentation
     /// </summary>
     public partial class NewRoomDialog : Window
     {
-        private EditRoomWin editor;
+        private RoomEditorWin editor;
 
-        public NewRoomDialog(EditRoomWin editor)
+        public NewRoomDialog(RoomEditorWin editor)
         {
             this.editor = editor;
             InitializeComponent();
@@ -33,11 +33,15 @@ namespace Receiver.presentation
 
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
-            if (txtbName.Text != "")
+            try
             {
-                editor.newRoom(txtbName.Text, cbbSize.SelectedIndex);
-                this.Close();
+                if (!txtbName.Text.Equals("") && !txtbRows.Text.Equals("") && !txtbColumns.Text.Equals(""))
+                {
+                    editor.newRoom(txtbName.Text, Convert.ToInt32(txtbRows.Text), Convert.ToInt32(txtbColumns.Text));
+                    this.Close();
+                }
             }
+            catch (FormatException ex) { }
         }
     }
 }

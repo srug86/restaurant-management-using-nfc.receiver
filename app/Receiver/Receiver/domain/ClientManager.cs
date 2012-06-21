@@ -24,7 +24,7 @@ namespace Receiver.domain
           set { client = value; }
         }
 
-        private int guests, table;
+        private int guests, table, billID;
 
         public int Table
         {
@@ -35,6 +35,12 @@ namespace Receiver.domain
         {
           get { return guests; }
           set { guests = value; }
+        }
+
+        public int BillID
+        {
+            get { return billID; }
+            set { billID = value; }
         }
 
         private double amount;
@@ -66,18 +72,26 @@ namespace Receiver.domain
                 case -1:
                 case 0:
                     gui.delegateToNFCClientHasArrived(Client);
-                    break;
+                    return adapter.sendMeClientRecommendation(Client.Dni);
                 case 1:
                     Table = adapter.sendMeTable(Client.Dni);
                     Amount = adapter.sendMeBillAmount(Table);
-                    gui.delegateToNFCClientHasPaid(Client, Table, Amount);
-                    break;
+                    BillID = adapter.sendMeBillID(Table);
+                    gui.delegateToNFCClientHasPaid(Client, Table, BillID, Amount);
+                    return "El resumen de su factura es el siguiente:\n- Mesa: " + Table + "\n- Factura N.: " + 
+                        BillID + "\n- Total: " + Amount + " €.\n Por favor, abone el importe.\nGracias.";
                 case 2:
                     Table = adapter.sendMeTable(Client.Dni);
                     gui.delegateToNFCClientHasLeft(Client, Table);
-                    break;
+                    return "Gracias por su visita.";
+                default:
+                    return "";
             }
-            return adapter.sendMeClientRecommendation(Client.Dni);
+        }
+
+        public void payBill(int billID, int type)
+        {
+            adapter.sendBillPayment(billID, type);
         }
 
         private void xmlClientDecoder(string sXml)

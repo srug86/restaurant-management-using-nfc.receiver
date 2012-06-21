@@ -49,11 +49,14 @@ namespace Receiver.domain
             set { boxStatus = value; }
         }
 
-        public RoomManager() { }
+        public RoomManager()
+        {
+            Room = new RoomDef();
+        }
 
         public void loadRoom(string name, bool newJourney)
         {
-            xmlDistributionOfRoom(adapter.sendMeRoom(name));
+            xmlDistributionOfRoom(adapter.sendMeRoom(name, newJourney));
         }
 
         public int selectedBox(int row, int column)
@@ -164,7 +167,7 @@ namespace Receiver.domain
 
         private void xmlDistributionOfRoom(string sXml)
         {
-            if (sXml != "")
+            if (sXml != "" && sXml != null)
             {
                 Room = new RoomDef();
                 XmlDocument xml = new XmlDocument();
@@ -297,5 +300,15 @@ namespace Receiver.domain
         {
             reObservers.Add(obs);
         }
+    }
+
+    public interface SubjectRE
+    {
+        void registerInterest(ObserverRE obs);
+    }
+
+    public interface ObserverRE
+    {
+        void notifyChangesInABox(int row, int column, int state);
     }
 }

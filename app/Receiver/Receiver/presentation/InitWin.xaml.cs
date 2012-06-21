@@ -28,13 +28,11 @@ namespace Receiver.presentation
         private void btnBegin_Click(object sender, RoutedEventArgs e)
         {
             startJourney();
-            //TablesManager tablesManager = new TablesManager();
         }
 
         private void btnRoom_Click(object sender, RoutedEventArgs e)
         {
             editRoom();
-            //EditRoom editRoom = new EditRoom(-1, -1);
         }
 
         private void Close_Program(object sender, EventArgs e)
@@ -52,8 +50,8 @@ namespace Receiver.presentation
 
         private void editRoom()
         {
-            //EditRoomWin editor = new EditRoomWin();
-            //editor.Show();
+            RoomEditorWin editor = new RoomEditorWin();
+            editor.Show();
         }
     }
 }

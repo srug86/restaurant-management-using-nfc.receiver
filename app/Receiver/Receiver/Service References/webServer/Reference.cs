@@ -15,18 +15,19 @@ namespace Receiver.webServer {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/MobiCarta", ConfigurationName="webServer.MobiCartaWebServicesSoap")]
     public interface MobiCartaWebServicesSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/connect", ReplyAction="*")]
-        bool connect();
-        
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento getRoomsResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getRooms", ReplyAction="*")]
         Receiver.webServer.getRoomsResponse getRooms(Receiver.webServer.getRoomsRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento getCurrentRoomResult del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getCurrentRoom", ReplyAction="*")]
+        Receiver.webServer.getCurrentRoomResponse getCurrentRoom(Receiver.webServer.getCurrentRoomRequest request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getRoom", ReplyAction="*")]
         Receiver.webServer.getRoomResponse getRoom(Receiver.webServer.getRoomRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento xml del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento name del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/saveRoom", ReplyAction="*")]
         Receiver.webServer.saveRoomResponse saveRoom(Receiver.webServer.saveRoomRequest request);
         
@@ -63,6 +64,9 @@ namespace Receiver.webServer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getBillAmount", ReplyAction="*")]
         double getBillAmount(int tableID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/getBillID", ReplyAction="*")]
+        int getBillID(int tableID);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento dni del espacio de nombres http://localhost/MobiCarta no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/MobiCarta/setAllocationTable", ReplyAction="*")]
@@ -185,6 +189,67 @@ namespace Receiver.webServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getCurrentRoomRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCurrentRoom", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.getCurrentRoomRequestBody Body;
+        
+        public getCurrentRoomRequest() {
+        }
+        
+        public getCurrentRoomRequest(Receiver.webServer.getCurrentRoomRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class getCurrentRoomRequestBody {
+        
+        public getCurrentRoomRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getCurrentRoomResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCurrentRoomResponse", Namespace="http://localhost/MobiCarta", Order=0)]
+        public Receiver.webServer.getCurrentRoomResponseBody Body;
+        
+        public getCurrentRoomResponse() {
+        }
+        
+        public getCurrentRoomResponse(Receiver.webServer.getCurrentRoomResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/MobiCarta")]
+    public partial class getCurrentRoomResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string getCurrentRoomResult;
+        
+        public getCurrentRoomResponseBody() {
+        }
+        
+        public getCurrentRoomResponseBody(string getCurrentRoomResult) {
+            this.getCurrentRoomResult = getCurrentRoomResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getRoomRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getRoom", Namespace="http://localhost/MobiCarta", Order=0)]
@@ -207,11 +272,15 @@ namespace Receiver.webServer {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string name;
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public bool save;
+        
         public getRoomRequestBody() {
         }
         
-        public getRoomRequestBody(string name) {
+        public getRoomRequestBody(string name, bool save) {
             this.name = name;
+            this.save = save;
         }
     }
     
@@ -273,12 +342,16 @@ namespace Receiver.webServer {
     public partial class saveRoomRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string xml;
         
         public saveRoomRequestBody() {
         }
         
-        public saveRoomRequestBody(string xml) {
+        public saveRoomRequestBody(string name, string xml) {
+            this.name = name;
             this.xml = xml;
         }
     }
@@ -1534,11 +1607,15 @@ namespace Receiver.webServer {
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int tableID;
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public bool _short;
+        
         public getBillRequestBody() {
         }
         
-        public getBillRequestBody(int tableID) {
+        public getBillRequestBody(int tableID, bool _short) {
             this.tableID = tableID;
+            this._short = _short;
         }
     }
     
@@ -1675,10 +1752,6 @@ namespace Receiver.webServer {
                 base(binding, remoteAddress) {
         }
         
-        public bool connect() {
-            return base.Channel.connect();
-        }
-        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Receiver.webServer.getRoomsResponse Receiver.webServer.MobiCartaWebServicesSoap.getRooms(Receiver.webServer.getRoomsRequest request) {
             return base.Channel.getRooms(request);
@@ -1692,14 +1765,27 @@ namespace Receiver.webServer {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Receiver.webServer.getCurrentRoomResponse Receiver.webServer.MobiCartaWebServicesSoap.getCurrentRoom(Receiver.webServer.getCurrentRoomRequest request) {
+            return base.Channel.getCurrentRoom(request);
+        }
+        
+        public string getCurrentRoom() {
+            Receiver.webServer.getCurrentRoomRequest inValue = new Receiver.webServer.getCurrentRoomRequest();
+            inValue.Body = new Receiver.webServer.getCurrentRoomRequestBody();
+            Receiver.webServer.getCurrentRoomResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getCurrentRoom(inValue);
+            return retVal.Body.getCurrentRoomResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Receiver.webServer.getRoomResponse Receiver.webServer.MobiCartaWebServicesSoap.getRoom(Receiver.webServer.getRoomRequest request) {
             return base.Channel.getRoom(request);
         }
         
-        public string getRoom(string name) {
+        public string getRoom(string name, bool save) {
             Receiver.webServer.getRoomRequest inValue = new Receiver.webServer.getRoomRequest();
             inValue.Body = new Receiver.webServer.getRoomRequestBody();
             inValue.Body.name = name;
+            inValue.Body.save = save;
             Receiver.webServer.getRoomResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getRoom(inValue);
             return retVal.Body.getRoomResult;
         }
@@ -1709,9 +1795,10 @@ namespace Receiver.webServer {
             return base.Channel.saveRoom(request);
         }
         
-        public void saveRoom(string xml) {
+        public void saveRoom(string name, string xml) {
             Receiver.webServer.saveRoomRequest inValue = new Receiver.webServer.saveRoomRequest();
             inValue.Body = new Receiver.webServer.saveRoomRequestBody();
+            inValue.Body.name = name;
             inValue.Body.xml = xml;
             Receiver.webServer.saveRoomResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).saveRoom(inValue);
         }
@@ -1810,6 +1897,10 @@ namespace Receiver.webServer {
         
         public double getBillAmount(int tableID) {
             return base.Channel.getBillAmount(tableID);
+        }
+        
+        public int getBillID(int tableID) {
+            return base.Channel.getBillID(tableID);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1965,10 +2056,11 @@ namespace Receiver.webServer {
             return base.Channel.getBill(request);
         }
         
-        public string getBill(int tableID) {
+        public string getBill(int tableID, bool _short) {
             Receiver.webServer.getBillRequest inValue = new Receiver.webServer.getBillRequest();
             inValue.Body = new Receiver.webServer.getBillRequestBody();
             inValue.Body.tableID = tableID;
+            inValue.Body._short = _short;
             Receiver.webServer.getBillResponse retVal = ((Receiver.webServer.MobiCartaWebServicesSoap)(this)).getBill(inValue);
             return retVal.Body.getBillResult;
         }

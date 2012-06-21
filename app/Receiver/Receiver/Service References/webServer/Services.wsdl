@@ -3,16 +3,6 @@
   <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Servicio web que gestiona la información de la aplicación MobiCarta</wsdl:documentation>
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/MobiCarta">
-      <s:element name="connect">
-        <s:complexType />
-      </s:element>
-      <s:element name="connectResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="connectResult" type="s:boolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="getRooms">
         <s:complexType />
       </s:element>
@@ -23,10 +13,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getCurrentRoom">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCurrentRoomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCurrentRoomResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getRoom">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="save" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -40,6 +41,7 @@
       <s:element name="saveRoom">
         <s:complexType>
           <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -150,6 +152,20 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="getBillAmountResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBillID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tableID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBillIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getBillIDResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -314,6 +330,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="tableID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_short" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -341,17 +358,17 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="connectSoapIn">
-    <wsdl:part name="parameters" element="tns:connect" />
-  </wsdl:message>
-  <wsdl:message name="connectSoapOut">
-    <wsdl:part name="parameters" element="tns:connectResponse" />
-  </wsdl:message>
   <wsdl:message name="getRoomsSoapIn">
     <wsdl:part name="parameters" element="tns:getRooms" />
   </wsdl:message>
   <wsdl:message name="getRoomsSoapOut">
     <wsdl:part name="parameters" element="tns:getRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentRoomSoapIn">
+    <wsdl:part name="parameters" element="tns:getCurrentRoom" />
+  </wsdl:message>
+  <wsdl:message name="getCurrentRoomSoapOut">
+    <wsdl:part name="parameters" element="tns:getCurrentRoomResponse" />
   </wsdl:message>
   <wsdl:message name="getRoomSoapIn">
     <wsdl:part name="parameters" element="tns:getRoom" />
@@ -418,6 +435,12 @@
   </wsdl:message>
   <wsdl:message name="getBillAmountSoapOut">
     <wsdl:part name="parameters" element="tns:getBillAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBillIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getBillID" />
+  </wsdl:message>
+  <wsdl:message name="getBillIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getBillIDResponse" />
   </wsdl:message>
   <wsdl:message name="setAllocationTableSoapIn">
     <wsdl:part name="parameters" element="tns:setAllocationTable" />
@@ -504,15 +527,15 @@
     <wsdl:part name="parameters" element="tns:payBillResponse" />
   </wsdl:message>
   <wsdl:portType name="MobiCartaWebServicesSoap">
-    <wsdl:operation name="connect">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve 'true' si se ha invocado al método satisfactoriamente</wsdl:documentation>
-      <wsdl:input message="tns:connectSoapIn" />
-      <wsdl:output message="tns:connectSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="getRooms">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la lista de restaurantes almacenados en la BD</wsdl:documentation>
       <wsdl:input message="tns:getRoomsSoapIn" />
       <wsdl:output message="tns:getRoomsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentRoom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la especificación del restaurante actualmente cargado</wsdl:documentation>
+      <wsdl:input message="tns:getCurrentRoomSoapIn" />
+      <wsdl:output message="tns:getCurrentRoomSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getRoom">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con la especificación de los elementos del restaurante 'name'</wsdl:documentation>
@@ -568,6 +591,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el total de la factura para la mesa 'tableID'</wsdl:documentation>
       <wsdl:input message="tns:getBillAmountSoapIn" />
       <wsdl:output message="tns:getBillAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBillID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el identificador de la factura para la mesa 'tableID'</wsdl:documentation>
+      <wsdl:input message="tns:getBillIDSoapIn" />
+      <wsdl:output message="tns:getBillIDSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="setAllocationTable">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve una cadena en formato XML con el estado de las mesas después de asignar un cliente a una mesa</wsdl:documentation>
@@ -642,8 +670,8 @@
   </wsdl:portType>
   <wsdl:binding name="MobiCartaWebServicesSoap" type="tns:MobiCartaWebServicesSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="connect">
-      <soap:operation soapAction="http://localhost/MobiCarta/connect" style="document" />
+    <wsdl:operation name="getRooms">
+      <soap:operation soapAction="http://localhost/MobiCarta/getRooms" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -651,8 +679,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getRooms">
-      <soap:operation soapAction="http://localhost/MobiCarta/getRooms" style="document" />
+    <wsdl:operation name="getCurrentRoom">
+      <soap:operation soapAction="http://localhost/MobiCarta/getCurrentRoom" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -752,6 +780,15 @@
     </wsdl:operation>
     <wsdl:operation name="getBillAmount">
       <soap:operation soapAction="http://localhost/MobiCarta/getBillAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillID">
+      <soap:operation soapAction="http://localhost/MobiCarta/getBillID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -888,8 +925,8 @@
   </wsdl:binding>
   <wsdl:binding name="MobiCartaWebServicesSoap12" type="tns:MobiCartaWebServicesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="connect">
-      <soap12:operation soapAction="http://localhost/MobiCarta/connect" style="document" />
+    <wsdl:operation name="getRooms">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getRooms" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -897,8 +934,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getRooms">
-      <soap12:operation soapAction="http://localhost/MobiCarta/getRooms" style="document" />
+    <wsdl:operation name="getCurrentRoom">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getCurrentRoom" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -998,6 +1035,15 @@
     </wsdl:operation>
     <wsdl:operation name="getBillAmount">
       <soap12:operation soapAction="http://localhost/MobiCarta/getBillAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBillID">
+      <soap12:operation soapAction="http://localhost/MobiCarta/getBillID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

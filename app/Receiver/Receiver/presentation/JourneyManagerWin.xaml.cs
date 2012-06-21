@@ -96,13 +96,13 @@ namespace Receiver.presentation
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
-            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingRooms(), true);
+            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingRooms(), false, true);
             roomDialog.Show();
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingCurrentRoom(), false);
+            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingCurrentRoom(), false, false);
             roomDialog.Show();
         }
 
@@ -281,6 +281,10 @@ namespace Receiver.presentation
             btnAcceptDeallocation.IsEnabled = false;
             txtbAllocName.Text = txtbAllocTable.Text = txtbCapacityCome.Text =
                 txtbDeallocName.Text = txtbDeallocTable.Text = "";
+            lblPDNI.Content = lblPName.Content = lblPSurname.Content = lblPTable.Content =
+                lblPBill.Content = lblPAmount.Content = "-";
+            btnAcceptPayNFC.IsEnabled = true;
+            btnAcceptPayNFC.Content = "PAGADA";
         }
 
         public void notifyChangesInABox(int row, int column, int state)
@@ -322,19 +326,20 @@ namespace Receiver.presentation
             openExitNFCPerspective();
         }
         
-        private delegate void PayNFCClient(Client client, int table, double amount);
-        public void delegateToNFCClientHasPaid(Client client, int table, double amount)
+        private delegate void PayNFCClient(Client client, int table, int billID, double amount);
+        public void delegateToNFCClientHasPaid(Client client, int table, int billID, double amount)
         {
-            Dispatcher.Invoke(DispatcherPriority.Normal, new PayNFCClient(this.nfcPayment), client, table, amount);
+            Dispatcher.Invoke(DispatcherPriority.Normal, new PayNFCClient(this.nfcPayment), client, table, billID, amount);
         }
 
-        public void nfcPayment(Client client, int table, double amount)
+        public void nfcPayment(Client client, int table, int billID, double amount)
         {
             lblPDNI.Content = client.Dni;
             lblPName.Content = client.Name;
             lblPSurname.Content = client.Surname;
             lblPTable.Content = table;
-            lblPAmount.Content = amount;
+            lblPBill.Content = billID;
+            lblPAmount.Content = amount + " €";
             openPaymentPerspective();
         }
 
@@ -431,7 +436,9 @@ namespace Receiver.presentation
 
         private void btnAcceptPayNFC_Click(object sender, RoutedEventArgs e)
         {
-
+            manager.ClientManager.payBill(Convert.ToInt16(lblPBill.Content), 2);
+            btnAcceptPayNFC.IsEnabled = false;
+            btnAcceptPayNFC.Content = "COBRADA";
         }
 
         private void btnCancelPayNFC_Click(object sender, RoutedEventArgs e)

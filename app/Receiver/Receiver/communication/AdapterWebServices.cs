@@ -34,14 +34,7 @@ namespace Receiver.communication
 
         public string sendMeRooms()
         {
-            try
-            {
-                return proxy.getRooms();
-            }
-            catch (EndpointNotFoundException e)
-            { 
-                return "";
-            }
+            return proxy.getRooms();
         }
 
         public string sendMeCurrentRoom()
@@ -49,21 +42,14 @@ namespace Receiver.communication
             return proxy.getCurrentRoom();
         }
 
-        public string sendMeRoom(string name)
+        public string sendMeRoom(string name, bool save)
         {
-            try
-            {
-                return proxy.getRoom(name);
-            }
-            catch (EndpointNotFoundException e)
-            {
-                return "";
-            }
+            return proxy.getRoom(name, save);
         }
 
-        public void sendRoom(string xml)
+        public void sendRoom(string name, string xml)
         {
-            proxy.saveRoom(xml);
+            proxy.saveRoom(name, xml);
         }
 
         public string sendMeTablesStatus()
@@ -79,6 +65,16 @@ namespace Receiver.communication
         public double sendMeBillAmount(int tableID)
         {
             return proxy.getBillAmount(tableID);
+        }
+
+        public int sendMeBillID(int tableID)
+        {
+            return proxy.getBillID(tableID);
+        }
+
+        public string sendBillPayment(int billID, int type)
+        {
+            return proxy.payBill(billID, type);
         }
 
         public int sendMeClientStatus(string client)

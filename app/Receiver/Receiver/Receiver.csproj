@@ -109,12 +109,8 @@
     <Compile Include="domain\ClientManager.cs" />
     <Compile Include="domain\JourneyManager.cs" />
     <Compile Include="domain\RoomDef.cs" />
-    <Compile Include="domain\RoomEditor.cs" />
     <Compile Include="domain\RoomInf.cs" />
     <Compile Include="domain\RoomManager.cs" />
-    <Compile Include="presentation\ConnectDialog.xaml.cs">
-      <DependentUpon>ConnectDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="presentation\JourneyManagerWin.xaml.cs">
       <DependentUpon>JourneyManagerWin.xaml</DependentUpon>
     </Compile>
@@ -129,11 +125,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Page Include="presentation\ConnectDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="presentation\EditRoomWin.xaml">
+    <Page Include="presentation\RoomEditorWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -145,13 +137,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="domain\DelegateOfTheBox.cs" />
-    <Compile Include="domain\DelegateOfTheNTable.cs" />
-    <Compile Include="domain\EditRoom.cs" />
-    <Compile Include="domain\Interface.cs" />
+    <Compile Include="domain\RoomEditor.cs" />
     <Compile Include="domain\TableData.cs" />
-    <Compile Include="presentation\EditRoomWin.xaml.cs">
-      <DependentUpon>EditRoomWin.xaml</DependentUpon>
+    <Compile Include="presentation\RoomEditorWin.xaml.cs">
+      <DependentUpon>RoomEditorWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="presentation\InitWin.xaml.cs">
       <DependentUpon>InitWin.xaml</DependentUpon>
@@ -175,8 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\Client.cs" />
-    <Compile Include="domain\Product.cs" />
-    <Compile Include="domain\Receiver.cs" />
     <Compile Include="domain\Table.cs" />
     <Compile Include="presentation\NewRoomDialog.xaml.cs">
       <DependentUpon>NewRoomDialog.xaml</DependentUpon>
@@ -207,9 +194,6 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="Service References\webServer\Services.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\webServer\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -301,6 +285,18 @@
     <Resource Include="Images\OView.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\network.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\orange.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\webServer\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\webServer\Services.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -314,15 +310,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\network.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\orange.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\orange.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

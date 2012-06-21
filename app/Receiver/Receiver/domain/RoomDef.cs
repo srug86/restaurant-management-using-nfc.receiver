@@ -51,7 +51,24 @@ namespace Receiver.domain
             set { tables = value; }
         }
 
-        public RoomDef() { }
+        public RoomDef()
+        {
+            Name = "";
+            Width = Height = 0;
+            Receiver = new List<int[]>();
+            Bar = new List<int[]>();
+            Tables = new List<Table>();
+        }
+
+        public RoomDef(string name, int rows, int columns)
+        {
+            Name = name;
+            Width = columns;
+            Height = rows;
+            Receiver = new List<int[]>();
+            Bar = new List<int[]>();
+            Tables = new List<Table>();
+        }
 
         public int getNTables()
         {

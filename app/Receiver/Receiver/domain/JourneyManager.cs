@@ -84,7 +84,7 @@ namespace Receiver.domain
                 foreach (XmlElement room in rList)
                 {
                     RoomInf roomInf = new RoomInf();
-                    roomInf.Name = Convert.ToString(room.GetAttribute("name"));
+                    roomInf.Name = Convert.ToString(room.GetAttribute("name")).Trim();
                     XmlNodeList width = ((XmlElement)room).GetElementsByTagName("Width");
                     roomInf.Width = Convert.ToInt16(width[0].InnerText);
                     XmlNodeList height = ((XmlElement)room).GetElementsByTagName("Height");

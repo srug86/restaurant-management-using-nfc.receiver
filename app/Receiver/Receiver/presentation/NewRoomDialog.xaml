@@ -1,33 +1,43 @@
 ﻿<Window x:Class="Receiver.presentation.NewRoomDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MobiCarta - Especifique nombre y tamaño del salón" Height="180" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Resources/ico.jpg" Topmost="True" ShowInTaskbar="False">
+        Title="MobiCarta - Especifique nombre y tamaño del salón" Height="210" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Resources/ico.jpg" Topmost="True" ShowInTaskbar="False">
     <Grid>
-        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="grid1" VerticalAlignment="Stretch" Width="Auto">
+        <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="grid1" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.4*" />
-                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.2*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.7*" />
+                <RowDefinition Height="0.3*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
                 <RowDefinition Height="0.3*" />
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="1" Height="43" HorizontalAlignment="Left" Name="stackPanel1" VerticalAlignment="Top" Width="227" Margin="0,98,0,0" Grid.RowSpan="2" Orientation="Horizontal" FlowDirection="RightToLeft">
-                <Button Content="Aceptar" Height="Auto" HorizontalContentAlignment="Center" Name="btnAccept" Width="80" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" Click="btnAccept_Click" />
-                <Button Content="Cancelar" Height="Auto" Name="btnCancel" Width="80" Margin="10" HorizontalContentAlignment="Center" Click="btnCancel_Click" />
-            </StackPanel>
+            <Label Content="Tamaño de la rejilla:" Name="label2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Grid.Row="1" Grid.ColumnSpan="2" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="LightBlue" Margin="5,0,0,0" />
+            <Label Content="Nombre del salón:" Name="label1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            <TextBox Name="txtbName" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,8,6,8" Grid.Column="2" FontSize="14" Grid.ColumnSpan="5" Width="Auto" Height="Auto" TabIndex="2147483640" />
+            <Button Content="Cancelar" Height="Auto" Name="btnCancel" Width="Auto" Margin="10,10,10,5" HorizontalContentAlignment="Center" Click="btnCancel_Click" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontWeight="Bold" Grid.ColumnSpan="2" TabIndex="2147483644" />
+            <Button Content="Aceptar" Height="Auto" HorizontalContentAlignment="Center" Name="btnAccept" HorizontalAlignment="Stretch" Margin="10,10,10,5" VerticalAlignment="Stretch" Click="btnAccept_Click" Grid.Column="4" Grid.Row="3" FontWeight="Bold" Grid.ColumnSpan="3" Width="Auto" TabIndex="2147483643" />
+            <Grid Grid.Column="2" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="2" Height="Auto" HorizontalAlignment="Stretch" Name="grid2" VerticalAlignment="Stretch" Width="Auto" Background="LightBlue" Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="0.5*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+                <TextBox HorizontalAlignment="Stretch" Margin="10,3,5,3" Name="txtbRows" VerticalAlignment="Stretch" FontWeight="Bold" Grid.Column="1" TabIndex="2147483641" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,3,5,3" Name="txtbColumns" VerticalAlignment="Stretch" Grid.Column="1" TabIndex="2147483642" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" />
+                <Label Content="Filas:" HorizontalAlignment="Stretch" Margin="0" Name="label3" VerticalAlignment="Stretch" FontSize="11" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Panel.ZIndex="0" />
+                <Label Content="Columnas:" HorizontalAlignment="Stretch" Name="label4" VerticalAlignment="Stretch" FontSize="11" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Row="1" Margin="0" />
+            </Grid>
         </Grid>
-        <StackPanel Height="99" HorizontalAlignment="Stretch" Name="stackPanel2" VerticalAlignment="Top" Margin="0,0,227,0">
-            <Label Content="Nombre del salón:" Height="50" Name="label1" Width="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-            <Label Content="Tamaño de la rejilla:" Height="50" Name="label2" Width="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-        </StackPanel>
-        <StackPanel Height="99" HorizontalAlignment="Left" Margin="151,0,0,0" Name="stackPanel3" VerticalAlignment="Top" Width="227">
-            <TextBox Height="40" Name="txtbName" Width="224" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Salón" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" />
-            <ComboBox Height="40" Name="cbbSize" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                <ComboBoxItem Content="8x12" />
-                <ComboBoxItem Content="12x16" IsSelected="True" />
-                <ComboBoxItem Content="16x20" />
-            </ComboBox>
-        </StackPanel>
     </Grid>
 </Window>
