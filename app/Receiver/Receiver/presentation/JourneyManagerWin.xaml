@@ -9,12 +9,12 @@
             <RowDefinition Height="30*" />
         </Grid.RowDefinitions>
         <ToolBar Height="60" VerticalAlignment="Top" Grid.RowSpan="2" MinHeight="60">
-            <StackPanel Height="50" Orientation="Horizontal" Width="760">
-                <Button Background="#00000000" Cursor="Hand" Foreground="#E6FFFFFF" Height="Auto" Margin="5,5,5,5" Name="btnNew" ToolTip="Nuevo" Width="50" Click="btnNew_Click">
-                    <Image Name="imgNew" Source="/Receiver;component/Resources/new.jpg" ToolTip="Nuevo" />
+            <StackPanel Height="Auto" Orientation="Horizontal" Width="Auto">
+                <Button Background="#00000000" Cursor="Hand" Foreground="#E6FFFFFF" Height="Auto" Margin="5,5,5,5" Name="btnNew" ToolTip="Nueva jornada" Width="Auto" Click="btnNew_Click">
+                    <Image Name="imgNew" Source="/Receiver;component/Images/newJ.png" ToolTip="Nueva jornada" />
                 </Button>
-                <Button Background="#00000000" BorderBrush="#00000000" Cursor="Hand" Height="Auto" Margin="5,5,5,5" Name="btnOpen" ToolTip="Abrir" Width="50" Click="btnLoad_Click">
-                    <Image Name="imgOpen" Source="/Receiver;component/Resources/open.jpg" ToolTip="Abrir" />
+                <Button Background="#00000000" BorderBrush="#00000000" Cursor="Hand" Height="Auto" Margin="5,5,5,5" Name="btnOpen" ToolTip="Cargar jornada" Width="Auto" Click="btnLoad_Click">
+                    <Image Name="imgOpen" Source="/Receiver;component/Images/loadJ.png" ToolTip="Cargar jornada" />
                 </Button>
             </StackPanel>
         </ToolBar>

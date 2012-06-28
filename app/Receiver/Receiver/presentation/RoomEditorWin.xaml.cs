@@ -118,6 +118,7 @@ namespace Receiver.presentation
             editor.resetOperation();
             txtbType.Text = "Recibidor";
             btnBar.Background = btnTable.Background = Brushes.Gainsboro;
+            txtbType.Background = Brushes.Tomato;
             btnReceiver.Background = Brushes.Tomato;
             disableAttributes();
             editor.selectedReceiver();
@@ -127,8 +128,9 @@ namespace Receiver.presentation
         {
             BoxSelected = false;
             editor.resetOperation();
-            txtbType.Text = "Bar";
+            txtbType.Text = "Barra";
             btnReceiver.Background = btnTable.Background = Brushes.Gainsboro;
+            txtbType.Background = Brushes.Yellow;
             btnBar.Background = Brushes.Yellow;
             disableAttributes();
             editor.selectedBar();
@@ -140,6 +142,7 @@ namespace Receiver.presentation
             editor.resetOperation();
             txtbType.Text = "Mesa";
             btnBar.Background = btnReceiver.Background = Brushes.Gainsboro;
+            txtbType.Background = Brushes.LimeGreen;
             btnTable.Background = Brushes.LimeGreen;
             txtbCapacity.IsReadOnly = false;
             txtbCapacity.Text = "4";
@@ -242,6 +245,7 @@ namespace Receiver.presentation
         private void resetAttibutes()
         {
             btnBar.Background = btnReceiver.Background = btnTable.Background = Brushes.Gainsboro;
+            txtbType.Background = Brushes.White;
             txtbType.Text = "";
             txtbId.Text = "";
             txtbId.IsReadOnly = true;

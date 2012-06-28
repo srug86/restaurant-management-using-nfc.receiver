@@ -27,8 +27,8 @@
                 <ColumnDefinition Width="0.25*" />
                 <ColumnDefinition Width="0.25*" />
             </Grid.ColumnDefinitions>
-            <Button Content="Cancelar" Grid.Column="1" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="btnCancel" VerticalAlignment="Stretch" Width="Auto" Click="btnCancel_Click" />
-            <Button Content="Cargar" Grid.Column="2" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="btnLoad" VerticalAlignment="Stretch" Width="Auto" IsEnabled="False" Click="btnLoad_Click" />
+            <Button Content="Cancelar" Grid.Column="1" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="btnCancel" VerticalAlignment="Stretch" Width="Auto" Click="btnCancel_Click" FontWeight="Bold" />
+            <Button Content="Cargar" Grid.Column="2" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="btnLoad" VerticalAlignment="Stretch" Width="Auto" IsEnabled="False" Click="btnLoad_Click" FontWeight="Bold" />
         </Grid>
     </Grid>
 </Window>

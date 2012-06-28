@@ -73,9 +73,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InTheHand.Net.Personal, Version=3.4.429.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+    <Reference Include="InTheHand.Net.Personal, Version=3.3.909.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Archivos de programa\32feet.NET\NET\InTheHand.Net.Personal.dll</HintPath>
+      <HintPath>..\..\..\rsc\InTheHand.Net.Personal.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -310,6 +310,30 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loadJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\newJ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loadR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\newR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\saveR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addReceiver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\addTable.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

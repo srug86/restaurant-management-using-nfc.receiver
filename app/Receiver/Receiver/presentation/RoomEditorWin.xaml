@@ -14,7 +14,7 @@
             <GradientStop Color="#FF545F75" Offset="0.982"/>
         </LinearGradientBrush>
     </Window.Resources>
-    <Grid x:Name="LayoutRoot" Margin="0" Background="MediumBlue">
+    <Grid x:Name="LayoutRoot" Margin="0" Background="Gainsboro">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70*" />
             <ColumnDefinition Width="560*" MinWidth="560"/>
@@ -27,36 +27,36 @@
         </Grid.RowDefinitions>
         <ToolBarTray VerticalAlignment="Top" Height="60" Grid.ColumnSpan="3" />
         <ToolBar VerticalAlignment="Stretch" Height="Auto" Grid.ColumnSpan="3">
-            <StackPanel Width="760" Height="50" Orientation="Horizontal">
-                <Button Width="50" Height="Auto" x:Name="btnNew" Cursor="Hand" Margin="5,5,5,5" ToolTip="Nuevo" Foreground="#E6FFFFFF" Background="#00000000" Click="btnNew_Click">
-                    <Image Name="imgNew" Source="/Receiver;component/Resources/new.jpg" ToolTip="Nuevo"/>
+            <StackPanel Width="Auto" Height="Auto" Orientation="Horizontal">
+                <Button Width="Auto" Height="Auto" x:Name="btnNew" Cursor="Hand" Margin="5,5,5,5" ToolTip="Nuevo restaurante" Foreground="#E6FFFFFF" Background="#00000000" Click="btnNew_Click">
+                    <Image Name="imgNew" Source="/Receiver;component/Images/newR.png" ToolTip="Nuevo restaurante"/>
                 </Button>
-                <Button x:Name="btnOpen" Width="50" Height="Auto" ToolTip="Abrir" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnLoad_Click">
-                    <Image Name="imgOpen" Source="/Receiver;component/Resources/open.jpg" ToolTip="Abrir"/>
+                <Button x:Name="btnOpen" Width="Auto" Height="Auto" ToolTip="Cargar restaurante" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnLoad_Click">
+                    <Image Name="imgOpen" Source="/Receiver;component/Images/loadR.png" ToolTip="Cargar restaurante"/>
                 </Button>
-                <Button x:Name="btnSave" Width="50" Height="Auto" ToolTip="Guardar" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnSave_Click" IsEnabled="False">
-                    <Image Name="imgSave" Source="/Receiver;component/Resources/save.jpg" ToolTip="Guardar"/>
+                <Button x:Name="btnSave" Width="Auto" Height="Auto" ToolTip="Guardar restaurante" Cursor="Hand" Margin="5,5,5,5" Background="#00000000" BorderBrush="#00000000" Click="btnSave_Click" IsEnabled="False">
+                    <Image Name="imgSave" Source="/Receiver;component/Images/saveR.png" ToolTip="Guardar restaurante"/>
                 </Button>
             </StackPanel>
         </ToolBar>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="Auto" Background="MediumBlue" Grid.Row="1">
-            <Button Cursor="Hand" Margin="5,5,5,5" x:Name="btnReceiver" ToolTip="Recibidor" Width="Auto" Height="60" Click="btnReceiver_Click" IsEnabled="False" Background="Gainsboro">
-                <Image Name="imgReceiver" Source="/Receiver;component/Resources/maitre.jpg" Stretch="Uniform" />
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="Auto" Background="Silver" Grid.Row="1">
+            <Button Cursor="Hand" Margin="5,5,5,5" x:Name="btnReceiver" ToolTip="Recibidor" Width="Auto" Height="Auto" Click="btnReceiver_Click" IsEnabled="False" Background="Gainsboro">
+                <Image Name="imgReceiver" Source="/Receiver;component/Images/addReceiver.png" Stretch="Uniform" />
             </Button>
-            <Button x:Name="btnBar" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Barra" Click="btnBar_Click" IsEnabled="False" Background="Gainsboro">
-                <Image Name="imgBar" Source="/Receiver;component/Resources/bar.jpg"/>
+            <Button x:Name="btnBar" Width="Auto" Height="Auto" Cursor="Hand" Margin="5,5,5,5" ToolTip="Barra" Click="btnBar_Click" IsEnabled="False" Background="Gainsboro">
+                <Image Name="imgBar" Source="/Receiver;component/Images/addBar.png"/>
             </Button>
-            <Button x:Name="btnTable" Width="Auto" Height="60" Cursor="Hand" Margin="5,5,5,5" ToolTip="Mesa" Click="btnTable_Click" IsEnabled="False" Background="Gainsboro">
-                <Image Name="imgTable" Source="/Receiver;component/Resources/table.jpg"/>
+            <Button x:Name="btnTable" Width="Auto" Height="Auto" Cursor="Hand" Margin="5,5,5,5" ToolTip="Mesa" Click="btnTable_Click" IsEnabled="False" Background="Gainsboro">
+                <Image Name="imgTable" Source="/Receiver;component/Images/addTable.png"/>
             </Button>
         </StackPanel>
-        <StackPanel Background="MediumBlue" HorizontalAlignment="Stretch" Orientation="Vertical" Width="Auto" MinWidth="120" Grid.Row="1" Grid.Column="2">
-            <Label Content="Tipo:" Height="25" Width="Auto" FontWeight="Bold" FontStretch="Expanded" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Foreground="Gainsboro" />
-            <TextBox Height="25" Name="txtbType" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" FontFamily="Arial Unicode MS" Focusable="False" IsReadOnly="True" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
-            <Label Content="Identificador:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Foreground="Gainsboro" />
-            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbId" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" IsReadOnly="True" />
-            <Label Content="Capacidad:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Foreground="Gainsboro" />
-            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbCapacity" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
+        <StackPanel Background="Silver" HorizontalAlignment="Stretch" Orientation="Vertical" Width="Auto" MinWidth="120" Grid.Row="1" Grid.Column="2">
+            <Label Content="Tipo:" Height="25" Width="Auto" FontWeight="Bold" FontStretch="Expanded" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Foreground="Black" />
+            <TextBox Height="25" Name="txtbType" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" FontFamily="Arial Unicode MS" Focusable="False" IsReadOnly="True" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" TextAlignment="Center" FontSize="14" />
+            <Label Content="Identificador:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Foreground="Black" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbId" Width="Auto" Margin="5,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FlowDirection="RightToLeft" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" IsReadOnly="True" FontWeight="Bold" TextAlignment="Center" FontSize="14" />
+            <Label Content="Capacidad:" FontFamily="Arial" FontStretch="Expanded" FontWeight="Bold" Height="25" Width="Auto" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" Foreground="Black" />
+            <TextBox Focusable="True" FontFamily="Arial Unicode MS" Height="25" Name="txtbCapacity" Width="Auto" Margin="5" VerticalAlignment="Center" FlowDirection="RightToLeft" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" FontWeight="Bold" TextAlignment="Center" FontSize="14" />
             <Grid Height="40" Name="grid2" Width="Auto" Margin="5,30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*" />
