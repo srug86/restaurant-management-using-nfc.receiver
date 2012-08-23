@@ -228,63 +228,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\new.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\bar.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\ico.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\ico2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\maitre.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\mobiCarta.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\open.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\save.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\table.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\room.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\green.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\red.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\white.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\yellow.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\pgreen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\pred.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\pyellow.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
@@ -300,13 +243,7 @@
     <Resource Include="Images\OView.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\network.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\orange.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\orange.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\webServer\" />
