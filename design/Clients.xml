@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Clients>
+	<Client dni="05692939W">
+		<Name>Sergio</Name>
+		<Surname>de la Rubia</Surname>
+		<Appearances>10</Appearances>
+		<Status>0</Status>
+	</Client>
+	<Client dni="05702008C">
+		<Name>Miguel</Name>
+		<Surname>Millan</Surname>
+		<Appearances>5</Appearances>
+		<Status>1</Status>
+	</Client>
+	<Client dni="05700083Z">
+		<Name>Ivan</Name>
+		<Surname>Cerro</Surname>
+		<Appearances>8</Appearances>
+		<Status>2</Status>
+	</Client>
+	<Client dni="05702341Q">
+		<Name>Gabriel</Name>
+		<Surname>Villahermosa</Surname>
+		<Appearances>2</Appearances>
+		<Status>0</Status>
+	</Client>
+	<Client dni="05602951N">
+		<Name>Jesus</Name>
+		<Surname>Fernandez</Surname>
+		<Appearances>6</Appearances>
+		<Status>1</Status>
+	</Client>
+</Clients>

@@ -64,7 +64,7 @@ namespace Receiver.domain
         public void createRoomManager()
         {
             roomManager = new RoomManager();
-            clientManager = new ClientManager();
+            clientManager = ClientManager.Instance;
         }
 
         public void resetCurrentJourney(string room)

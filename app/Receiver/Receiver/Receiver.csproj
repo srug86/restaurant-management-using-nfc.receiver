@@ -108,9 +108,13 @@
     <Compile Include="communication\BluetoothServer.cs" />
     <Compile Include="domain\ClientManager.cs" />
     <Compile Include="domain\JourneyManager.cs" />
+    <Compile Include="domain\RestaurantManager.cs" />
     <Compile Include="domain\RoomDef.cs" />
     <Compile Include="domain\RoomInf.cs" />
     <Compile Include="domain\RoomManager.cs" />
+    <Compile Include="presentation\ClientDialog.xaml.cs">
+      <DependentUpon>ClientDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="presentation\JourneyManagerWin.xaml.cs">
       <DependentUpon>JourneyManagerWin.xaml</DependentUpon>
     </Compile>
@@ -120,11 +124,18 @@
     <Compile Include="presentation\MessageDialog.xaml.cs">
       <DependentUpon>MessageDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="presentation\StatisticsWin.xaml.cs">
+      <DependentUpon>StatisticsWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service References\webServer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="presentation\ClientDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="presentation\RoomEditorWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -161,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="presentation\StatisticsWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\Client.cs" />
@@ -193,7 +208,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\webServer\Services.wsdl" />
+    <None Include="Service References\webServer\Services1.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -297,9 +312,6 @@
     <WCFMetadataStorage Include="Service References\webServer\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\webServer\Services.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\webServer\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +346,105 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\addTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\webServer\Services1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\saveRest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clientsO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loadClients.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loadRest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nfcClient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\restaurantO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dgreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dgreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ico2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\maitre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mobiCarta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pgreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pyellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\room.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

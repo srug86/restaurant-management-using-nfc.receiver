@@ -52,6 +52,16 @@ namespace Receiver.communication
             proxy.saveRoom(name, xml);
         }
 
+        public string sendMeRestaurantData()
+        {
+            return proxy.getRestaurant();
+        }
+
+        public void sendRestaurantData(string xml)
+        {
+            proxy.saveRestaurant(xml);
+        }
+
         public string sendMeTablesStatus()
         {
             return proxy.getTablesStatus();
@@ -75,6 +85,16 @@ namespace Receiver.communication
         public string sendBillPayment(int billID, int type)
         {
             return proxy.payBill(billID, type);
+        }
+
+        public string sendMeClientData(string dni)
+        {
+            return proxy.getClient(dni);
+        }
+
+        public string sendMeClientsData()
+        {
+            return proxy.getClients();
         }
 
         public int sendMeClientStatus(string client)

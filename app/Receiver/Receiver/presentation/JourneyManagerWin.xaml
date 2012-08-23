@@ -18,43 +18,30 @@
                 </Button>
             </StackPanel>
         </ToolBar>
-        <StatusBar Height="30" HorizontalAlignment="Stretch" Name="statusBar1" VerticalAlignment="Bottom" Width="Auto" Grid.RowSpan="2" Grid.Row="1" MinHeight="30">
-            <TextBlock Name="txtb1">Listo</TextBlock>
-            <Separator />
-            <TextBlock Name="txtb2">---</TextBlock>
-        </StatusBar>
-        <Grid Name="gridBG" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Margin="0" Grid.Column="1" Background="Gainsboro">
+        <Grid Name="gridBG" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Margin="0" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*" />
                 <ColumnDefinition Width="0.8*" />
             </Grid.ColumnDefinitions>
             <Grid Height="Auto" HorizontalAlignment="Stretch" Name="gridOptions" VerticalAlignment="Center" Width="Auto" Grid.Row="1" Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.25*" />
-                    <RowDefinition Height="0.25*" />
-                    <RowDefinition Height="0.25*" />
-                    <RowDefinition Height="0.25*" />
+                    <RowDefinition Height="0.33*" />
+                    <RowDefinition Height="0.33*" />
+                    <RowDefinition Height="0.33*" />
                 </Grid.RowDefinitions>
                 <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOCome" VerticalAlignment="Stretch" Width="Auto" Click="btnOCome_Click" ToolTip="Ha llegado un cliente">
                     <Image Name="imgOCome" Source="/Receiver;component/Images/OComeTable.png" Stretch="Uniform" />
                 </Button>
-                <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOPay" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Click="btnOPay_Click" ToolTip="Cobrar al cliente">
-                    <Image Name="imgOPay" Source="/Receiver;component/Images/OPay.png" Stretch="Uniform" Margin="0" Grid.Row="1" />
+                <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOLeave" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Click="btnOLeave_Click" ToolTip="El cliente se va">
+                    <Image Name="imgOLeave" Source="/Receiver;component/Images/OLeaveTable.png" Stretch="Uniform" Margin="0" Grid.Row="1" />
                 </Button>
-                <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOLeave" VerticalAlignment="Stretch" Width="Auto" Grid.Row="2" Click="btnOLeave_Click" ToolTip="El cliente se va">
-                    <Image Name="imgOLeave" Source="/Receiver;component/Images/OLeaveTable.png" Stretch="Uniform" Margin="0" Grid.Row="2" />
-                </Button>
-                <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOView" VerticalAlignment="Stretch" Width="Auto" Grid.Row="3" Click="btnOView_Click" ToolTip="Vista general">
-                    <Image Name="imgOView" Source="/Receiver;component/Images/OView.png" Stretch="Uniform" Margin="0" Grid.Row="3" />
+                <Button Height="Auto" HorizontalAlignment="Stretch" Name="btnOView" VerticalAlignment="Stretch" Width="Auto" Grid.Row="2" Click="btnOView_Click" ToolTip="Vista general">
+                    <Image Name="imgOView" Source="/Receiver;component/Images/OView.png" Stretch="Uniform" Margin="0" Grid.Row="2" />
                 </Button>
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridInitial" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Visible">
                 <Grid.Background>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="#FF313030" Offset="0" />
-                        <GradientStop Color="White" Offset="1" />
-                        <GradientStop Color="#FFD7D7D7" Offset="0.921" />
-                    </LinearGradientBrush>
+                    <ImageBrush ImageSource="/Receiver;component/Resources/background.jpg" />
                 </Grid.Background>
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridOCome" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Hidden">
@@ -218,16 +205,16 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Name="grid1" VerticalAlignment="Stretch" Width="Auto" Margin="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*" />
-                        <ColumnDefinition Width="0.25*" />
-                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="0.6*" />
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.2*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" Height="Auto" HorizontalAlignment="Stretch" Name="grid21" VerticalAlignment="Stretch" Width="Auto" Margin="10,20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.18*" />
-                            <ColumnDefinition Width="0.32*" />
-                            <ColumnDefinition Width="0.18*" />
-                            <ColumnDefinition Width="0.32*" />
+                            <ColumnDefinition Width="0.16*" />
+                            <ColumnDefinition Width="0.34*" />
+                            <ColumnDefinition Width="0.16*" />
+                            <ColumnDefinition Width="0.34*" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Cliente: " Grid.Column="0" Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="label8" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Foreground="Gainsboro" />
                         <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Name="txtbAllocName" VerticalAlignment="Stretch" Width="Auto" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" FontSize="12" FontWeight="Bold" IsReadOnly="True" />
@@ -237,7 +224,7 @@
                     <Button Content="Atrás" Grid.Column="1" Height="Auto" HorizontalAlignment="Stretch" Name="btnCancelAllocation" VerticalAlignment="Stretch" Width="Auto" Margin="10,20" Click="btnCancelAllocation_Click" FontWeight="Bold" />
                     <Button Content="Asignar mesa" Grid.Column="2" Height="Auto" HorizontalAlignment="Stretch" Margin="10,20" Name="btnAcceptAllocation" VerticalAlignment="Stretch" Width="Auto" IsEnabled="False" Click="btnAcceptAllocation_Click" FontWeight="Bold" />
                 </Grid>
-                <Label Grid.Row="1" Content="Seleccione la mesa donde desea ubicarse y pulse Aceptar" Height="Auto" HorizontalAlignment="Stretch" Margin="10,5" Name="lblAllocation" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Gainsboro" />
+                <Label Grid.Row="1" Content="Seleccione la mesa donde desea ubicarse y pulse 'Aceptar'" Height="Auto" HorizontalAlignment="Stretch" Margin="10,5" Name="lblAllocation" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Gainsboro" />
                 <UniformGrid Height="Auto" HorizontalAlignment="Stretch" Margin="10" Name="uGridAllocation" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro" />
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridOLeave" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Hidden" Background="DarkRed">
@@ -248,16 +235,16 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Name="grid2" VerticalAlignment="Stretch" Width="Auto">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*" />
-                        <ColumnDefinition Width="0.25*" />
-                        <ColumnDefinition Width="0.25*" />
+                        <ColumnDefinition Width="0.6*" />
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.2*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0" Height="Auto" HorizontalAlignment="Stretch" Name="grid22" VerticalAlignment="Stretch" Width="Auto" Margin="10,20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.18*" />
-                            <ColumnDefinition Width="0.32*" />
-                            <ColumnDefinition Width="0.18*" />
-                            <ColumnDefinition Width="0.32*" />
+                            <ColumnDefinition Width="0.16*" />
+                            <ColumnDefinition Width="0.34*" />
+                            <ColumnDefinition Width="0.16*" />
+                            <ColumnDefinition Width="0.34*" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Cliente: " Grid.Column="0" Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="label10" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Gainsboro" FontWeight="Bold" Background="DarkRed" OpacityMask="White" />
                         <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Name="txtbDeallocName" VerticalAlignment="Stretch" Width="Auto" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FlowDirection="RightToLeft" FontSize="12" FontWeight="Bold" IsReadOnly="True" />
@@ -267,7 +254,7 @@
                     <Button Content="Cancelar" Grid.Column="1" Height="Auto" HorizontalAlignment="Stretch" Name="btnCancelDeallocation" VerticalAlignment="Stretch" Width="Auto" Margin="10,20" Click="btnCancelDeallocation_Click" FontWeight="Bold" />
                     <Button Content="Liberar mesa" Grid.Column="2" Height="Auto" HorizontalAlignment="Stretch" Margin="10,20" Name="btnAcceptDeallocation" VerticalAlignment="Stretch" Width="Auto" Click="btnAcceptDeallocation_Click" IsEnabled="False" FontWeight="Bold" />
                 </Grid>
-                <Label Grid.Row="1" Content="Seleccione la mesa que ha dejado libre el cliente que se marcha y pulse 'Liberar mesa'" Height="Auto" HorizontalAlignment="Stretch" Margin="10,5" Name="lblDeallocation" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Gainsboro" Background="DarkRed" OpacityMask="White" />
+                <Label Grid.Row="1" Content="Seleccione la mesa que ha dejado libre el cliente y pulse 'Liberar mesa'" Height="Auto" HorizontalAlignment="Stretch" Margin="10,5" Name="lblDeallocation" VerticalAlignment="Stretch" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Gainsboro" Background="DarkRed" OpacityMask="White" />
                 <UniformGrid Grid.Row="0" Height="Auto" HorizontalAlignment="Stretch" Margin="10" Name="uGridDeallocation" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro" />
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridOLeaveNFC" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Hidden">
@@ -358,16 +345,15 @@
                         <RowDefinition Height="0.15*" />
                         <RowDefinition Height="0.2*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Paga cliente NFC" Grid.Column="1" Grid.ColumnSpan="2" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="label6" VerticalAlignment="Stretch" Width="Auto" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Arial" Foreground="White" Background="#7F000000" />
+                    <Label Content="Paga cliente NFC" Grid.Column="1" Grid.ColumnSpan="4" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="label6" VerticalAlignment="Stretch" Width="Auto" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Arial" Foreground="White" Background="#7F000000" />
                     <Label Content="DNI:" Grid.Column="1" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Name="label310" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="#80FFFFFF" />
                     <Label Content="Nombre:" Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Name="label311" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="#80FFFFFF" />
                     <Label Content="Apellidos:" Grid.Column="1" Grid.Row="3" Height="Auto" HorizontalAlignment="Stretch" Name="label312" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="#80FFFFFF" />
                     <Label Content="Mesa:" Grid.Column="1" Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Name="label313" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="#80FFFFFF" />
                     <Label Content="Factura nº:" Grid.Column="3" Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Name="label315" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="#80FFFFFF" />
                     <Label Content="Total (€):" Grid.Column="1" Grid.Row="5" Height="Auto" HorizontalAlignment="Stretch" Name="label314" VerticalAlignment="Stretch" FontWeight="Bold" Margin="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Background="White" />
-                    <UniformGrid Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" Name="uniformGrid13" VerticalAlignment="Stretch" Width="Auto" Margin="5" Rows="1" Columns="2" Grid.ColumnSpan="3">
-                        <Button Content="Cancelar" Height="Auto" Name="btnCancelPayNFC" Width="Auto" Margin="3" FontSize="14" Click="btnCancelPayNFC_Click" FontWeight="Bold" />
-                        <Button Content="PAGADA" Height="Auto" Name="btnAcceptPayNFC" Width="Auto" Margin="3" FontSize="14" Click="btnAcceptPayNFC_Click" FontWeight="Bold" />
+                    <UniformGrid Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" Name="uniformGrid13" VerticalAlignment="Stretch" Width="Auto" Margin="5" Rows="1" Columns="1" Grid.ColumnSpan="3">
+                        <Button Content="Cerrar" Height="Auto" Name="btnClosePayNFC" Width="Auto" Margin="14,3" FontSize="14" Click="btnCancelPayNFC_Click" FontWeight="Bold" />
                     </UniformGrid>
                     <Label Content="-" Grid.Column="2" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="lblPDNI" VerticalAlignment="Center" Width="Auto" Background="White" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Verdana" Foreground="Black" HorizontalContentAlignment="Center" BorderBrush="Black" Grid.ColumnSpan="3"></Label>
                     <Label Content="-" Grid.Column="2" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="lblPName" VerticalAlignment="Center" Width="Auto" Background="White" VerticalContentAlignment="Center" FontWeight="Bold" FontFamily="Verdana" Foreground="Black" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"></Label>
@@ -390,9 +376,17 @@
                     <RowDefinition Height="0.2*" />
                 </Grid.RowDefinitions>
                 <UniformGrid Grid.Row="0" Height="Auto" HorizontalAlignment="Stretch" Margin="10" Name="uGridStatus" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro" />
-                <Grid Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Margin="8" Name="grid3" VerticalAlignment="Stretch" Width="Auto" Background="#CEFFFFFF" />
+                <Grid Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Margin="8,2,8,8" Name="grid3" VerticalAlignment="Stretch" Width="Auto" Background="#CEFFFFFF">
+                    <RichTextBox Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="rtbEvents" VerticalAlignment="Stretch" Width="Auto" FontWeight="Bold" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+                </Grid>
                 <Label Content="Eventos:" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="2" Name="label7" VerticalAlignment="Stretch" Width="Auto" FontSize="12" Foreground="White" FontWeight="Bold" />
             </Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="Firebrick" Offset="0" />
+                    <GradientStop Color="White" Offset="0.312" />
+                </LinearGradientBrush>
+            </Grid.Background>
         </Grid>
     </Grid>
 </Window>

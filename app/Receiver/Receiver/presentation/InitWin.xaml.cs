@@ -53,5 +53,11 @@ namespace Receiver.presentation
             RoomEditorWin editor = new RoomEditorWin();
             editor.Show();
         }
+
+        private void btnStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            StatisticsWin statistics = new StatisticsWin();
+            statistics.Show();
+        }
     }
 }

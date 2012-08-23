@@ -66,11 +66,10 @@
                 <Button Content="Aceptar" Height="Auto" HorizontalAlignment="Stretch" Margin="3,5" Name="btnAccept" VerticalAlignment="Stretch" Width="Auto" Click="btnAccept_Click" FontWeight="Bold" Grid.Column="1" IsEnabled="False" />
             </Grid>
         </StackPanel>
-        <StatusBar Height="30" HorizontalAlignment="Stretch" Name="statusBar1" VerticalAlignment="Bottom" Width="Auto" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3">
-            <TextBlock Name="txtb1">Listo</TextBlock>
-            <Separator />
-            <TextBlock Name="txtb2">---</TextBlock>
-        </StatusBar>
-        <UniformGrid Grid.Column="1" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="uGridRoom" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro" />
+        <UniformGrid Grid.Column="1" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="uGridRoom" VerticalAlignment="Stretch" Width="Auto">
+            <UniformGrid.Background>
+                <ImageBrush ImageSource="/Receiver;component/Resources/background.jpg" />
+            </UniformGrid.Background>
+        </UniformGrid>
     </Grid>
 </Window>

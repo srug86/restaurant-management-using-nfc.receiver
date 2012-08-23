@@ -35,7 +35,8 @@ namespace Receiver.domain
             set { address = value; }
         }
 
-        public Client() {
+        public Client()
+        {
             Address = new Address();
         }
 
@@ -85,5 +86,14 @@ namespace Receiver.domain
         }
 
         public Address() { }
+
+        public Address(string street, string number, string town, string state, int zipcode)
+        {
+            Street = street;
+            Number = number;
+            Town = town;
+            State = state;
+            ZipCode = zipcode;
+        }
     }
 }

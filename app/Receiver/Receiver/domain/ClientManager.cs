@@ -13,6 +13,8 @@ namespace Receiver.domain
     {
         private AdapterWebServices adapter = AdapterWebServices.Instance;
 
+        private JourneyManager manager = JourneyManager.Instance;
+
         private List<ObserverRM> rmObservers = new List<ObserverRM>();
 
         private JourneyManagerWin gui;
@@ -20,8 +22,8 @@ namespace Receiver.domain
         private Client client;
         internal Client Client
         {
-          get { return client; }
-          set { client = value; }
+            get { return client; }
+            set { client = value; }
         }
 
         private int guests, table, billID;
@@ -33,8 +35,8 @@ namespace Receiver.domain
         }
         public int Guests
         {
-          get { return guests; }
-          set { guests = value; }
+            get { return guests; }
+            set { guests = value; }
         }
 
         public int BillID
@@ -51,7 +53,29 @@ namespace Receiver.domain
             set { amount = value; }
         }
 
-        public ClientManager() { }
+        static readonly ClientManager instance = new ClientManager();
+
+        static ClientManager() { }
+
+        ClientManager() { }
+
+        public static ClientManager Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public List<ShortClient> getClientsData()
+        {
+            return xmlClientsDataDecoder(adapter.sendMeClientsData());
+        }
+
+        public Client getClientData(string dni)
+        {
+            return xmlClientDecoder(adapter.sendMeClientData(dni));
+        }
 
         public void setGuiReference(JourneyManagerWin gui)
         {
@@ -65,7 +89,7 @@ namespace Receiver.domain
 
         public string manageNFCClient(string xml)
         {
-            xmlClientDecoder(xml);
+            Client = xmlClientDecoder(xml);
             int status = adapter.sendMeClientStatus(xml);
             switch (status)
             {
@@ -77,9 +101,13 @@ namespace Receiver.domain
                     Table = adapter.sendMeTable(Client.Dni);
                     Amount = adapter.sendMeBillAmount(Table);
                     BillID = adapter.sendMeBillID(Table);
+                    payBill(BillID, 2); // Pago por NFC
+                    manager.RoomManager.confirmDeallocation(Table);
+                    gui.delegateToShowReceiverEvent(2, "El cliente " + Client.Dni + " paga su cuenta por NFC.");
+                    gui.delegateToShowReceiverEvent(3, "El cliente " + Client.Dni + " deja libre la mesa " + Table + " y abandona el restaurante.");
                     gui.delegateToNFCClientHasPaid(Client, Table, BillID, Amount);
-                    return "El resumen de su factura es el siguiente:\n- Mesa: " + Table + "\n- Factura N.: " + 
-                        BillID + "\n- Total: " + Amount + " €.\n Por favor, abone el importe.\nGracias.";
+                    return "La cuenta de la mesa " + Table + " ha sido cobrada satisfactoriamente. " +
+                        Amount + " Euros han sido decrementados de su cuenta.";
                 case 2:
                     Table = adapter.sendMeTable(Client.Dni);
                     gui.delegateToNFCClientHasLeft(Client, Table);
@@ -94,29 +122,60 @@ namespace Receiver.domain
             adapter.sendBillPayment(billID, type);
         }
 
-        private void xmlClientDecoder(string sXml)
+        private List<ShortClient> xmlClientsDataDecoder(string sXml)
         {
-            client = new Client();
-            XmlDocument xml = new XmlDocument();
-            xml.LoadXml(sXml);
-            XmlNodeList profile = xml.GetElementsByTagName("Profile");
-            XmlNodeList dni = ((XmlElement)profile[0]).GetElementsByTagName("DNI");
-            client.Dni = Convert.ToString(dni[0].InnerText);
-            XmlNodeList name = ((XmlElement)profile[0]).GetElementsByTagName("Name");
-            client.Name = Convert.ToString(name[0].InnerText);
-            XmlNodeList surname = ((XmlElement)profile[0]).GetElementsByTagName("Surname");
-            client.Surname = Convert.ToString(surname[0].InnerText);
-            XmlNodeList address = ((XmlElement)profile[0]).GetElementsByTagName("Address");
-            XmlNodeList street = ((XmlElement)address[0]).GetElementsByTagName("Street");
-            client.Address.Street = Convert.ToString(street[0].InnerText);
-            XmlNodeList number = ((XmlElement)address[0]).GetElementsByTagName("Number");
-            client.Address.Number = Convert.ToString(number[0].InnerText);
-            XmlNodeList zip = ((XmlElement)address[0]).GetElementsByTagName("ZipCode");
-            client.Address.ZipCode = Convert.ToInt32(zip[0].InnerText);
-            XmlNodeList town = ((XmlElement)address[0]).GetElementsByTagName("Town");
-            client.Address.Town = Convert.ToString(town[0].InnerText);
-            XmlNodeList state = ((XmlElement)address[0]).GetElementsByTagName("State");
-            client.Address.State = Convert.ToString(state[0].InnerText);
+            List<ShortClient> lsc = new List<ShortClient>();
+            if (!sXml.Equals(""))
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.LoadXml(sXml);
+                XmlNodeList clients = xml.GetElementsByTagName("Clients");
+                XmlNodeList cList = ((XmlElement)clients[0]).GetElementsByTagName("Client");
+                foreach (XmlElement client in cList)
+                {
+                    ShortClient sc = new ShortClient();
+                    sc.Dni = Convert.ToString(client.GetAttribute("dni"));
+                    XmlNodeList name = ((XmlElement)client).GetElementsByTagName("Name");
+                    sc.Name = Convert.ToString(name[0].InnerText);
+                    XmlNodeList surname = ((XmlElement)client).GetElementsByTagName("Surname");
+                    sc.Surname = Convert.ToString(surname[0].InnerText);
+                    XmlNodeList appearances = ((XmlElement)client).GetElementsByTagName("Appearances");
+                    sc.Appearances = Convert.ToInt32(appearances[0].InnerText);
+                    XmlNodeList status = ((XmlElement)client).GetElementsByTagName("Status");
+                    sc.Status = Convert.ToString(status[0].InnerText);
+                    lsc.Add(sc);
+                }
+            }
+            return lsc;
+        }
+
+        private Client xmlClientDecoder(string sXml)
+        {
+            Client client = new Client();
+            if (!sXml.Equals(""))
+            {
+                XmlDocument xml = new XmlDocument();
+                xml.LoadXml(sXml);
+                XmlNodeList profile = xml.GetElementsByTagName("Profile");
+                XmlNodeList dni = ((XmlElement)profile[0]).GetElementsByTagName("DNI");
+                client.Dni = Convert.ToString(dni[0].InnerText);
+                XmlNodeList name = ((XmlElement)profile[0]).GetElementsByTagName("Name");
+                client.Name = Convert.ToString(name[0].InnerText);
+                XmlNodeList surname = ((XmlElement)profile[0]).GetElementsByTagName("Surname");
+                client.Surname = Convert.ToString(surname[0].InnerText);
+                XmlNodeList address = ((XmlElement)profile[0]).GetElementsByTagName("Address");
+                XmlNodeList street = ((XmlElement)address[0]).GetElementsByTagName("Street");
+                client.Address.Street = Convert.ToString(street[0].InnerText);
+                XmlNodeList number = ((XmlElement)address[0]).GetElementsByTagName("Number");
+                client.Address.Number = Convert.ToString(number[0].InnerText);
+                XmlNodeList zip = ((XmlElement)address[0]).GetElementsByTagName("ZipCode");
+                client.Address.ZipCode = Convert.ToInt32(zip[0].InnerText);
+                XmlNodeList town = ((XmlElement)address[0]).GetElementsByTagName("Town");
+                client.Address.Town = Convert.ToString(town[0].InnerText);
+                XmlNodeList state = ((XmlElement)address[0]).GetElementsByTagName("State");
+                client.Address.State = Convert.ToString(state[0].InnerText);
+            }
+            return client;
         }
 
         private string xmlClientBuilder()
@@ -135,71 +194,6 @@ namespace Receiver.domain
             xml += "</Profile>";
             return xml;
         }
-
-/*        private void clientArrives()
-        {
-            for (int i = 0; i < rmObservers.Count; i++)
-            {
-                ObserverRM obs = (ObserverRM)rmObservers[i];
-                obs.notifyNFCEntry(client.Dni, client.Name, client.Surname);
-            }
-        }
-
-        private void nfcClientHasArrived()
-        {
-            DelegateOfTheArrivingClient oSwitchClient = new DelegateOfTheArrivingClient();
-            DelegateOfTheArrivingClient.ArrivingClientDelegate oClientDelegate =
-                new DelegateOfTheArrivingClient.ArrivingClientDelegate(clientArrives);
-            oSwitchClient.clientArrives += oClientDelegate;
-            oSwitchClient.changeContentsArrivingClient = Client;
-
-            oSwitchClient.clientArrives -= oClientDelegate;
-        }
-
-        private void clientLeaves()
-        {
-            for (int i = 0; i < rmObservers.Count; i++)
-            {
-                ObserverRM obs = (ObserverRM)rmObservers[i];
-                obs.notifyNFCExit(Client.Dni, Client.Name, Client.Surname, Table);
-            }
-        }
-
-        private void nfcClientHasLeft()
-        {
-            DelegateOfTheLeavingClient oSwitchClient = new DelegateOfTheLeavingClient();
-            DelegateOfTheLeavingClient.LeavingClientDelegate oClientDelegate =
-                new DelegateOfTheLeavingClient.LeavingClientDelegate(clientLeaves);
-            oSwitchClient.clientLeaves += oClientDelegate;
-            oSwitchClient.changeContentsLeavingClient = Client;
-
-            oSwitchClient.clientLeaves -= oClientDelegate;
-        }
-
-        private void clientPays()
-        {
-            for (int i = 0; i < rmObservers.Count; i++)
-            {
-                ObserverRM obs = (ObserverRM)rmObservers[i];
-                obs.notifyNFCPayment(Client.Dni, Client.Name, Client.Surname, Table, Amount);
-            }
-        }
-
-        private void nfcClientHasPaid()
-        {
-            DelegateOfThePayingClient oSwitchClient = new DelegateOfThePayingClient();
-            DelegateOfThePayingClient.PayingClientDelegate oClientDelegate =
-                new DelegateOfThePayingClient.PayingClientDelegate(clientPays);
-            oSwitchClient.clientPays += oClientDelegate;
-            oSwitchClient.changeContentsPayingClient = Client;
-
-            oSwitchClient.clientPays -= oClientDelegate;
-        }
-
-        public void registerInterest(ObserverRM obs)
-        {
-            rmObservers.Add(obs);
-        }*/
     }
 
     public interface SubjectRM

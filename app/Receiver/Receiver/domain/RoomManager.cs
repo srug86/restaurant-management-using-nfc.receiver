@@ -77,12 +77,12 @@ namespace Receiver.domain
                     selectedTable = table.Id;
                     return table.Id;
                 }
-                else if (Mode == 4 && table.Status == 3)
+                else if (Mode == 4 && (table.Status == 3 || table.Status == 0))
                 {
                     if (selectedTable > 0)
                     {
                         Table prevTable = Room.Tables[Room.Tables.IndexOf(new Table(selectedTable))];
-                        paintTable(prevTable, 3);
+                        paintTable(prevTable, prevTable.Status);
                     }
                     paintTable(table, 6);
                     selectedTable = table.Id;
@@ -124,6 +124,8 @@ namespace Receiver.domain
                     ColumnSelected = coordinates[1];
                     if (table.Status == 3)
                         BoxStatus = 3;
+                    else if (table.Status == 0)
+                        BoxStatus = 0;
                     else
                         BoxStatus = 2;
                     boxStatusHasChanged();
@@ -153,10 +155,6 @@ namespace Receiver.domain
             xmlTablesStatus(adapter.sendAllocationTable(JourneyManager.Instance.ClientManager.Client.Dni,
                 tableID, JourneyManager.Instance.ClientManager.Guests));
             selectedTable = -1;
-        }
-
-        public void confirmDeallocation()
-        {
         }
 
         public void confirmDeallocation(int tableID)

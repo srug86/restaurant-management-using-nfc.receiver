@@ -3,7 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Class="Receiver.presentation.InitWin"
 	x:Name="Window"
-	Title="MobiCarta - Aplicación del maître"
+	Title="MobiCarta - Aplicación del recibidor"
 	Width="800" Height="600" ResizeMode="NoResize" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen" Icon="/Receiver;component/Resources/ico.jpg" Closed="Close_Program">
 
     <Grid x:Name="LayoutRoot" Background="{x:Null}">
@@ -55,7 +55,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Margin="20,0,20,-313" Height="100" Content="Estadísticas" Grid.Row="2" VerticalAlignment="Bottom" FontFamily="Trebuchet MS" FontSize="24" Opacity="0.8" FontWeight="Normal" x:Name="btnStatistics" BorderThickness="5,5,5,5" HorizontalAlignment="Stretch">
+                <Button Margin="20,0,20,-313" Height="100" Content="Restaurante y clientes" Grid.Row="2" VerticalAlignment="Bottom" FontFamily="Trebuchet MS" FontSize="24" Opacity="0.8" FontWeight="Normal" x:Name="btnStatistics" BorderThickness="5,5,5,5" HorizontalAlignment="Stretch" Click="btnStatistics_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>
