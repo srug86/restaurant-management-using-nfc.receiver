@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Receiver.presentation.StatisticsWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MobiCarta - Datos del restaurante y de los clientes" Height="600" Width="800" WindowStartupLocation="CenterScreen" Icon="/Receiver;component/Resources/ico.jpg" MinWidth="800" MinHeight="600">
+        Title="MobiCarta - Datos del restaurante y de los clientes" Height="600" Width="800" WindowStartupLocation="CenterScreen" Icon="/Receiver;component/Images/ico.png" MinWidth="800" MinHeight="600">
     <Grid>
         <Grid Background="LightGray">
             <Grid.RowDefinitions>
@@ -48,7 +48,7 @@
                 </Grid>
                 <Grid HorizontalAlignment="Stretch" Name="gridInitial" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Visible">
                     <Grid.Background>
-                        <ImageBrush ImageSource="/Receiver;component/Resources/background.jpg" />
+                        <ImageBrush ImageSource="/Receiver;component/Images/background.png" />
                     </Grid.Background>
                 </Grid>
                 <Grid Height="Auto" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Name="gridOClients" VerticalAlignment="Stretch" Width="Auto" Background="DarkRed">

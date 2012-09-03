@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Receiver.presentation.ClientDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MobiCarta - Datos del cliente" Height="400" Width="600" Icon="/Receiver;component/Resources/ico.jpg" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Background="DarkRed">
+        Title="MobiCarta - Datos del cliente" Height="400" Width="600" Icon="/Receiver;component/Images/ico.png" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Background="DarkRed">
     <Grid>
         <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="grid1" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro">
             <Grid.RowDefinitions>

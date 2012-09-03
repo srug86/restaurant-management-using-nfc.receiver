@@ -4,7 +4,7 @@
 	x:Class="Receiver.presentation.InitWin"
 	x:Name="Window"
 	Title="MobiCarta - Aplicación del recibidor"
-	Width="800" Height="600" ResizeMode="NoResize" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen" Icon="/Receiver;component/Resources/ico.jpg" Closed="Close_Program">
+	Width="800" Height="600" ResizeMode="NoResize" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" WindowStartupLocation="CenterScreen" Icon="/Receiver;component/Images/ico.png" Closed="Close_Program">
 
     <Grid x:Name="LayoutRoot" Background="{x:Null}">
         <Grid.ColumnDefinitions>
@@ -13,14 +13,14 @@
             <ColumnDefinition Width="0.3"/>
             <ColumnDefinition Width="28"/>
         </Grid.ColumnDefinitions>
-        <Image HorizontalAlignment="Right" Margin="0,8,-738.016,8" Width="741.333" Grid.Column="3" Source="/Receiver;component/Resources/background.jpg" />
+        <Image HorizontalAlignment="Right" Margin="0,8,-738.016,8" Width="741.333" Grid.Column="3" Source="/Receiver;component/Images/background.png" />
         <Grid HorizontalAlignment="Right" Margin="0,8,-573,8" Width="390" Grid.Column="3" Background="{x:Null}" Opacity="1" OpacityMask="{x:Null}" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.4"/>
                 <RowDefinition Height="0.6"/>
             </Grid.RowDefinitions>
             <Rectangle Opacity="0.495" Margin="8,0,8,-547.1" VerticalAlignment="Bottom" Height="539.1" Fill="#FFFFFFFF" Stroke="#FF000000" Grid.Row="0" StrokeThickness="0"/>
-            <Image Margin="101.042,0,101.041,-191.5" Grid.RowSpan="2" VerticalAlignment="Stretch" Source="/Receiver;component/Resources/logo.jpg"/>
+            <Image Margin="101.042,0,101.041,-191.5" Grid.RowSpan="2" VerticalAlignment="Stretch" Source="/Receiver;component/Images/logo.png"/>
             <Grid Margin="8,0,8,-547.1" VerticalAlignment="Bottom" Height="351.6" Grid.Row="1" d:LayoutOverrides="VerticalAlignment" RenderTransformOrigin="0,0">
                 <Grid.RenderTransform>
                     <TransformGroup>

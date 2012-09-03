@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Receiver.presentation.JourneyManagerWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MobiCarta - Gestor de mesas" Height="600" Width="800" Icon="/Receiver;component/Resources/ico.jpg" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen" BorderBrush="Black" OpacityMask="Black" Name="wJourneyManager">
+        Title="MobiCarta - Gestor de mesas" Height="600" Width="800" Icon="/Receiver;component/Images/ico.png" MinWidth="800" MinHeight="600" WindowStartupLocation="CenterScreen" BorderBrush="Black" OpacityMask="Black" Name="wJourneyManager">
     <Grid Background="Gainsboro">
         <Grid.RowDefinitions>
             <RowDefinition Height="60*" />
@@ -41,7 +41,7 @@
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridInitial" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Visible">
                 <Grid.Background>
-                    <ImageBrush ImageSource="/Receiver;component/Resources/background.jpg" />
+                    <ImageBrush ImageSource="/Receiver;component/Images/background.png" />
                 </Grid.Background>
             </Grid>
             <Grid HorizontalAlignment="Stretch" Name="gridOCome" VerticalAlignment="Stretch" Width="Auto" Grid.Row="1" Grid.Column="1" FlowDirection="LeftToRight" Visibility="Hidden">

@@ -56,13 +56,13 @@ namespace Receiver.presentation
         }
 
         private Dictionary<int, string> colorBox = new Dictionary<int, string>() {
-            {0, "/Receiver;component/Resources/white.jpg"},
-            {1, "/Receiver;component/Resources/red.jpg"},
-            {2, "/Receiver;component/Resources/yellow.jpg"},
-            {3, "/Receiver;component/Resources/green.jpg"},
-            {11, "/Receiver;component/Resources/pred.jpg"},
-            {22, "/Receiver;component/Resources/pyellow.jpg"},
-            {33, "/Receiver;component/Resources/pgreen.jpg"},
+            {0, "/Receiver;component/Images/white.png"},
+            {1, "/Receiver;component/Images/red.png"},
+            {2, "/Receiver;component/Images/yellow.png"},
+            {3, "/Receiver;component/Images/green.png"},
+            {11, "/Receiver;component/Images/pred.png"},
+            {22, "/Receiver;component/Images/pyellow.png"},
+            {33, "/Receiver;component/Images/pgreen.png"},
         };
 
         private String origTitle;
@@ -120,6 +120,7 @@ namespace Receiver.presentation
             btnBar.Background = btnTable.Background = Brushes.Gainsboro;
             txtbType.Background = Brushes.Tomato;
             btnReceiver.Background = Brushes.Tomato;
+            btnIncrease.IsEnabled = btnDecrease.IsEnabled = false;
             disableAttributes();
             editor.selectedReceiver();
         }
@@ -132,6 +133,7 @@ namespace Receiver.presentation
             btnReceiver.Background = btnTable.Background = Brushes.Gainsboro;
             txtbType.Background = Brushes.Yellow;
             btnBar.Background = Brushes.Yellow;
+            btnIncrease.IsEnabled = btnDecrease.IsEnabled = false;
             disableAttributes();
             editor.selectedBar();
         }
@@ -144,6 +146,7 @@ namespace Receiver.presentation
             btnBar.Background = btnReceiver.Background = Brushes.Gainsboro;
             txtbType.Background = Brushes.LimeGreen;
             btnTable.Background = Brushes.LimeGreen;
+            btnIncrease.IsEnabled = btnDecrease.IsEnabled = true;
             txtbCapacity.IsReadOnly = false;
             txtbCapacity.Text = "4";
             editor.selectedTable();
@@ -156,6 +159,24 @@ namespace Receiver.presentation
             String [] coordinates = box.Split('x');
             if (editor.selectedBox(Convert.ToInt32(coordinates[0]), Convert.ToInt32(coordinates[1])))
                 BoxSelected = true;
+        }
+
+        private void btnDecrease_Click(object sender, RoutedEventArgs e)
+        {
+            if (!txtbCapacity.Text.Equals(""))
+            {
+                int c = Convert.ToInt16(txtbCapacity.Text);
+                if (c > 1) txtbCapacity.Text = (--c).ToString();
+            }
+        }
+
+        private void btnIncrease_Click(object sender, RoutedEventArgs e)
+        {
+            if (!txtbCapacity.Text.Equals(""))
+            {
+                int c = Convert.ToInt16(txtbCapacity.Text);
+                txtbCapacity.Text = (++c).ToString();
+            }
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
@@ -251,6 +272,7 @@ namespace Receiver.presentation
             txtbId.IsReadOnly = true;
             txtbCapacity.Text = "";
             txtbCapacity.IsReadOnly = true;
+            btnIncrease.IsEnabled = btnDecrease.IsEnabled = false;
         }
 
         private void disableAttributes()

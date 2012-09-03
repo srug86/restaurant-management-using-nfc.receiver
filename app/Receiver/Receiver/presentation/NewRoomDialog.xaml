@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Receiver.presentation.NewRoomDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MobiCarta - Especifique nombre y tamaño del salón" Height="210" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Resources/ico.jpg" Topmost="True" ShowInTaskbar="False">
+        Title="MobiCarta - Especifique nombre y tamaño del salón" Height="210" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Receiver;component/Images/ico.png" Topmost="True" ShowInTaskbar="False">
     <Grid>
         <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="5" Name="grid1" VerticalAlignment="Stretch" Width="Auto" Background="Gainsboro">
             <Grid.ColumnDefinitions>
