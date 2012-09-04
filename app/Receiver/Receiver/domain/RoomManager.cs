@@ -13,6 +13,7 @@ namespace Receiver.domain
 
         private List<ObserverRE> reObservers = new List<ObserverRE>();
 
+        /* Atributos de la clase */
         private RoomDef room;
 
         internal RoomDef Room
@@ -49,39 +50,42 @@ namespace Receiver.domain
             set { boxStatus = value; }
         }
 
+        // Método constructor
         public RoomManager()
         {
             Room = new RoomDef();
         }
 
+        // Cargar plantilla
         public void loadRoom(string name, bool newJourney)
         {
             xmlDistributionOfRoom(adapter.sendMeRoom(name, newJourney));
         }
 
+        // Cálculo del evento producido tras la selección de una casilla de la plantilla
         public int selectedBox(int row, int column)
         {
             int tableID = findTable(row, column);
-            if ((Mode == 3 || Mode == 4) && tableID != -1)
+            if ((Mode == 3 || Mode == 4) && tableID != -1)  // Modo "Cliente llega"
             {
-                Table table = Room.Tables[Room.Tables.IndexOf(new Table(tableID))];
+                TableInf table = Room.Tables[Room.Tables.IndexOf(new TableInf(tableID))];
                 if (Mode == 3 && table.Status == -1 &&
                     table.Capacity >= JourneyManager.Instance.ClientManager.Guests)
                 {
                     if (selectedTable > 0)
                     {
-                        Table prevTable = Room.Tables[Room.Tables.IndexOf(new Table(selectedTable))];
+                        TableInf prevTable = Room.Tables[Room.Tables.IndexOf(new TableInf(selectedTable))];
                         paintTable(prevTable, -1);
                     }
                     paintTable(table, 6);
                     selectedTable = table.Id;
                     return table.Id;
                 }
-                else if (Mode == 4 && (table.Status == 3 || table.Status == 0))
+                else if (Mode == 4 && (table.Status == 3 || table.Status == 0)) // Modo "Cliente se va"
                 {
                     if (selectedTable > 0)
                     {
-                        Table prevTable = Room.Tables[Room.Tables.IndexOf(new Table(selectedTable))];
+                        TableInf prevTable = Room.Tables[Room.Tables.IndexOf(new TableInf(selectedTable))];
                         paintTable(prevTable, prevTable.Status);
                     }
                     paintTable(table, 6);
@@ -93,7 +97,8 @@ namespace Receiver.domain
             return -1;
         }
 
-        private void paintTable(Table table, int colour)
+        // Cambia de color las casillas de una mesa
+        private void paintTable(TableInf table, int colour)
         {
             foreach (int[] coordinates in table.Place)
             {
@@ -104,20 +109,23 @@ namespace Receiver.domain
             }
         }
 
+        // Calcula cuál es el cliente de una mesa
         public string getClientsTable(int table)
         {
-            return Room.Tables[Room.Tables.IndexOf(new Table(table))].Client;
+            return Room.Tables[Room.Tables.IndexOf(new TableInf(table))].Client;
         }
 
+        // Actualiza el estado de las mesas
         public void updateTables()
         {
             xmlTablesStatus(adapter.sendMeTablesStatus());
         }
 
+        // Calcula cuáles son las mesas candidatas para ser abandonadas
         public void getCandidateTables()
         {
             updateTables();
-            foreach (Table table in Room.Tables)
+            foreach (TableInf table in Room.Tables)
                 foreach (int[] coordinates in table.Place)
                 {
                     RowSelected = coordinates[0];
@@ -133,10 +141,11 @@ namespace Receiver.domain
             Mode = 4;
         }
 
+        // Calcula cuáles son las mesas candidatas a ser ocupadas
         public void getCandidateTables(int guests)
         {
             updateTables();
-            foreach (Table table in Room.Tables)
+            foreach (TableInf table in Room.Tables)
                 foreach (int[] coordinates in table.Place)
                 {
                     RowSelected = coordinates[0];
@@ -150,6 +159,7 @@ namespace Receiver.domain
             Mode = 3;
         }
 
+        // Confirma la ocupación de una mesa
         public void confirmAllocation(int tableID)
         {
             xmlTablesStatus(adapter.sendAllocationTable(JourneyManager.Instance.ClientManager.Client.Dni,
@@ -157,12 +167,14 @@ namespace Receiver.domain
             selectedTable = -1;
         }
 
+        // Confirma el abandono de una mesa
         public void confirmDeallocation(int tableID)
         {
             xmlTablesStatus(adapter.sendDeallocationTable(tableID));
             selectedTable = -1;
         }
 
+        // Decodifica el XML con la información de la plantilla del restaurante
         private void xmlDistributionOfRoom(string sXml)
         {
             if (sXml != "" && sXml != null)
@@ -189,10 +201,10 @@ namespace Receiver.domain
                 readBoxes(bBoxesList, room.Bar);
                 XmlNodeList tables = ((XmlElement)_room[0]).GetElementsByTagName("Tables");
                 XmlNodeList tList = ((XmlElement)tables[0]).GetElementsByTagName("Table");
-                Room.Tables = new List<Table>();
+                Room.Tables = new List<TableInf>();
                 foreach (XmlElement table in tList)
                 {
-                    Table td = new Table();
+                    TableInf td = new TableInf();
                     td.Id = Convert.ToInt16(table.GetAttribute("id"));
                     td.Capacity = Convert.ToInt16(table.GetAttribute("capacity"));
                     XmlNodeList tBoxes = ((XmlElement)table).GetElementsByTagName("Boxes");
@@ -203,6 +215,7 @@ namespace Receiver.domain
             }
         }
 
+        // Decodifica el XML de la ubicación de las mesas de la plantilla
         private void readBoxes(XmlNodeList srcList, List<int[]> dstList)
         {
             foreach (XmlElement node in srcList)
@@ -213,6 +226,7 @@ namespace Receiver.domain
             }
         }
 
+        // Decodifica el XML del estado de las mesas del restaurante
         private void xmlTablesStatus(string sXml)
         {
             if (sXml != "")
@@ -224,7 +238,7 @@ namespace Receiver.domain
                 foreach (XmlElement table in tList)
                 {
                     int id = Convert.ToInt16(table.GetAttribute("id"));
-                    Table taux = new Table(id);
+                    TableInf taux = new TableInf(id);
                     XmlNodeList status = ((XmlElement)table).GetElementsByTagName("Status");
                     Room.Tables[Room.Tables.IndexOf(taux)].Status = Convert.ToInt16(status[0].InnerText);
                     XmlNodeList client = ((XmlElement)table).GetElementsByTagName("Client");
@@ -235,6 +249,7 @@ namespace Receiver.domain
             }
         }
 
+        // Coloca los objetos del restaurante en la plantilla
         public void locateObjects()
         {
             foreach (int[] coordinates in Room.Receiver)
@@ -253,9 +268,10 @@ namespace Receiver.domain
             }
         }
 
+        // Actualiza el estado de las mesas del restaurante
         public void refreshTables()
         {
-            foreach (Table table in Room.Tables)
+            foreach (TableInf table in Room.Tables)
                 foreach (int[] coordinates in table.Place)
                 {
                     RowSelected = coordinates[0];
@@ -266,15 +282,18 @@ namespace Receiver.domain
             Mode = 0;
         }
 
+        // Devuelve el identificador de la mesa que ocupa una coordenada dada
         private int findTable(int row, int column)
         {
-            foreach (Table table in Room.Tables)
+            foreach (TableInf table in Room.Tables)
                 foreach (int[] coordinates in table.Place)
                     if (coordinates[0] == row && coordinates[1] == column)
                         return table.Id;
             return -1;
         }
 
+        /* Métodos que implementan la función 'Observable' */
+        // Se notifica a los observadores ante el cambio de estado de una casilla en la plantilla
         private void switchBox()
         {
             for (int i = 0; i < reObservers.Count; i++)

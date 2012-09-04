@@ -24,10 +24,9 @@ namespace Receiver.presentation
     {
         private JourneyManager manager = JourneyManager.Instance;
 
-        private BluetoothServer bluetoothServer = BluetoothServer.Instance;
-
+        /* Atributos de la clase 'JourneyManagerWin' */
+        // Nombre de la plantilla
         private string roomName;
-
         public string RoomName
         {
             get { return roomName; }
@@ -35,21 +34,21 @@ namespace Receiver.presentation
         }
 
         private int roomHeight, roomWidth;
-
+        // Número de filas de la plantilla
         public int RoomHeight
         {
             get { return roomHeight; }
             set { roomHeight = value; }
         }
-
+        // Número de columnas de la plantilla
         public int RoomWidth
         {
             get { return roomWidth; }
             set { roomWidth = value; }
         }
 
+        // Matriz de casillas de la plantilla
         private Image[, ,] room;
-
         public Image[, ,] Room
         {
             get { return room; }
@@ -60,8 +59,10 @@ namespace Receiver.presentation
 
         private UniformGrid[] uGridsRooms;
 
+        // 'Logger'
         private FlowDocument fdEvents;
 
+        // Diccionario que relaciona el estado de una mesa con el color que la representa
         private Dictionary<int, string> colorBox = new Dictionary<int, string> {
             {-1, "/Receiver;component/Images/white.png"},
             {0, "/Receiver;component/Images/green.png"},
@@ -73,6 +74,7 @@ namespace Receiver.presentation
             {6, "/Receiver;component/Images/pgreen.png"},
         };
 
+        // Método constructor
         public JourneyManagerWin()
         {
             InitializeComponent();
@@ -80,13 +82,16 @@ namespace Receiver.presentation
             openOffPerspective();
         }
 
+        // Generación de una matriz con los 'grids' de los modos de una jornada
         private void initGridsOnMode()
         {
-            gridsOnMode = new Grid[7] { gridORoomView, gridOCome, gridOComeNFC, gridOLeave, gridOLeaveNFC, gridOPayNFC, gridOAllocation };
+            gridsOnMode = new Grid[7] { gridORoomView, gridOCome, gridOComeNFC, gridOLeave, 
+                gridOLeaveNFC, gridOPayNFC, gridOAllocation };
             foreach (Grid g in gridsOnMode)
                 g.Visibility = Visibility.Hidden;
         }
 
+        // Muestra el 'grid' de un modo concreto
         private void showOnModeGrid(Grid grid)
         {
             foreach (Grid g in gridsOnMode)
@@ -96,81 +101,7 @@ namespace Receiver.presentation
             }
         }
 
-        private void btnNew_Click(object sender, RoutedEventArgs e)
-        {
-            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingRooms(), false, true);
-            roomDialog.Show();
-        }
-
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingCurrentRoom(), false, false);
-            roomDialog.Show();
-        }
-
-        private void btnCM_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            String number = btn.Name.Substring(5);
-            if (number == "Delete")
-            {
-                if (txtbCapacityCome.Text != "")
-                    txtbCapacityCome.Text = txtbCapacityCome.Text.Substring(1, txtbCapacityCome.Text.Length - 1);
-            }
-            else
-                txtbCapacityCome.Text += number;
-        }
-
-        private void btnCN_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            String number = btn.Name.Substring(5);
-            if (number == "Delete")
-            {
-                if (txtbCapacityComeNFC.Text != "")
-                    txtbCapacityComeNFC.Text = txtbCapacityComeNFC.Text.Substring(1, txtbCapacityComeNFC.Text.Length - 1);
-            }
-            else
-                txtbCapacityComeNFC.Text += number;
-        }
-
-        private void btnOCome_Click(object sender, RoutedEventArgs e)
-        {
-            openArrivalPerspective();
-        }
-
-        private void btnOPay_Click(object sender, RoutedEventArgs e)
-        {
-            openPaymentPerspective();
-        }
-
-        private void btnOLeave_Click(object sender, RoutedEventArgs e)
-        {
-            openExitPerspective();
-        }
-
-        private void btnOView_Click(object sender, RoutedEventArgs e)
-        {
-            manager.RoomManager.updateTables();
-            openViewPerspective();
-        }
-
-        private void box_Click(object sender, MouseButtonEventArgs e)
-        {
-            Image img = (Image)sender;
-            string box = img.Name.Substring(3);
-            string[] coordinates = box.Split('x');
-            int selectedTable = manager.RoomManager.selectedBox(Convert.ToInt16(coordinates[0]),
-                Convert.ToInt16(coordinates[1]));
-            if (gridOAllocation.IsVisible && selectedTable != -1)
-                txtbAllocTable.Text = Convert.ToString(selectedTable);
-            else if (gridOLeave.IsVisible && selectedTable != -1)
-            {
-                txtbDeallocTable.Text = Convert.ToString(selectedTable);
-                txtbDeallocName.Text = manager.RoomManager.getClientsTable(selectedTable);
-            }
-        }
-
+        // 'Setea' los 'grids' para el modo 'OFF' del "gestor de mesas"
         private void openOffPerspective()
         {
             gridInitial.Visibility = Visibility.Visible;
@@ -180,6 +111,7 @@ namespace Receiver.presentation
             btnOView.IsEnabled = false;
         }
 
+        // 'Setea' los 'grids' para el modo 'ON' del "gestor de mesas"
         private void openOnPerspective()
         {
             gridInitial.Visibility = Visibility.Hidden;
@@ -190,17 +122,20 @@ namespace Receiver.presentation
             openViewPerspective();
         }
 
+        // Muestra la perspectiva de "Cliente llega"
         private void openArrivalPerspective()
         {
             txtbIdCome.Text = idBuilder();
             showOnModeGrid(gridOCome);
         }
 
+        // Muestra la perspectiva de "Cliente NFC llega"
         private void openArrivalNFCPerspective()
         {
             showOnModeGrid(gridOComeNFC);
         }
 
+        // Muestra la perspectiva de "Ubicar cliente en mesa"
         private void openAllocationPerspective()
         {
             txtbAllocName.Text = manager.ClientManager.Client.Dni;
@@ -208,22 +143,26 @@ namespace Receiver.presentation
             showOnModeGrid(gridOAllocation);
         }
 
+        // Muestra la perspectiva de "Cobrar cliente NFC"
         private void openPaymentPerspective()
         {
             showOnModeGrid(gridOPayNFC);
         }
 
+        // Muestra la perspectiva de "Cliente se va"
         private void openExitPerspective()
         {
             manager.RoomManager.getCandidateTables();
             showOnModeGrid(gridOLeave);
         }
 
+        // Muestra la perspectiva de "Cliente NFC se va"
         private void openExitNFCPerspective()
         {
             showOnModeGrid(gridOLeaveNFC);
         }
 
+        // Muestra la perspectiva de "Vista general"
         private void openViewPerspective()
         {
             resetProvisionalData();
@@ -231,22 +170,24 @@ namespace Receiver.presentation
             showOnModeGrid(gridORoomView);
         }
 
+        // Carga una nueva jornada o una jornada existente
         public void loadSelectedRoom(string name, bool reset)
         {
             manager.createRoomManager();
-            manager.RoomManager.loadRoom(name, reset);
+            manager.RoomManager.loadRoom(name, reset);  // Carga la plantilla seleccionada
             generateEmptyRoom(manager.RoomManager.Room.Name,
                 manager.RoomManager.Room.Height, manager.RoomManager.Room.Width);
-            registerSubjects(manager.RoomManager);
+            registerSubjects(manager.RoomManager);      // Se registra como 'Observer'
             manager.ClientManager.setGuiReference(this);
-            manager.RoomManager.locateObjects();
-            if (reset) manager.resetCurrentJourney(name);
-            else manager.RoomManager.updateTables();
-            manager.initBluetoothServer();
+            manager.RoomManager.locateObjects();        // Carga los objetos en la plantilla
+            if (reset) manager.resetCurrentJourney(name);   // 'Resetea' la información de la jornada anterior
+            else manager.RoomManager.updateTables();        // o carga el estado de las mesas de una jornada existente
+            manager.initBluetoothServer();              // Inicializa el servidor Bluetooth
             this.delegateToShowReceiverEvent(0, reset ? "Se inicia de una nueva jornada." : "Se inicia una jornada existente.");
             openOnPerspective();
         }
 
+        // Genera una plantilla de restaurante vacía
         private void generateEmptyRoom(string name, int height, int width)
         {
             RoomName = name;
@@ -275,11 +216,7 @@ namespace Receiver.presentation
             }
         }
 
-        private void registerSubjects(SubjectRE subjectRE)
-        {
-            subjectRE.registerInterest(this);
-        }
-
+        // 'Resetea' la información residual de la GUI tras un cambio de modo
         private void resetProvisionalData()
         {
             btnAcceptAllocation.IsEnabled = false;
@@ -288,10 +225,29 @@ namespace Receiver.presentation
                 txtbDeallocName.Text = txtbDeallocTable.Text = "";
             lblPDNI.Content = lblPName.Content = lblPSurname.Content = lblPTable.Content =
                 lblPBill.Content = lblPAmount.Content = "-";
-            //btnAcceptPayNFC.IsEnabled = true;
-            //btnAcceptPayNFC.Content = "PAGADA";
         }
 
+        // Generador de identificadores para un cliente "no NFC"
+        private string idBuilder()
+        {
+            DateTime time = DateTime.Now;
+            string month = time.Month.ToString(), day = time.Day.ToString(), hour = time.Hour.ToString(),
+                minute = time.Minute.ToString(), second = time.Second.ToString();
+            if (time.Month < 10) month = "0" + time.Month.ToString();
+            if (time.Day < 10) day = "0" + time.Day.ToString();
+            if (time.Hour < 10) hour = "0" + time.Hour.ToString();
+            if (time.Minute < 10) minute = "0" + time.Minute.ToString();
+            if (time.Second < 10) second = "0" + time.Second.ToString();
+            return "C" + time.Year + month + day + hour + minute + second;
+        }
+
+        /* Métodos para implementar el patrón 'Observer' de la GUI*/
+        private void registerSubjects(SubjectRE subjectRE)
+        {
+            subjectRE.registerInterest(this);
+        }
+
+        // Método 'notify' que avisa del cambio de estado de una de las casillas de la plantilla
         public void notifyChangesInABox(int row, int column, int state)
         {
             BitmapImage bi = new BitmapImage();
@@ -302,6 +258,8 @@ namespace Receiver.presentation
                 Room[row, column, i].Source = bi;
         }
 
+        /* Delegados de la GUI */
+        // Delegado que registra los eventos producidos en el 'logger' del modo "Vista general"
         private delegate void ReceiverEvent(int type, string message);
         public void delegateToShowReceiverEvent(int type, string message)
         {
@@ -314,7 +272,7 @@ namespace Receiver.presentation
             switch (type)
             {
                 case 0: p.Foreground = Brushes.DarkBlue; break;     // Inicio de jornada
-                case 1: p.Foreground = Brushes.DarkGreen; break;   // Llega cliente
+                case 1: p.Foreground = Brushes.DarkGreen; break;    // Llega cliente
                 case 2: p.Foreground = Brushes.DarkOrange; break;   // Paga cliente NFC
                 case 3: p.Foreground = Brushes.DarkRed; break;      // Se va cliente
                 default: break;
@@ -325,6 +283,7 @@ namespace Receiver.presentation
             else fdEvents.Blocks.Add(p);
         }
 
+        // Delegado que informa de la llegada de un cliente NFC
         private delegate void EntryNFCClient(Client client);
         public void delegateToNFCClientHasArrived(Client client)
         {
@@ -339,6 +298,7 @@ namespace Receiver.presentation
             openArrivalNFCPerspective();
         }
 
+        // Delegado que informa de la salida de un cliente NFC
         private delegate void ExitNFCClient(Client client, int table);
         public void delegateToNFCClientHasLeft(Client client, int table)
         {
@@ -354,6 +314,7 @@ namespace Receiver.presentation
             openExitNFCPerspective();
         }
 
+        // Delegado que informa del pago de un cliente NFC
         private delegate void PayNFCClient(Client client, int table, int billID, double amount);
         public void delegateToNFCClientHasPaid(Client client, int table, int billID, double amount)
         {
@@ -371,6 +332,78 @@ namespace Receiver.presentation
             openPaymentPerspective();
         }
 
+        /* Lógica de control de eventos */
+        // Click en el botón "Nueva jornada"
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingRooms(), false, true);
+            roomDialog.Show();
+        }
+
+        // Click en el botón "Cargar jornada existente"
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            LoadRoomDialog roomDialog = new LoadRoomDialog(this, manager.consultingCurrentRoom(), false, false);
+            roomDialog.Show();
+        }
+
+        // Click en un botón del teclado numérico del modo "Cliente llega"
+        private void btnCM_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            String number = btn.Name.Substring(5);
+            if (number == "Delete" && txtbCapacityCome.Text != "")  // Botón 'Delete' (<--)
+                    txtbCapacityCome.Text = txtbCapacityCome.Text.Substring(1, txtbCapacityCome.Text.Length - 1);
+            else txtbCapacityCome.Text += number;                   // Botón numérico (0-9)
+        }
+
+        // Click en un botón del teclado numérico del modo "Cliente NFC llega"
+        private void btnCN_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            String number = btn.Name.Substring(5);
+            if (number == "Delete" && txtbCapacityComeNFC.Text != "")   // Botón 'Delete' (<--)
+                    txtbCapacityComeNFC.Text = txtbCapacityComeNFC.Text.Substring(1, txtbCapacityComeNFC.Text.Length - 1);
+            else txtbCapacityComeNFC.Text += number;                    // Botón numérico (0-9)
+        }
+
+        // Click en el botón del modo "Cliente llega"
+        private void btnOCome_Click(object sender, RoutedEventArgs e)
+        {
+            openArrivalPerspective();
+        }
+
+        // Click en el botón del modo "Cliente se va"
+        private void btnOLeave_Click(object sender, RoutedEventArgs e)
+        {
+            openExitPerspective();
+        }
+
+        // Click en el botón del modo "Vista general"
+        private void btnOView_Click(object sender, RoutedEventArgs e)
+        {
+            manager.RoomManager.updateTables();
+            openViewPerspective();
+        }
+
+        // Click en alguna de las casillas de la plantilla del restaurante
+        private void box_Click(object sender, MouseButtonEventArgs e)
+        {
+            Image img = (Image)sender;
+            string box = img.Name.Substring(3);
+            string[] coordinates = box.Split('x');
+            int selectedTable = manager.RoomManager.selectedBox(Convert.ToInt16(coordinates[0]),
+                Convert.ToInt16(coordinates[1]));
+            if (gridOAllocation.IsVisible && selectedTable != -1)
+                txtbAllocTable.Text = Convert.ToString(selectedTable);
+            else if (gridOLeave.IsVisible && selectedTable != -1)
+            {
+                txtbDeallocTable.Text = Convert.ToString(selectedTable);
+                txtbDeallocName.Text = manager.RoomManager.getClientsTable(selectedTable);
+            }
+        }
+
+        // Click en el botón "Aceptar" en el modo "Cliente llega"
         private void btnAcceptCome_Click(object sender, RoutedEventArgs e)
         {
             if (txtbIdCome.Text != "" && txtbCapacityCome.Text != "")
@@ -382,39 +415,18 @@ namespace Receiver.presentation
             }
         }
 
+        // Click en el botón "Cancelar" en el modo "Cliente llega"
         private void btnCancelCome_Click(object sender, RoutedEventArgs e)
         {
             openViewPerspective();
         }
 
-        private string idBuilder()
-        {
-            DateTime time = DateTime.Now;
-            string month = time.Month.ToString(), day = time.Day.ToString(), hour = time.Hour.ToString(),
-                minute = time.Minute.ToString(), second = time.Second.ToString();
-            if (time.Month < 10) month = "0" + time.Month.ToString();
-            if (time.Day < 10) day = "0" + time.Day.ToString();
-            if (time.Hour < 10) hour = "0" + time.Hour.ToString();
-            if (time.Minute < 10) minute = "0" + time.Minute.ToString();
-            if (time.Second < 10) second = "0" + time.Second.ToString();
-            return "C" + time.Year + month + day + hour + minute + second;
-        }
-
-        private void btnCancelAllocation_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtbAllocName.Text.Substring(0, 1) == "C")
-                openArrivalPerspective();
-            else
-                openArrivalNFCPerspective();
-            btnAcceptAllocation.IsEnabled = false;
-            txtbAllocName.Text = txtbAllocTable.Text = "";
-        }
-
+        // Click en el botón "Asignar mesa" en el modo "Ubicar cliente en mesa"
         private void btnAcceptAllocation_Click(object sender, RoutedEventArgs e)
         {
             if (txtbAllocTable.Text != "")
             {
-                if (manager.ClientManager.Client.Dni.Substring(0, 1) == "C")
+                if (manager.ClientManager.Client.Dni.Substring(0, 1) == "C")    // Para clientes "no NFC"
                     manager.ClientManager.newStandardClient();
                 manager.RoomManager.confirmAllocation(Convert.ToInt16(txtbAllocTable.Text));
                 this.delegateToShowReceiverEvent(1, "El cliente " + txtbAllocName.Text + " llega al restaurante y ocupa la mesa " + txtbAllocTable.Text + ".");
@@ -422,12 +434,18 @@ namespace Receiver.presentation
             }
         }
 
-        private void btnCancelDeallocation_Click(object sender, RoutedEventArgs e)
+        // Click en el botón "Cancelar" en el modo "Ubicar cliente en mesa"
+        private void btnCancelAllocation_Click(object sender, RoutedEventArgs e)
         {
-            btnAcceptDeallocation.IsEnabled = false;
-            openViewPerspective();
+            if (txtbAllocName.Text.Substring(0, 1) == "C")  // Para clientes "no NFC"
+                openArrivalPerspective();
+            else
+                openArrivalNFCPerspective();                // Para clientes NFC
+            btnAcceptAllocation.IsEnabled = false;
+            txtbAllocName.Text = txtbAllocTable.Text = "";
         }
 
+        // Click en el botón "Aceptar" en el modo "Desubicar cliente de mesa"
         private void btnAcceptDeallocation_Click(object sender, RoutedEventArgs e)
         {
             if (txtbDeallocName.Text != "")
@@ -438,6 +456,14 @@ namespace Receiver.presentation
             }
         }
 
+        // Click en el botón "Cancelar" en el modo "Desubicar cliente de mesa"
+        private void btnCancelDeallocation_Click(object sender, RoutedEventArgs e)
+        {
+            btnAcceptDeallocation.IsEnabled = false;
+            openViewPerspective();
+        }
+
+        // Click en el botón "Aceptar" en el modo "Cliente NFC llega"
         private void btnAcceptComeNFC_Click(object sender, RoutedEventArgs e)
         {
             if (txtbCapacityComeNFC.Text != "")
@@ -448,11 +474,13 @@ namespace Receiver.presentation
             }
         }
 
+        // Click en el botón "Cancelar" en el modo "Cliente NFC llega"
         private void btnCancelComeNFC_Click(object sender, RoutedEventArgs e)
         {
             openViewPerspective();
         }
 
+        // Click en el botón "Aceptar" en el modo "Cliente NFC se va"
         private void btnAcceptLeaveNFC_Click(object sender, RoutedEventArgs e)
         {
             manager.RoomManager.confirmDeallocation(Convert.ToInt16(lblLTable.Content));
@@ -460,32 +488,25 @@ namespace Receiver.presentation
             openViewPerspective();
         }
 
+        // Click en el botón "Cancelar" en el modo "Cliente NFC se va"
         private void btnCancelLeaveNFC_Click(object sender, RoutedEventArgs e)
         {
             openViewPerspective();
         }
 
-        /*private void btnAcceptPayNFC_Click(object sender, RoutedEventArgs e)
-        {
-            manager.ClientManager.payBill(Convert.ToInt16(lblPBill.Content), 2);
-            manager.RoomManager.confirmDeallocation(Convert.ToInt16(lblPTable.Content));
-            this.delegateToShowReceiverEvent(2, "El cliente " + lblPDNI.Content + " paga su cuenta por NFC.");
-            this.delegateToShowReceiverEvent(3, "El cliente " + lblPDNI.Content + " deja libre la mesa " + lblPTable.Content + " y abandona el restaurante.");
-            btnAcceptPayNFC.IsEnabled = false;
-            btnCancelPayNFC.Content = "Salir";
-            btnAcceptPayNFC.Content = "COBRADA";
-        }*/
-
-        private void btnCancelPayNFC_Click(object sender, RoutedEventArgs e)
+        // Click en el botón "Cerrar" en el modo "Cliente NFC paga"
+        private void btnClosePayNFC_Click(object sender, RoutedEventArgs e)
         {
             openViewPerspective();
         }
 
+        // Cambio de contenido en el texto del identificador de mesa en el modo "Ubicar cliente en mesa"
         private void txtbAllocTable_TextChanged(object sender, TextChangedEventArgs e)
         {
             btnAcceptAllocation.IsEnabled = true;
         }
 
+        // Cambio de contenido en el texto del identificador de mesa en el modo "Desubicar cliente de mesa"
         private void txtbDeallocTable_TextChanged(object sender, TextChangedEventArgs e)
         {
             btnAcceptDeallocation.IsEnabled = true;

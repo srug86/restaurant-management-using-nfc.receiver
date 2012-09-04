@@ -121,9 +121,6 @@
     <Compile Include="presentation\LoadRoomDialog.xaml.cs">
       <DependentUpon>LoadRoomDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="presentation\MessageDialog.xaml.cs">
-      <DependentUpon>MessageDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="presentation\StatisticsWin.xaml.cs">
       <DependentUpon>StatisticsWin.xaml</DependentUpon>
     </Compile>
@@ -149,7 +146,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="domain\RoomEditor.cs" />
-    <Compile Include="domain\TableData.cs" />
+    <Compile Include="domain\TableDef.cs" />
     <Compile Include="presentation\RoomEditorWin.xaml.cs">
       <DependentUpon>RoomEditorWin.xaml</DependentUpon>
     </Compile>
@@ -164,10 +161,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="presentation\MessageDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="presentation\NewRoomDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,7 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\Client.cs" />
-    <Compile Include="domain\Table.cs" />
+    <Compile Include="domain\TableInf.cs" />
     <Compile Include="presentation\NewRoomDialog.xaml.cs">
       <DependentUpon>NewRoomDialog.xaml</DependentUpon>
     </Compile>
@@ -202,7 +195,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="ClassesDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -241,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\OView.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\orange.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\webServer\" />
@@ -312,13 +301,7 @@
     <Resource Include="Images\dgreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\dgreen.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\bar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\gray.png" />
@@ -364,9 +347,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\room.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\save.png" />

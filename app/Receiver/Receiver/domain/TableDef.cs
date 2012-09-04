@@ -5,22 +5,24 @@ using System.Text;
 
 namespace Receiver.domain
 {
-    class TableData
+    // 'TableDef' define las características de una mesa
+    class TableDef
     {
-        private int id;
-
+        /* Atributos del objeto */
+        private int id, capacity;
+        // Identificador
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-        private int capacity;
-
+        // Capacidad total
         public int Capacity
         {
             get { return capacity; }
             set { capacity = value; }
         }
+        // Casillas que ocupa en la plantilla
         private List<int[]> place;
 
         public List<int[]> Place
@@ -28,8 +30,8 @@ namespace Receiver.domain
             get { return place; }
             set { place = value; }
         }
-
-        public TableData(int id, int capacity)
+        // Método constructor
+        public TableDef(int id, int capacity)
         {
             Id = id;
             Capacity = capacity;

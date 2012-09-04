@@ -17,8 +17,9 @@ namespace Receiver.domain
 
         private List<ObserverRM> rmObservers = new List<ObserverRM>();
 
+        /* Atributos de la clase */
         private JourneyManagerWin gui;
-
+        // Datos del cliente
         private Client client;
         internal Client Client
         {
@@ -27,32 +28,34 @@ namespace Receiver.domain
         }
 
         private int guests, table, billID;
-
+        // Mesa que ocupa el cliente
         public int Table
         {
             get { return table; }
             set { table = value; }
         }
+        // Número total de comensales
         public int Guests
         {
             get { return guests; }
             set { guests = value; }
         }
-
+        // Número de factura del cliente
         public int BillID
         {
             get { return billID; }
             set { billID = value; }
         }
 
+        // Importe total para el cliente
         private double amount;
-
         public double Amount
         {
             get { return amount; }
             set { amount = value; }
         }
 
+        /* Implementación de un 'Singleton' para esta clase */
         static readonly ClientManager instance = new ClientManager();
 
         static ClientManager() { }
@@ -67,26 +70,25 @@ namespace Receiver.domain
             }
         }
 
+        // Devuelve lista con los clientes del restaurante
         public List<ShortClient> getClientsData()
         {
             return xmlClientsDataDecoder(adapter.sendMeClientsData());
         }
 
+        // Devuelve perfil con los datos de un cliente
         public Client getClientData(string dni)
         {
             return xmlClientDecoder(adapter.sendMeClientData(dni));
         }
 
-        public void setGuiReference(JourneyManagerWin gui)
-        {
-            this.gui = gui;
-        }
-
+        // Creación de un nuevo cliente estándar (no NFC)
         public void newStandardClient()
         {
             adapter.sendMeClientStatus(xmlClientBuilder());
         }
 
+        // Calcula la respuesta para un cliente NFC
         public string manageNFCClient(string xml)
         {
             Client = xmlClientDecoder(xml);
@@ -94,10 +96,10 @@ namespace Receiver.domain
             switch (status)
             {
                 case -1:
-                case 0:
+                case 0: // Llega cliente NFC
                     gui.delegateToNFCClientHasArrived(Client);
                     return adapter.sendMeClientRecommendation(Client.Dni);
-                case 1:
+                case 1: // Paga cliente NFC
                     Table = adapter.sendMeTable(Client.Dni);
                     Amount = adapter.sendMeBillAmount(Table);
                     BillID = adapter.sendMeBillID(Table);
@@ -108,7 +110,7 @@ namespace Receiver.domain
                     gui.delegateToNFCClientHasPaid(Client, Table, BillID, Amount);
                     return "La cuenta de la mesa " + Table + " ha sido cobrada satisfactoriamente. " +
                         Amount + " Euros han sido decrementados de su cuenta.";
-                case 2:
+                case 2: // Se va cliente NFC
                     Table = adapter.sendMeTable(Client.Dni);
                     gui.delegateToNFCClientHasLeft(Client, Table);
                     return "Gracias por su visita.";
@@ -117,11 +119,18 @@ namespace Receiver.domain
             }
         }
 
+        // Pago de una factura: type = 1 (pago no NFC), type = 2 (pago NFC)
         public void payBill(int billID, int type)
         {
             adapter.sendBillPayment(billID, type);
         }
 
+        public void setGuiReference(JourneyManagerWin gui)
+        {
+            this.gui = gui;
+        }
+
+        // Decodifica XML con la lista de clientes del restaurante
         private List<ShortClient> xmlClientsDataDecoder(string sXml)
         {
             List<ShortClient> lsc = new List<ShortClient>();
@@ -149,6 +158,7 @@ namespace Receiver.domain
             return lsc;
         }
 
+        // Decodifica XML con el perfil del cliente
         private Client xmlClientDecoder(string sXml)
         {
             Client client = new Client();
@@ -178,6 +188,7 @@ namespace Receiver.domain
             return client;
         }
 
+        // Codifica XML con los datos del perfil de un cliente
         private string xmlClientBuilder()
         {
             string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Profile>\n";
@@ -196,6 +207,7 @@ namespace Receiver.domain
         }
     }
 
+    /* Métodos que implementan la función 'Observable' */
     public interface SubjectRM
     {
         void registerInterest(ObserverRM obs);

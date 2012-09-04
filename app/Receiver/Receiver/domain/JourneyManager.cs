@@ -29,6 +29,7 @@ namespace Receiver.domain
             set { clientManager = value; }
         }
 
+        /* Implementación de un 'Singleton' para esta clase */
         static JourneyManager() { }
 
         JourneyManager() { }
@@ -41,37 +42,44 @@ namespace Receiver.domain
             }
         }
 
+        // Inicia el servidor Bluetooth
         public void initBluetoothServer()
         {
             bluetooth.initBluetooth();
         }
 
+        // Cierra el servidor Bluetooth
         public void closeBluetoothServer()
         {
             bluetooth.closeBluetooth();
         }
 
+        // Devuelve la lista de plantillas para el restaurante
         public List<RoomInf> consultingRooms()
         {
             return xmlListOfRooms(adapter.sendMeRooms());
         }
 
+        // Devuelve el nombre de la plantilla de la jornada actual
         public List<RoomInf> consultingCurrentRoom()
         {
             return xmlListOfRooms(adapter.sendMeCurrentRoom());
         }
 
+        // Crea una instancia del gestor de clientes
         public void createRoomManager()
         {
             roomManager = new RoomManager();
             clientManager = ClientManager.Instance;
         }
 
+        // 'Resetea' los datos de la jornada actual al crearse una "nueva jornada"
         public void resetCurrentJourney(string room)
         {
             adapter.sendResetJourney(room);
         }
 
+        // Decodifica XML con la lista de plantillas disponibles para el restaurante
         private List<RoomInf> xmlListOfRooms(string sXml)
         {
             List<RoomInf> listOfRooms = new List<RoomInf>();

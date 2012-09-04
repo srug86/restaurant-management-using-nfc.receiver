@@ -13,6 +13,7 @@ namespace Receiver.domain
 
         static readonly RestaurantManager instance = new RestaurantManager();
 
+        /* Implementación de un 'Singleton' para esta clase */
         static RestaurantManager() { }
 
         RestaurantManager() { }
@@ -25,16 +26,19 @@ namespace Receiver.domain
             }
         }
 
+        // Obtiene los datos del restaurante
         public List<Object> getRestaurantData()
         {
             return xmlRestaurantDataDecoder(adapter.sendMeRestaurantData());
         }
 
+        // 'Setea' los datos del restaurante
         public void setRestaurantData(List<Object> data)
         {
             adapter.sendRestaurantData(xmlRestaurantDataBuilder(data));
         }
 
+        // Decodifica XML con los datos del restaurante
         private List<Object> xmlRestaurantDataDecoder(string sXml)
         {
             List<Object> objects = new List<Object>();
@@ -82,6 +86,7 @@ namespace Receiver.domain
             return objects;
         }
 
+        // Codifica XML con los datos del restaurante
         private string xmlRestaurantDataBuilder(List<Object> data)
         {
             string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Restaurant>\n";
@@ -105,22 +110,24 @@ namespace Receiver.domain
         }
     }
 
+    /* Clase auxiliar que almacena los datos corporativos del restaurante `*/
     public class Company
     {
+        /* Atributos de la clase */
         private string name, nif, email;
-
+        // Nombre
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
+        // NIF
         public string NIF
         {
             get { return nif; }
             set { nif = value; }
         }
-
+        // Correo electrónico
         public string Email
         {
             get { return email; }
@@ -128,19 +135,20 @@ namespace Receiver.domain
         }
 
         private int phone, fax;
-
+        // Teléfono
         public int Phone
         {
             get { return phone; }
             set { phone = value; }
         }
-
+        // Fax
         public int Fax
         {
             get { return fax; }
             set { fax = value; }
         }
 
+        /* Métodos constructores */
         public Company() { }
 
         public Company(string name, string nif, int phone, int fax, string email)

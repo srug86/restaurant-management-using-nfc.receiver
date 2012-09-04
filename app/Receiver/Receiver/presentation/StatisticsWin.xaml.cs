@@ -23,12 +23,14 @@ namespace Receiver.presentation
 
         private ClientManager clientManager = ClientManager.Instance;
 
+        // Método constructor
         public StatisticsWin()
         {
             InitializeComponent();
             initializeData();
         }
 
+        // Inicialización de etiquetas
         private void initializeData()
         {
             lblAddress.Content = "D\nI\nR\nE\nC\nC\nI\nÓ\nN";
@@ -36,53 +38,7 @@ namespace Receiver.presentation
             lblOthers.Content = "O\nT\nR\nO\nS";
         }
 
-        private void btnLoadR_Click(object sender, RoutedEventArgs e)
-        {
-            loadRestaurantData(restManager.getRestaurantData());
-            btnORestaurant.IsEnabled = IsEnabled;
-            btnSaveRestaurant.IsEnabled = IsEnabled;
-            gridOptions.Visibility = Visibility.Visible;
-            gridORestaurant.Visibility = Visibility.Visible;
-            gridInitial.Visibility = Visibility.Hidden;
-        }
-
-        private void btnSaveR_Click(object sender, RoutedEventArgs e)
-        {
-            restManager.setRestaurantData(saveRestaurantData());
-        }
-
-        private void btnLoadC_Click(object sender, RoutedEventArgs e)
-        {
-            loadClientsData(clientManager.getClientsData());
-            btnOClients.IsEnabled = IsEnabled;
-            gridOptions.Visibility = Visibility.Visible;
-            gridOClients.Visibility = Visibility.Visible;
-            gridInitial.Visibility = Visibility.Hidden;
-        }
-
-        private void btnORestaurant_Click(object sender, RoutedEventArgs e)
-        {
-            gridORestaurant.Visibility = Visibility.Visible;
-            gridOClients.Visibility = Visibility.Hidden;
-        }
-
-        private void btnOClients_Click(object sender, RoutedEventArgs e)
-        {
-            gridOClients.Visibility = Visibility.Visible;
-            gridORestaurant.Visibility = Visibility.Hidden;
-        }
-
-        private void btnConsult_Click(object sender, RoutedEventArgs e)
-        {
-            if (listVClients.SelectedIndex != -1)
-            {
-                ShortClient sc = (ShortClient)((ListViewItem)listVClients.SelectedItem).Content;
-                Client client = clientManager.getClientData(sc.Dni);
-                ClientDialog clientDialog = new ClientDialog(client, sc.Appearances, sc.Status);
-                clientDialog.Show();
-            }
-        }
-
+        // Carga en la GUI la información del restaurante
         private void loadRestaurantData(List<Object> data)
         {
             Company company = (Company)data[0];
@@ -102,6 +58,7 @@ namespace Receiver.presentation
             txtbDiscVisit.Text = data[4].ToString();
         }
 
+        // Parsea la información del restaurante para guardarla en la BD
         private List<Object> saveRestaurantData()
         {
             List<Object> data = new List<Object>();
@@ -122,6 +79,7 @@ namespace Receiver.presentation
             return data;
         }
 
+        // Carga en la GUI la lista de clientes del restaurante
         private void loadClientsData(List<ShortClient> clients)
         {
             listVClients.Items.Clear();
@@ -133,30 +91,85 @@ namespace Receiver.presentation
                 ((ListViewItem)listVClients.Items[listVClients.Items.Count - 1]).Content = clients[i];
             }
         }
+
+        /* Lógica de control de eventos */
+        // Click en el botón "Cargar restaurante"
+        private void btnLoadR_Click(object sender, RoutedEventArgs e)
+        {
+            loadRestaurantData(restManager.getRestaurantData());
+            btnORestaurant.IsEnabled = IsEnabled;
+            btnSaveRestaurant.IsEnabled = IsEnabled;
+            gridOptions.Visibility = Visibility.Visible;
+            gridORestaurant.Visibility = Visibility.Visible;
+            gridInitial.Visibility = Visibility.Hidden;
+        }
+
+        // Click en el botón "Guardar restaurante"
+        private void btnSaveR_Click(object sender, RoutedEventArgs e)
+        {
+            restManager.setRestaurantData(saveRestaurantData());
+        }
+
+        // Click en el botón "Cargar clientes"
+        private void btnLoadC_Click(object sender, RoutedEventArgs e)
+        {
+            loadClientsData(clientManager.getClientsData());
+            btnOClients.IsEnabled = IsEnabled;
+            gridOptions.Visibility = Visibility.Visible;
+            gridOClients.Visibility = Visibility.Visible;
+            gridInitial.Visibility = Visibility.Hidden;
+        }
+
+        // Click en el botón "Ver restaurante"
+        private void btnORestaurant_Click(object sender, RoutedEventArgs e)
+        {
+            gridORestaurant.Visibility = Visibility.Visible;
+            gridOClients.Visibility = Visibility.Hidden;
+        }
+
+        // Click en el botón "Ver clientes"
+        private void btnOClients_Click(object sender, RoutedEventArgs e)
+        {
+            gridOClients.Visibility = Visibility.Visible;
+            gridORestaurant.Visibility = Visibility.Hidden;
+        }
+
+        // Click en el botón "Consultar cliente"
+        private void btnConsult_Click(object sender, RoutedEventArgs e)
+        {
+            if (listVClients.SelectedIndex != -1)
+            {
+                ShortClient sc = (ShortClient)((ListViewItem)listVClients.SelectedItem).Content;
+                Client client = clientManager.getClientData(sc.Dni);
+                ClientDialog clientDialog = new ClientDialog(client, sc.Appearances, sc.Status);
+                clientDialog.Show();
+            }
+        }
     }
 
+    /* Clase auxiliar para representar la información de un cliente en una lista */
     public class ShortClient
     {
         private string status, dni, name, surname;
-
+        // Estado: 'Activo' o "No activo"
         public string Status
         {
             get { return status; }
             set { status = value; }
         }
-
+        // DNI
         public string Dni
         {
             get { return dni; }
             set { dni = value; }
         }
-
+        // Nombre
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
+        // Apellido(s)
         public string Surname
         {
             get { return surname; }
@@ -164,19 +177,20 @@ namespace Receiver.presentation
         }
 
         private int id, appearances;
-
+        // Número de cliente en la lista de clientes
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-
+        // Número de apariciones
         public int Appearances
         {
             get { return appearances; }
             set { appearances = value; }
         }
-
+        
+        // Método constructor
         public ShortClient() { }
     }
 }

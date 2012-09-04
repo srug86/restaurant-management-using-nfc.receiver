@@ -17,6 +17,7 @@ namespace Receiver.domain
 
         static readonly RoomEditor instance = new RoomEditor();
 
+        /* Atributos de la clase */
         private RoomDef room;
 
         internal RoomDef Room
@@ -26,26 +27,26 @@ namespace Receiver.domain
         }
 
         private int rowSelected, columnSelected, boxState, mode, nTable;
-
-        public int RowSelected  // fila seleccionada
+        // Fila seleccionada
+        public int RowSelected  
         {
             get { return rowSelected; }
             set { rowSelected = value; }
         }
-
-        public int ColumnSelected   // columna seleccionada
+        // Columna seleccionada
+        public int ColumnSelected   
         {
             get { return columnSelected; }
             set { columnSelected = value; }
         }
-
-        public int BoxState     // estado de la casilla
+        // Estado de la casilla
+        public int BoxState     
         {
             get { return boxState; }
             set { boxState = value; }
         }
-
-        public int Mode         // 0. empty, 1. receiver, 2. bar, 3. table
+        // Modo de edición: (0) Empty, (1) Receiver, (2) Bar, (3) Table
+        public int Mode
         {
             get { return mode; }
             set {
@@ -54,7 +55,7 @@ namespace Receiver.domain
                 mode = value;
             }
         }
-
+        // Identificador de la nueva mesa
         public int NTable
         {
             get { return nTable; }
@@ -62,18 +63,18 @@ namespace Receiver.domain
         }
 
         private int[,] matrix;
-
+        // Matriz de casillas
         public int[,] Matrix
         {
             get { return matrix; }
             set { matrix = value; }
         }
-
+        // Obtener el estado de una casilla
         public int getBoxStatus(int row, int column)
         {
             return Matrix[row, column];
         }
-
+        // Cambiar el estado de una casilla
         public void setBoxStatus(int row, int column, int state)
         {
             Matrix[row, column] = state;
@@ -83,6 +84,7 @@ namespace Receiver.domain
             tableValuesHaveChanged();
         }
 
+        /* Implementación de un 'Singleton' para esta clase */
         static RoomEditor() { }
 
         RoomEditor() { }
@@ -95,6 +97,7 @@ namespace Receiver.domain
             }
         }
 
+        // 'Seteo' de valores para una nueva plantilla
         public void createNewRoom(String name, int rows, int columns)
         {
             NTable = 1;
@@ -103,6 +106,7 @@ namespace Receiver.domain
             initRoom();
         }
 
+        // 'Seteo' del estado de las casillas de la plantilla
         private void initRoom()
         {
             Matrix = new int[Room.Height, Room.Width];
@@ -111,29 +115,33 @@ namespace Receiver.domain
                     setBoxStatus(i, j, 0);
         }
 
+        // Guardar plantilla actual
         public void saveCurrentRoom()
         {
             adapter.sendRoom(Room.Name, xmlRoomBuilder());
         }
 
+        // Cargar plantilla con nombre 'name'
         public void loadExistingRoom(string name)
         {
             xmlDistributionOfRoom(adapter.sendMeRoom(name, false));
             locateObjects();
         }
 
+        // Ubicar los objetos de una plantilla cargada
         public void locateObjects()
         {
             foreach (int[] coordinates in Room.Receiver)
                 setBoxStatus(coordinates[0], coordinates[1], 1);
             foreach (int[] coordinates in Room.Bar)
                 setBoxStatus(coordinates[0], coordinates[1], 2);
-            foreach (Table table in Room.Tables)
+            foreach (TableInf table in Room.Tables)
                 foreach (int[] coordinates in table.Place)
                     setBoxStatus(coordinates[0], coordinates[1], 3);
             NTable = Room.Tables.Count + 1;
         }
 
+        // Calcular el estado resultante de una casilla seleccionada
         public Boolean selectedBox(int row, int column)
         {
             switch (Mode)
@@ -150,21 +158,25 @@ namespace Receiver.domain
             return false;
         }
 
+        // Cambio a modo "Ubicar recibidor"
         public void selectedReceiver()
         {
             Mode = 1;
         }
 
+        // Cambio a modo "Ubicar barra"
         public void selectedBar()
         {
             Mode = 2;
         }
 
+        // Cambio a modo "Ubicar mesa"
         public void selectedTable()
         {
             Mode = 3;
         }
 
+        // Confirmar la ubicación de un objeto en la plantilla
         public void acceptOperation(int id, int capacity)
         {
             switch (Mode)
@@ -172,7 +184,7 @@ namespace Receiver.domain
                 case 1: confirmBox(Room.Receiver); break;
                 case 2: confirmBox(Room.Bar); break;
                 case 3: 
-                    Table table = new Table(id, capacity);
+                    TableInf table = new TableInf(id, capacity);
                     confirmBox(table.Place);
                     if (table.Place.Count > 0)
                     {
@@ -185,6 +197,7 @@ namespace Receiver.domain
             Mode = 0;
         }
 
+        // Confirmar las casillas ocupadas por el nuevo objeto
         private void confirmBox(List<int[]> list)
         {
             for (int i = 0; i < Room.Height; i++)
@@ -196,6 +209,7 @@ namespace Receiver.domain
                     }
         }
 
+        // 'Reset' de las casillas no confirmadas de un objeto
         public void resetOperation()
         {
             for (int i = 0; i < Room.Height; i++)
@@ -205,6 +219,7 @@ namespace Receiver.domain
             Mode = 0;
         }
 
+        // Constructor de un XML con la descripción de la plantilla
         public string xmlRoomBuilder()
         {
             string xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -223,7 +238,7 @@ namespace Receiver.domain
             xml += "\t</Bar>\n";
             xml += "\t<Tables>\n";
             if (Room.Tables.Count > 0)
-                foreach (Table table in Room.Tables)
+                foreach (TableInf table in Room.Tables)
                 {
                     xml += "\t\t<Table id=\"" + table.Id + "\" capacity=\"" + table.Capacity + "\">\n";
                     xml += writeBoxes(table.Place, true);
@@ -234,6 +249,7 @@ namespace Receiver.domain
             return xml;
         }
 
+        // Constructor de un XML con las casillas que ocupa un objeto en la plantilla del restaurante
         private string writeBoxes(List<int[]> list, Boolean extraTab)
         {
             String tab = extraTab ? "\t" : "";
@@ -249,6 +265,7 @@ namespace Receiver.domain
             return xml;
         }
 
+        // Decodificador XML de la descripción de una plantilla del restaurante
         private void xmlDistributionOfRoom(string sXml)
         {
             if (sXml != "")
@@ -275,10 +292,10 @@ namespace Receiver.domain
                 readBoxes(bBoxesList, room.Bar);
                 XmlNodeList tables = ((XmlElement)_room[0]).GetElementsByTagName("Tables");
                 XmlNodeList tList = ((XmlElement)tables[0]).GetElementsByTagName("Table");
-                Room.Tables = new List<Table>();
+                Room.Tables = new List<TableInf>();
                 foreach (XmlElement table in tList)
                 {
-                    Table td = new Table(Convert.ToInt16(table.GetAttribute("id")),
+                    TableInf td = new TableInf(Convert.ToInt16(table.GetAttribute("id")),
                         Convert.ToInt16(table.GetAttribute("capacity")));
                     XmlNodeList tBoxes = ((XmlElement)table).GetElementsByTagName("Boxes");
                     XmlNodeList tBoxesList = ((XmlElement)tBoxes[0]).GetElementsByTagName("Box");
@@ -288,6 +305,7 @@ namespace Receiver.domain
             }
         }
 
+        // Decodificador XML de la ubicación de las casillas de un objeto de la plantilla del restaurante
         private void readBoxes(XmlNodeList srcList, List<int[]> dstList)
         {
             foreach (XmlElement node in srcList)
@@ -298,11 +316,8 @@ namespace Receiver.domain
             }
         }
 
-        public void registerInterest(ObserverER obs)
-        {
-            erObservers.Add(obs);
-        }
-
+        /* Métodos que implementan la función 'Observable' */
+        // Se notifica a los observadores ante el cambio de estado de una casilla en la plantilla
         private void switchBox()
         {
             for (int i = 0; i < erObservers.Count; i++)
@@ -312,6 +327,7 @@ namespace Receiver.domain
             }
         }
 
+        // Se notifica a los observadores el identificador para la nueva mesa
         private void switchNTable()
         {
             for (int i = 0; i < erObservers.Count; i++)
@@ -319,6 +335,11 @@ namespace Receiver.domain
                 ObserverER obs = (ObserverER)erObservers[i];
                 obs.notifyChangesInNTable(NTable);
             }
+        }
+
+        public void registerInterest(ObserverER obs)
+        {
+            erObservers.Add(obs);
         }
 
         private void ntableValueHaveChanged()

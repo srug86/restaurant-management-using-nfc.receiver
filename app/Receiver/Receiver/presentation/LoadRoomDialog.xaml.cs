@@ -20,12 +20,14 @@ namespace Receiver.presentation
     /// </summary>
     public partial class LoadRoomDialog : Window
     {
+        /* Atributos de la clase 'LoadRoomDialog' */
         private Object dad;
 
         private List<RoomInf> list;
 
         private bool edit, resetJourney;
 
+        // Método constructor
         public LoadRoomDialog(Object dad, List<RoomInf> list, bool edit, bool resetJourney)
         {
             this.dad = dad;
@@ -37,19 +39,20 @@ namespace Receiver.presentation
             showRooms();
         }
 
+        // Inicialización del contenido de la GUI según el tipo de operación
         private void initializeData()
         {
-            if (list.Count == 0)
+            if (list.Count == 0)    // No hay plantillas en la BD
             {
                 lblInstructions.Content = "No hay ningún restaurante almacenado en el servidor.";
                 lblLoadMessage.Content = "";
             }
-            if (edit)
+            if (edit)   // Cargar plantilla en el "Editor de plantillas del restaurante"
             {
                 this.Title = "MobiCarta - Cargar restaurante";
                 lblLoadMessage.Content = "";
             }
-            else if (!resetJourney)
+            else if (!resetJourney) // Modo "Cargar jornada existente" de la ventana "Gestor de mesas"
             {
                 this.Title = "MobiCarta - Cargar una jornada existente.";
                 if (list.Count > 0)
@@ -60,33 +63,13 @@ namespace Receiver.presentation
             }
         }
 
+        // El botón "Cargar plantilla" sólo se activa cuando hay alguna plantilla seleccionada
         private void listVRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnLoad.IsEnabled = IsEnabled;
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Visibility = Visibility.Hidden;
-        }
-
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            if (edit)
-            {
-                RoomEditorWin win = (RoomEditorWin)this.dad;
-                foreach (RoomInf room in list)
-                    if (room.Name.Equals(((RoomItem)listVRooms.SelectedValue).Name))
-                        win.loadSelectedRoom(room.Name, room.Height, room.Width);
-            }
-            else
-            {
-                JourneyManagerWin win = (JourneyManagerWin)this.dad;
-                win.loadSelectedRoom(((RoomItem)listVRooms.SelectedValue).Name, resetJourney);
-            }
-            this.Visibility = Visibility.Hidden;
-        }
-
+        // Muestra la lista de plantillas del restaurante
         public void showRooms()
         {
             List<RoomItem> collection = new List<RoomItem>();
@@ -101,30 +84,56 @@ namespace Receiver.presentation
                     });
             listVRooms.ItemsSource = collection;
         }
+
+        /* Lógica de control de eventos */
+        // Click en el botón "Cancelar"
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
+
+        // Click en el botón "Cargar plantilla"
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            if (edit)   // Para el modo "Editor de plantillas del restaurante"
+            {
+                RoomEditorWin win = (RoomEditorWin)this.dad;
+                foreach (RoomInf room in list)
+                    if (room.Name.Equals(((RoomItem)listVRooms.SelectedValue).Name))
+                        win.loadSelectedRoom(room.Name, room.Height, room.Width);
+            }
+            else
+            {   // Para el modo "Gestor de mesas"
+                JourneyManagerWin win = (JourneyManagerWin)this.dad;
+                win.loadSelectedRoom(((RoomItem)listVRooms.SelectedValue).Name, resetJourney);
+            }
+            this.Visibility = Visibility.Hidden;
+        }
     }
 
+    /* Clase auxiliar para representar la información de una plantilla de restaurante en una lista */
     public class RoomItem
     {
         public string name, size, tables, capacity;
-
+        // Nombre de la plantilla
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-
+        // Tamaño de la plantilla (Filas x Columnas)
         public string Size
         {
             get { return size; }
             set { size = value; }
         }
-
+        // Número de mesas
         public string Tables
         {
             get { return tables; }
             set { tables = value; }
         }
-
+        // Capacidad total del restaurante
         public string Capacity
         {
             get { return capacity; }

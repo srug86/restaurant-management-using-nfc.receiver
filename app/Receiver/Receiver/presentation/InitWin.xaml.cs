@@ -16,25 +16,17 @@ using Receiver.domain;
 namespace Receiver.presentation
 {
     /// <summary>
-    /// Lógica de interacción para Window1.xaml
+    /// Lógica de interacción para InitWin.xaml
     /// </summary>
     public partial class InitWin : Window
     {
+        // Método constructor
         public InitWin()
         {
             InitializeComponent();
         }
 
-        private void btnBegin_Click(object sender, RoutedEventArgs e)
-        {
-            startJourney();
-        }
-
-        private void btnRoom_Click(object sender, RoutedEventArgs e)
-        {
-            editRoom();
-        }
-
+        // Método que cierra los subprocesos de la aplicación tras el cierre de esta
         private void Close_Program(object sender, EventArgs e)
         {
             App.Current.Shutdown();
@@ -42,18 +34,22 @@ namespace Receiver.presentation
                 if (p.ProcessName == "Receiver.vshost") p.Kill();
         }
 
-        private void startJourney()
+        /* Lógica de control de eventos */
+        // Click en el botón "Iniciar jornada"
+        private void btnBegin_Click(object sender, RoutedEventArgs e)
         {
             JourneyManagerWin manager = new JourneyManagerWin();
             manager.Show();
         }
 
-        private void editRoom()
+        // Click en el botón "Editar salón"
+        private void btnRoom_Click(object sender, RoutedEventArgs e)
         {
             RoomEditorWin editor = new RoomEditorWin();
             editor.Show();
         }
 
+        // Click en el botón "Restaurante y clientes"
         private void btnStatistics_Click(object sender, RoutedEventArgs e)
         {
             StatisticsWin statistics = new StatisticsWin();

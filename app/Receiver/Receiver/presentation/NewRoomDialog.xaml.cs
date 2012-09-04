@@ -20,17 +20,21 @@ namespace Receiver.presentation
     {
         private RoomEditorWin editor;
 
+        // Método constructor
         public NewRoomDialog(RoomEditorWin editor)
         {
             this.editor = editor;
             InitializeComponent();
         }
 
+        /* Lógica de control de eventos */
+        // Click en el botón "Cancelar"
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        // Click en el botón "Aceptar"
         private void btnAccept_Click(object sender, RoutedEventArgs e)
         {
             try
