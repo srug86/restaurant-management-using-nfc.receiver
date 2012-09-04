@@ -93,15 +93,17 @@ namespace Receiver.domain
         {
             Client = xmlClientDecoder(xml);
             int status = adapter.sendMeClientStatus(xml);
-            switch (status)
+            if (status == 0) // Llega cliente NFC
             {
-                case -1:
-                case 0: // Llega cliente NFC
-                    gui.delegateToNFCClientHasArrived(Client);
-                    return adapter.sendMeClientRecommendation(Client.Dni);
-                case 1: // Paga cliente NFC
-                    Table = adapter.sendMeTable(Client.Dni);
-                    Amount = adapter.sendMeBillAmount(Table);
+                gui.delegateToNFCClientHasArrived(Client);
+                return adapter.sendMeClientRecommendation(Client.Dni);
+            }
+            else if (status == 1)   // Paga cliente NFC
+            {
+                Table = adapter.sendMeTable(Client.Dni);
+                Amount = adapter.sendMeBillAmount(Table);
+                if (Amount > 0)     // Si el cliente no ha consumido no tiene porqué ser cobrado
+                {
                     BillID = adapter.sendMeBillID(Table);
                     payBill(BillID, 2); // Pago por NFC
                     manager.RoomManager.confirmDeallocation(Table);
@@ -110,13 +112,16 @@ namespace Receiver.domain
                     gui.delegateToNFCClientHasPaid(Client, Table, BillID, Amount);
                     return "La cuenta de la mesa " + Table + " ha sido cobrada satisfactoriamente. " +
                         Amount + " Euros han sido decrementados de su cuenta.";
-                case 2: // Se va cliente NFC
-                    Table = adapter.sendMeTable(Client.Dni);
-                    gui.delegateToNFCClientHasLeft(Client, Table);
-                    return "Gracias por su visita.";
-                default:
-                    return "";
+                }
+                else status = 2;
             }
+            if (status == 2)    // Se va cliente NFC
+            {
+                Table = adapter.sendMeTable(Client.Dni);
+                gui.delegateToNFCClientHasLeft(Client, Table);
+                return "Gracias por su visita.";
+            }
+            return "";
         }
 
         // Pago de una factura: type = 1 (pago no NFC), type = 2 (pago NFC)
